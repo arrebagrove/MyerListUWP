@@ -1,0 +1,17 @@
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\bin\Release\NotificationsExtensions.dll
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\bin\Release\NotificationsExtensions.pdb
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\bin\Release\NotificationsExtensions.pri
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\NotificationsExtensions.csprojResolveAssemblyReference.cache
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\NotificationsExtensions.dll
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\NotificationsExtensions.pdb
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\priconfig.xml
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\priconfig.xml.intermediate
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\layout.resfiles
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\layout.resfiles.intermediate
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\resources.resfiles
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\resources.resfiles.intermediate
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\pri.resfiles
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\pri.resfiles.intermediate
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\qualifiers.txt
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\qualifiers.txt.intermediate
+D:\Dev\apps\MyerListUniversal\NotificationsExtensions\obj\Release\MultipleQualifiersPerDimensionFound.txt
