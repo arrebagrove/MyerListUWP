@@ -237,7 +237,7 @@ namespace MyerList.ViewModel
             }
             else CurrentLanguage = 0;
 
-            if(LocalSettingHelper.IsExist("EnableTile"))
+            if(LocalSettingHelper.HasValue("EnableTile"))
             {
                 this.EnableTile = LocalSettingHelper.GetValue("EnableTile") == "true" ? true : false;
             }
@@ -247,7 +247,7 @@ namespace MyerList.ViewModel
                 this.EnableTile = true;
             }
 
-            if (LocalSettingHelper.IsExist("EnableBackgroundTask"))
+            if (LocalSettingHelper.HasValue("EnableBackgroundTask"))
             {
                 EnableBackgroundTask = LocalSettingHelper.GetValue("EnableBackgroundTask") == "true" ? true : false;
             }
@@ -257,7 +257,7 @@ namespace MyerList.ViewModel
                 EnableBackgroundTask = true;
             }
 
-            if (LocalSettingHelper.IsExist("EnableGesture"))
+            if (LocalSettingHelper.HasValue("EnableGesture"))
             {
                 EnableGesture = LocalSettingHelper.GetValue("EnableGesture") == "true" ? true : false;
             }
@@ -267,7 +267,7 @@ namespace MyerList.ViewModel
                 EnableGesture = true;
             }
 
-            if (LocalSettingHelper.IsExist("ShowKeyboard"))
+            if (LocalSettingHelper.HasValue("ShowKeyboard"))
             {
                 ShowKeyboard = LocalSettingHelper.GetValue("ShowKeyboard") == "true" ? true : false;
             }
@@ -277,7 +277,7 @@ namespace MyerList.ViewModel
                 ShowKeyboard = true;
             }
 
-            if (LocalSettingHelper.IsExist("AddMode"))
+            if (LocalSettingHelper.HasValue("AddMode"))
             {
                 IsAddToBottom = LocalSettingHelper.GetValue("AddMode") == "1" ? true : false;
             }
@@ -286,7 +286,7 @@ namespace MyerList.ViewModel
                 LocalSettingHelper.AddValue("AddMode", "1");
                 IsAddToBottom = true;
             }
-            if (LocalSettingHelper.IsExist("TransparentTile"))
+            if (LocalSettingHelper.HasValue("TransparentTile"))
             {
                 TransparentTile = LocalSettingHelper.GetValue("TransparentTile") == "true" ? true : false;
             }

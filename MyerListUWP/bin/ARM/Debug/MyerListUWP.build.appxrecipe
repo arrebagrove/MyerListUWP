@@ -54,6 +54,30 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\Like.png">
       <PackagePath>Assets\Icon\Like.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\LOCK_100.png">
+      <PackagePath>Assets\Icon\LOCK_100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\LOCK_500.png">
+      <PackagePath>Assets\Icon\LOCK_500.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_CATE.png">
+      <PackagePath>Assets\Icon\NAVI_CATE.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_CATE2.png">
+      <PackagePath>Assets\Icon\NAVI_CATE2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_DELETE.png">
+      <PackagePath>Assets\Icon\NAVI_DELETE.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_DELETE2.png">
+      <PackagePath>Assets\Icon\NAVI_DELETE2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_TODO.png">
+      <PackagePath>Assets\Icon\NAVI_TODO.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_TODO2.png">
+      <PackagePath>Assets\Icon\NAVI_TODO2.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\Redo.png">
       <PackagePath>Assets\Icon\Redo.png</PackagePath>
     </AppxPackagedFile>
@@ -86,6 +110,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>

@@ -64,22 +64,23 @@ namespace MyerList
                 grid.Visibility = Visibility.Visible;
                 AddStory.Begin();
             });
-            Messenger.Default.Register<GenericMessage<ObservableCollection<Schedule>>>(this, "UpdateTile", async schedules =>
+            Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, "UpdateTile", async schedules =>
             {
-                if (LocalSettingHelper.GetValue("EnableTile") == "false")
-                {
-                    UpdateTileHelper.ClearAllSchedules();
-                    return;
-                }
+                //if (LocalSettingHelper.GetValue("EnableTile") == "false")
+                //{
+                //    UpdateTileHelper.ClearAllSchedules();
+                //    return;
+                //}
 
-                if (LocalSettingHelper.GetValue("EnableBackgroundTask") == "true")
-                {
-                    UpdateNormalTile(schedules.Content);
-                }
-                else
-                {
-                    await UpdateCustomeTile(schedules.Content);
-                }
+                //if (LocalSettingHelper.GetValue("EnableBackgroundTask") == "true")
+                //{
+                //    UpdateNormalTile(schedules.Content);
+                //}
+                //else
+                //{
+                //    await UpdateCustomeTile(schedules.Content);
+                //}
+                await UpdateCustomeTile(schedules.Content);
             });
 
             Messenger.Default.Register<GenericMessage<string>>(this, "InSwipe", act =>
@@ -119,7 +120,7 @@ namespace MyerList
         }
 
         #region UPDATE TILE
-        private async Task UpdateCustomeTile(ObservableCollection<Schedule> schedules)
+        private async Task UpdateCustomeTile(ObservableCollection<ToDo> schedules)
         {
             try
             {
@@ -196,7 +197,7 @@ namespace MyerList
 
         }
 
-        private void UpdateNormalTile(ObservableCollection<Schedule> schedules)
+        private void UpdateNormalTile(ObservableCollection<ToDo> schedules)
         {
             List<string> undoList = new List<string>();
             foreach (var sche in schedules)
@@ -236,7 +237,7 @@ namespace MyerList
             
             Frame.BackStack.Clear();
 
-            NavigateStory.Begin();
+            //NavigateStory.Begin();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

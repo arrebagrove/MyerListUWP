@@ -3,6 +3,7 @@ using MyerList;
 using MyerList.Helper;
 using MyerList.Model;
 using MyerListUWP.Helper;
+using MyerListUWP.View;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -63,7 +64,7 @@ namespace MyerListUWP
 #endif
             ConfigHelper.CheckConfig();
 
-            if (LocalSettingHelper.IsExist("AppLang") == false)
+            if (LocalSettingHelper.HasValue("AppLang") == false)
             {
                 var lang = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
                 if (lang.Contains("zh"))
@@ -92,40 +93,24 @@ namespace MyerListUWP
                     //TODO: Load state from previously suspended application
                 }
 
-                // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
 
                 ConfigHelper.CheckConfig();
 
-                if (LocalSettingHelper.IsExist("email"))
+                if (LocalSettingHelper.HasValue("email"))
                 {
-                    rootFrame.Navigate(typeof(MainPage), LoginMode.Login);
+                    rootFrame.Navigate(typeof(NewMainPage), LoginMode.Login);
                 }
                 else if (LocalSettingHelper.GetValue("OfflineMode") == "true")
                 {
                     App.isInOfflineMode = true;
-                    rootFrame.Navigate(typeof(MainPage), LoginMode.OfflineMode);
+                    rootFrame.Navigate(typeof(NewMainPage), LoginMode.OfflineMode);
                 }
                 else
                 {
                     App.isInOfflineMode = false;
                     rootFrame.Navigate(typeof(StartPage));
                 }
-
-                //if(!LocalSettingHelper.IsExist("feature5"))
-                //{
-                //    LocalSettingHelper.AddValue("feature5","true");
-                //    rootFrame.Navigate(typeof(FeaturePage));
-                //}
-
-            }
-
-            if (rootFrame.Content == null)
-            {
-                // When the navigation stack isn't restored navigate to the first page,
-                // configuring the new page by passing required information as a navigation
-                // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

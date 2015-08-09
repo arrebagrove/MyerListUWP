@@ -3,11 +3,10 @@ ResourceDictionary\ColorDictionary.xbf
 ResourceDictionary\StyleDictionary.xbf
 UserControl\DeleteScheduleControl.xbf
 UserControl\ScheduleControl.xbf
-UserControl\StoryControl.xbf
+UserControl\TitleTextBlock.xbf
 UserControl\ToastUC.xbf
 View\AboutPage.xbf
 View\LoginPage.xbf
-View\MainPage.xbf
-View\RecyclePage.xbf
+View\NewMainPage.xbf
 View\SettingPage.xbf
 View\StartPage.xbf

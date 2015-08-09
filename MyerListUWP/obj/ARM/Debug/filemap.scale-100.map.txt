@@ -1,0 +1,7 @@
+﻿[ResourceMetadata]
+"ResourceId"			"filemap.scale-100"
+"ResourceDimensions"		"scale-100"
+
+[Files]
+"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\ARM\Debug\filemap.scale-100.pri"			"resources.pri"
+"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\ARM\Debug\PackageLayout\Assets\StoreLogo.scale-100.png"			"Assets\StoreLogo.scale-100.png"

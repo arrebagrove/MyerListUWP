@@ -27,6 +27,9 @@ namespace MyerList.Base
             this.Transitions = collection;
 
             this.IsTextScaleFactorEnabled = false;
+
+            SetUpTitleBar();
+            SetUpStatusBar();
         }
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
@@ -35,7 +38,15 @@ namespace MyerList.Base
 
         protected virtual void SetUpTitleBar()
         {
-            TitleBarHelper.SetUpTitleBar();
+            TitleBarHelper.SetUpBlueTitleBar();
+        }
+
+        protected virtual void SetUpStatusBar()
+        {
+            if (ApiInformationHelper.HasStatusBar())
+            {
+                StatusBarHelper.SetUpBlueStatusBar();
+            }
         }
 
         protected virtual void RegisterHandleBackLogic()

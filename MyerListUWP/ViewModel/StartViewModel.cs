@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Command;
 using JP.Utils.Data;
 using MyerList.Model;
 using MyerListUWP;
+using MyerListUWP.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -72,7 +73,7 @@ namespace MyerList.ViewModel
 
                     Frame rootFrame = Window.Current.Content as Frame;
                     Task.Delay(50);
-                    rootFrame.Navigate(typeof(MainPage),LoginMode.OfflineMode);
+                    rootFrame.Navigate(typeof(NewMainPage),LoginMode.OfflineMode);
                 });
             }
         }

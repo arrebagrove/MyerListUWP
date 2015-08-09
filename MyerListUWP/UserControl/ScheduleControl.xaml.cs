@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using GalaSoft.MvvmLight.Messaging;
 
-namespace MyerList
+namespace MyerList.UC
 {
     public sealed partial class ScheduleControl : UserControl
     {

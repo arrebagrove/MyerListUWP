@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 
-namespace MyerList
+namespace MyerList.UC
 {
     public sealed partial class DeleteScheduleControl : UserControl
     {

@@ -7,8 +7,8 @@ namespace MyerList.Model
 {
     public class SendingItem:ViewModelBase
     {
-        private Schedule _todoItem;
-        public Schedule ToDoItem
+        private ToDo _todoItem;
+        public ToDo ToDoItem
         {
             get
             {
@@ -43,11 +43,11 @@ namespace MyerList.Model
 
         public SendingItem()
         {
-            ToDoItem = new Schedule();
+            ToDoItem = new ToDo();
             Status = SendingStatus.ToBeSent;
         }
 
-        public SendingItem(Schedule schedule,SendingStatus status)
+        public SendingItem(ToDo schedule,SendingStatus status)
         {
             this.ToDoItem = schedule;
             this.Status = status;

@@ -435,7 +435,7 @@ namespace MyerList.Helper
             }
             catch (Exception e)
             {
-                //var task = ExceptionHelper.WriteRecord(e);
+                var task = ExceptionHelper.WriteRecord(e);
                 return null;
             }
 
@@ -479,7 +479,7 @@ namespace MyerList.Helper
             }
             catch (Exception e)
             {
-                //var task = ExceptionHelper.WriteRecord(e);
+                var task = ExceptionHelper.WriteRecord(e);
                 return null;
             }
 
@@ -516,7 +516,7 @@ namespace MyerList.Helper
             }
             catch (Exception e)
             {
-                //var task = ExceptionHelper.WriteRecord(e);
+                var task = ExceptionHelper.WriteRecord(e);
                 return false;
             }
 

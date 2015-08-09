@@ -1,39 +1,24 @@
-﻿using System;
+﻿using MyerListUWP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml.Media;
 
 namespace MyerList.Helper
 {
     public class StatusBarHelper
     {
         public static StatusBar sb = StatusBar.GetForCurrentView();
-
-        public async static void Hide()
+        
+        public static void SetUpBlueStatusBar()
         {
-            sb.ForegroundColor = new Color { A = 100, R = 255, G = 103, B = 74 };
-            sb.ProgressIndicator.Text = "";
-            sb.ProgressIndicator.ProgressValue = 0;
-            await sb.ProgressIndicator.ShowAsync();
-        }
-
-        public async static Task ShowWithText(string text)
-        {
+            sb.BackgroundOpacity = 1.0;
+            sb.BackgroundColor = (App.Current.Resources["MyerListBlueLight"] as SolidColorBrush).Color;
             sb.ForegroundColor = Colors.White;
-            sb.BackgroundColor = new Color { A = 255, R = 62, G = 146, B = 178 };
-            sb.BackgroundOpacity = 100;
-            sb.ProgressIndicator.Text = text;
-            await sb.ProgressIndicator.ShowAsync();
         }
-
-        public async static Task HideWithSpacText()
-        {
-            sb.ProgressIndicator.Text = "";
-            await sb.ProgressIndicator.HideAsync();
-        }
-
     }
 }

@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="A1TB.Text" xml:space="preserve">
-    <value>The reason that MyerList is just simple without any other complex functions like alarm notification or note with voice is that I want it to be effective and elegant. Live tile is the soul of MyerList and it does good on this stuff. So just enjoy typing your to-dos and focusing on your work :D</value>
-  </data>
-  <data name="A2TB.Text" xml:space="preserve">
-    <value>Yes,of course. I may add the feature like taking note to the next big version of MyerList. But it is still in consideration.</value>
-  </data>
-  <data name="A3TB.Text" xml:space="preserve">
-    <value>Maintain this app cause effort and also money, if you do want to help developer, it will be appreciated that you donate some to my Alipay. My account is 18520944923. Thanks a lot.</value>
-  </data>
-  <data name="AboutContent" xml:space="preserve">
-    <value>ABOUT</value>
-  </data>
   <data name="AboutTB.Text" xml:space="preserve">
     <value>ABOUT</value>
   </data>
@@ -252,15 +240,6 @@
   <data name="PasswordInvaild" xml:space="preserve">
     <value>Please confirm that your password is right.</value>
   </data>
-  <data name="Q1TB.Text" xml:space="preserve">
-    <value>WHY DOES MYERLIST SO SIMPLE?</value>
-  </data>
-  <data name="Q2TB.Text" xml:space="preserve">
-    <value>ANY FEATURE PLAN?</value>
-  </data>
-  <data name="Q3TB.Text" xml:space="preserve">
-    <value>HOW CAN I HELP YOU?</value>
-  </data>
   <data name="RateHLB.Content" xml:space="preserve">
     <value>Give me a rate</value>
   </data>
@@ -342,9 +321,6 @@
   <data name="NoDeletedTB.Text" xml:space="preserve">
     <value>NO ITEMS</value>
   </data>
-  <data name="BackgrdNoticeHint.Text" xml:space="preserve">
-    <value>Notice:In Windows 10, if you can't stant the default template of Live Tile , you are able to turn OFF Background Task to enable costum Live Tile. I am working on this issue too.</value>
-  </data>
   <data name="DeletedHintTB.Text" xml:space="preserve">
     <value>Deleted memos will be showed up here.</value>
   </data>
@@ -365,5 +341,17 @@
   </data>
   <data name="TransparentTile.Header" xml:space="preserve">
     <value>TransparentTile</value>
+  </data>
+  <data name="AddAppbarBtn.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="RefreshAppbarBtn.Label" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="OKBtnTB.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="CancelBtnTB.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
 </root>

@@ -9,6 +9,7 @@ using MyerList.Helper;
 using MyerList.Interface;
 using MyerList.Model;
 using MyerListUWP;
+using MyerListUWP.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -195,7 +196,7 @@ namespace MyerList.ViewModel
                                 if(isLogin)
                                 {
                                     Frame rootframe = Window.Current.Content as Frame;
-                                    if (rootframe != null) rootframe.Navigate(typeof(MainPage), LoginMode.Login);
+                                    if (rootframe != null) rootframe.Navigate(typeof(NewMainPage), LoginMode.Login);
                                 }
                             }
                         }
@@ -206,7 +207,7 @@ namespace MyerList.ViewModel
                             if (isLoginSuccessfylly)
                             {
                                 Frame rootframe = Window.Current.Content as Frame;
-                                if (rootframe != null) rootframe.Navigate(typeof(MainPage),LoginMode.Login);
+                                if (rootframe != null) rootframe.Navigate(typeof(NewMainPage),LoginMode.Login);
                             }
                         }
                     }

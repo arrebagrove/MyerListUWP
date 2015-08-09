@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="A1TB.Text" xml:space="preserve">
-    <value>MyerList 目前没有闹钟提醒等功能，一方面是因为系统 API 限制，而另一方面，我希望 MyerList 能够提供足够简单的功能——一句话记录你的待办事项，显示在动态磁贴，然后同步到所有 Windows 设备上。</value>
-  </data>
-  <data name="A2TB.Text" xml:space="preserve">
-    <value>有的。未来可能加上写长段备忘录的功能，就像 Google Keep 那样，但是还在考虑中。</value>
-  </data>
-  <data name="A3TB.Text" xml:space="preserve">
-    <value>维护 MyerList 花费作者的精力还有财力（服务器方面），如果你确实想帮助开发者，可以通过支付宝捐赠给开发者，账号是 18520944923，十分感谢。</value>
-  </data>
-  <data name="AboutContent" xml:space="preserve">
-    <value>关于</value>
-  </data>
   <data name="AboutTB.Text" xml:space="preserve">
     <value>关于</value>
   </data>
@@ -258,15 +246,6 @@
   <data name="PasswordInvaild" xml:space="preserve">
     <value>请确认两次输入的密码相同</value>
   </data>
-  <data name="Q1TB.Text" xml:space="preserve">
-    <value>为什么本应用如此简单？</value>
-  </data>
-  <data name="Q2TB.Text" xml:space="preserve">
-    <value>未来有怎样的计划？</value>
-  </data>
-  <data name="Q3TB.Text" xml:space="preserve">
-    <value>有什么能帮助开发者？</value>
-  </data>
   <data name="RateHLB.Content" xml:space="preserve">
     <value>给个好评</value>
   </data>
@@ -342,9 +321,6 @@
   <data name="NoDeletedTB.Text" xml:space="preserve">
     <value>没有已删除的</value>
   </data>
-  <data name="BackgrdNoticeHint.Text" xml:space="preserve">
-    <value>注意，在 Windows 10 下，如果你不能忍受系统丑陋的自带磁贴模板，可关闭后台任务以开启作者自定义的磁贴。目前后台更新自定义磁贴的功能还在完善中，抱歉。</value>
-  </data>
   <data name="DeletedHintTB.Text" xml:space="preserve">
     <value>删除的待办事项将会在这里出现</value>
   </data>
@@ -365,5 +341,17 @@
   </data>
   <data name="TransparentTile.Header" xml:space="preserve">
     <value>透明磁贴</value>
+  </data>
+  <data name="AddAppbarBtn.Label" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="RefreshAppbarBtn.Label" xml:space="preserve">
+    <value>同步</value>
+  </data>
+  <data name="OKBtnTB.Text" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="CancelBtnTB.Text" xml:space="preserve">
+    <value>取消</value>
   </data>
 </root>

@@ -10,32 +10,32 @@ namespace MyerList.Helper
     {
         public static void CheckConfig()
         {
-            if (!LocalSettingHelper.IsExist("EnableTile"))
+            if (!LocalSettingHelper.HasValue("EnableTile"))
             {
                 LocalSettingHelper.AddValue("EnableTile", "true");
             }
 
-            if (!LocalSettingHelper.IsExist("EnableBackgroundTask"))
+            if (!LocalSettingHelper.HasValue("EnableBackgroundTask"))
             {
                 LocalSettingHelper.AddValue("EnableBackgroundTask", "true");
             }
 
-            if (!LocalSettingHelper.IsExist("EnableGesture"))
+            if (!LocalSettingHelper.HasValue("EnableGesture"))
             {
                 LocalSettingHelper.AddValue("EnableGesture", "true");
             }
 
-            if (!LocalSettingHelper.IsExist("ShowKeyboard"))
+            if (!LocalSettingHelper.HasValue("ShowKeyboard"))
             {
                 LocalSettingHelper.AddValue("ShowKeyboard", "true");
             }
 
-            if (!LocalSettingHelper.IsExist("TransparentTile"))
+            if (!LocalSettingHelper.HasValue("TransparentTile"))
             {
                 LocalSettingHelper.AddValue("TransparentTile", "true");
             }
 
-            if (!LocalSettingHelper.IsExist("AddMode"))
+            if (!LocalSettingHelper.HasValue("AddMode"))
             {
                 LocalSettingHelper.AddValue("AddMode", "1");
             }

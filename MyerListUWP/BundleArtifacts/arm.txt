@@ -1,0 +1,3 @@
+MainPackage=D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\MyerListUWP_1.0.0.0_ARM_Debug.appx
+ResourcePack=D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\MyerListUWP_1.0.0.0_language-zh-hans.appx
+ResourcePack=D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\MyerListUWP_1.0.0.0_scale-100.appx
