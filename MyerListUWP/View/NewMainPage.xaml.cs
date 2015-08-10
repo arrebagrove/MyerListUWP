@@ -281,6 +281,9 @@ namespace MyerListUWP.View
             }
 
             Frame.BackStack.Clear();
+
+            App.ContentFrame = ContentFrame;
+            ContentFrame.Navigate(typeof(ToDoPage), e.Parameter);
         }
 
         private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)

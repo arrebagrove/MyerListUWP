@@ -1,4 +1,5 @@
 ﻿using MyerList.Base;
+using MyerListUWP.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,13 @@ namespace MyerListUWP.View
     /// </summary>
     public sealed partial class ToDoPage : BindablePage
     {
+        public ToDoViewModel ToDoVM
+        {
+            get
+            {
+                return DataContext as ToDoViewModel;
+            }
+        }
         public ToDoPage()
         {
             this.InitializeComponent();

@@ -1,4 +1,5 @@
 ﻿using MyerList.Base;
+using MyerListUWP.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,14 @@ namespace MyerListUWP.View
 
     public sealed partial class DeletedItemPage : BindablePage
     {
+        public DeletedItemViewModel DeletedVM
+        {
+            get
+            {
+                return DataContext as DeletedItemViewModel;
+            }
+        }
+
         public DeletedItemPage()
         {
             this.InitializeComponent();

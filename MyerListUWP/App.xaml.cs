@@ -39,6 +39,8 @@ namespace MyerListUWP
         public static bool isInOfflineMode = false;
         public static bool isNoNetwork = false;
 
+        public static Frame ContentFrame = null;
+
         public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(

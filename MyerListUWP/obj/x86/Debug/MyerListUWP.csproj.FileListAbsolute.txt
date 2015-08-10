@@ -570,3 +570,13 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\resources.pri
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Icon\LOCK_100.png
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Icon\LOCK_500.png
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\Assets\Icon\LOCK_100.png
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\DeletedItemPage.g.i.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\DeletedItemPage.g.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\ToDoPage.g.i.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\ToDoPage.g.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\TemplateDictionary.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\DeletedItemPage.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\ToDoPage.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\TemplateDictionary.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\DeletedItemPage.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\ToDoPage.xbf

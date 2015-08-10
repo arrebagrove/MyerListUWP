@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Data;
 using JP.Utils.Framework;
 using MyerList.Model;
@@ -81,8 +82,9 @@ namespace MyerListUWP.ViewModel
                         if (s.ID == id) return true;
                         else return false;
                     });
-                    this.NewToDo = scheToAdd;
-                    OkCommand.Execute(false);
+
+                    Messenger.Default.Send(new GenericMessage<ToDo>(scheToAdd), "Redo");
+                    
                     DeletedToDos.Remove(scheToAdd);
                     await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, "deleteditems.sch", true);
 
@@ -133,7 +135,17 @@ namespace MyerListUWP.ViewModel
         {
             DeletedToDos = new ObservableCollection<ToDo>();
             NoDeletedItemsVisibility = Visibility.Collapsed;
+            Messenger.Default.Register<GenericMessage<ToDo>>(this, "Delete",async msg =>
+              {
+                  DeletedToDos.Add(msg.Content);
+                  await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, "deleteditems.sch", true);
 
+              });
+            Messenger.Default.Register<GenericMessage<ToDo>>(this, "Redo", act =>
+            {
+                this.NewToDo = act.Content;
+                OkCommand.Execute(false);
+            });
         }
         public void Activate(object param)
         {

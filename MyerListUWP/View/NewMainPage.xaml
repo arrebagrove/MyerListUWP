@@ -198,7 +198,7 @@
                 </Button>
                 <TextBlock Text="{x:Bind MainVM.Title,Mode=OneWay}" Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
                 <ProgressRing Visibility="{x:Bind MainVM.IsLoading,Mode=OneWay}" IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
                     <Button Command="{x:Bind MainVM.SelectToDoCommand}" Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
                             <Image Opacity="{x:Bind MainVM.TodoIconAlpha,Mode=OneWay}" Source="ms-appx:///Assets/Icon/NAVI_TODO2.png" Width="25" Height="25"/>
@@ -210,7 +210,7 @@
                         </Grid>
                     </Button>
                     
-                </StackPanel>
+                </StackPanel>-->
 
             </Grid>
             <Border Height="2" VerticalAlignment="Bottom" Background="{StaticResource MyerListBlueLight}"/>
@@ -262,13 +262,7 @@
         <Grid ManipulationMode="TranslateX" ManipulationDelta="Grid_ManipulationDelta"  ManipulationStarted="Grid_ManipulationStarted" Grid.Row="1" Background="White">
              <Frame x:Name="ContentFrame"/>
         </Grid>
-        <CommandBar x:Name="BottomCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5">
-            <CommandBar.RenderTransform>
-                <CompositeTransform/>
-            </CommandBar.RenderTransform>
-            <AppBarButton x:Uid="AddAppbarBtn" Click="AddClick" Icon="Add" Label="添加" Command="{x:Bind MainVM.AddCommand}"/>
-            <AppBarButton x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新" Command="{x:Bind MainVM.SyncCommand}"/>
-        </CommandBar>
+        
         <Border x:Name="MaskBorder" Tapped="MaskBorder_Tapped" Visibility="Collapsed" Opacity="0.8" Grid.RowSpan="5" Background="Black"/>
 
         <Grid x:Name="AddGrid" Background="{StaticResource MyerListBlueLight}" Height="260" Grid.RowSpan="5" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
