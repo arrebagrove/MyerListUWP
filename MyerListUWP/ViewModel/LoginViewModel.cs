@@ -153,6 +153,7 @@ namespace MyerList.ViewModel
                 if (_nextCommand != null) return _nextCommand;
                 return _nextCommand = new RelayCommand(async () =>
                 {
+                    IsLoading = Visibility.Visible;
                     try
                     {
                         var loader = new ResourceLoader();

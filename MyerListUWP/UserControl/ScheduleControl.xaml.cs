@@ -133,7 +133,7 @@ namespace MyerList.UC
             _isInDoneMode = false;
             _isInDeleteMode = false;
 
-            Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "OutSwipe");
+            Messenger.Default.Send(new GenericMessage<string>(""), "OutSwipe");
 
         }
 

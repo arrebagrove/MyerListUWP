@@ -2,6 +2,7 @@
 using MyerList.Base;
 using MyerList.ViewModel;
 using MyerListUWP;
+using MyerListUWP.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,11 @@ namespace MyerList
             this.InitializeComponent();
             StartVM = new StartViewModel();
             this.DataContext = StartVM;
+        }
+
+        protected override void SetUpTitleBar()
+        {
+            TitleBarHelper.SetUpGrayTitleBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

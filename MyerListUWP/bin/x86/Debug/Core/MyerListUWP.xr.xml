@@ -340,6 +340,11 @@
       <RootProperty Name="TranslateY" />
       <RootProperty Name="TranslateX" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="MyerList.UC.DeleteScheduleControl" />
+    <RootType FullName="MyerList.UC.ScheduleControl" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
       <RootProperty Name="Resources" />
@@ -363,7 +368,6 @@
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="MaxWidth" />
     </RootType>
-    <RootType FullName="MyerList.UC.DeleteScheduleControl" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames">
       <RootProperty Name="KeyFrames" />
     </RootType>
@@ -380,8 +384,6 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Fill" />
     </RootType>
-    <RootType FullName="MyerList.UC.ScheduleControl" />
-    <RootType FullName="MyerListUWP.UC.TitleTextBlock" />
     <RootType FullName="Windows.UI.Xaml.Media.Animation.CircleEase">
       <RootProperty Name="EasingMode" />
     </RootType>
@@ -411,9 +413,6 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="Background" />
       <RootProperty Name="BorderThickness" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame">
       <RootProperty Name="KeyTime" />
@@ -571,9 +570,8 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
-      <RootProperty Name="SelectedIndex" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="SelectedIndex" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Items" />
     </RootType>
@@ -587,16 +585,26 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="CanDragItems" />
       <RootProperty Name="CanReorderItems" />
+      <RootProperty Name="ReorderMode" />
+      <RootProperty Name="AllowDrop" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="AllowDrop" />
       <RootProperty Name="IsItemClickEnabled" />
     </RootType>
     <RootType FullName="JP.Utils.Framework.ListViewBaseCommandEx">
       <RootMethod Name="GetItemClickCommand" />
       <RootMethod Name="SetItemClickCommand" />
+    </RootType>
+    <RootType FullName="JP.Utils.UI.AnimatedTextBlock">
+      <RootProperty Name="TextContent" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontWeight" />
     </RootType>
     <RootType FullName="MyerListUWP.View.NewMainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">

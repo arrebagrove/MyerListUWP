@@ -92,9 +92,13 @@ namespace MyerListUWP.View
                 await UpdateCustomeTile(schedules.Content);
             });
 
+            RemoveStory.Completed += ((senderc, ec) =>
+              {
+                  AddGrid.Visibility = Visibility.Collapsed;
+              });
         }
 
-        private void AddClick(object sender,RoutedEventArgs e)
+        private void AddClick(object sender, RoutedEventArgs e)
         {
             _isAddIn = true;
             AddGrid.Visibility = Visibility.Visible;
@@ -102,18 +106,32 @@ namespace MyerListUWP.View
             AddContentBox.Focus(FocusState.Programmatic);
         }
 
-        private void HamClick(object sender,RoutedEventArgs e)
+        private void HamClick(object sender, RoutedEventArgs e)
         {
             _isHamIn = true;
             HamInStory.Begin();
         }
         private void MaskBorder_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if(_isHamIn)
+            if (_isHamIn)
             {
                 _isHamIn = false;
                 HamOutStory.Begin();
             }
+        }
+
+        private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            if (_oriX < 10 && e.Delta.Translation.X > 10)
+            {
+                HamInStory.Begin();
+                _isHamIn = true;
+            }
+        }
+
+        private void Grid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+            _oriX = e.Position.X;
         }
 
         #region UPDATE TILE
@@ -223,6 +241,7 @@ namespace MyerListUWP.View
         }
         #endregion
 
+        #region Override
         protected override void RegisterHandleBackLogic()
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += NewMainPage_BackRequested;
@@ -257,13 +276,13 @@ namespace MyerListUWP.View
 
         private void HandleBackLogic()
         {
-            
-            if(_isAddIn)
+
+            if (_isAddIn)
             {
                 RemoveStory.Begin();
                 _isAddIn = false;
             }
-            if(_isHamIn)
+            if (_isHamIn)
             {
                 HamOutStory.Begin();
                 _isHamIn = false;
@@ -282,22 +301,9 @@ namespace MyerListUWP.View
 
             Frame.BackStack.Clear();
 
-            App.ContentFrame = ContentFrame;
-            ContentFrame.Navigate(typeof(ToDoPage), e.Parameter);
         }
 
-        private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        {
-            if(_oriX<10 && e.Delta.Translation.X>10)
-            {
-                HamInStory.Begin();
-                _isHamIn = true;
-            }
-        }
-
-        private void Grid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
-        {
-            _oriX = e.Position.X;
-        }
+        #endregion
+    
     }
 }

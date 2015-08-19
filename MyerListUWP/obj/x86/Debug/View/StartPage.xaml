@@ -6,8 +6,6 @@
     xmlns:base="using:MyerList.Base"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
-    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <base:BindablePage.Resources>
@@ -316,12 +314,12 @@
             <StackPanel.RenderTransform>
                 <CompositeTransform/>
             </StackPanel.RenderTransform>
-            <Image x:ConnectionId='6' x:Name="image1" Source="ms-appx:///Assets/about_img.png" RenderTransformOrigin="0.5,0.5" Opacity="0" MaxWidth="800" Width="300">
+            <Image x:ConnectionId='6' x:Name="image1" Source="ms-appx:///Assets/SOLID_WHITE_500.png" Width="250" RenderTransformOrigin="0.5,0.5" Opacity="0" MaxWidth="800" >
                 <Image.RenderTransform>
                     <CompositeTransform TranslateY="-50"/>
                 </Image.RenderTransform>
             </Image>
-            <StackPanel x:ConnectionId='7' x:Name="stackPanel" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center" Opacity="0">
+            <StackPanel x:ConnectionId='7' x:Name="stackPanel" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" Opacity="0">
                 <StackPanel.RenderTransform>
                     <CompositeTransform TranslateY="-50"/>
                 </StackPanel.RenderTransform>
@@ -331,7 +329,7 @@
             </StackPanel>
             <TextBlock x:ConnectionId='8' x:Name="textBlock1" 
                        x:Uid="SubtitleTB"
-        	Foreground="{StaticResource MyerListBlueLight}" 
+        	Foreground="{StaticResource MyerListDark}" 
         	FontSize="15" 
         	FontFamily="Segoe WP" 
         	VerticalAlignment="Center"  TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="0,20,0,0" FontWeight="Light" Opacity="0">

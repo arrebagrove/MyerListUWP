@@ -3,6 +3,7 @@ using MyerList.Base;
 using MyerList.Helper;
 using MyerList.ViewModel;
 using MyerListUWP;
+using MyerListUWP.Helper;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 #if WINDOWS_PHONE_APP
@@ -53,10 +54,15 @@ namespace MyerList
             }
         }
 
+        protected override void SetUpTitleBar()
+        {
+            TitleBarHelper.SetUpGrayTitleBar();
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
+            
             Messenger.Default.Send(new GenericMessage<string>(""), "ClearInfo");
         }
 

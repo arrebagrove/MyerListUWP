@@ -30,11 +30,11 @@ namespace MyerList.ViewModel
     public class MainViewModel : ViewModelBase, INavigable
     {
 
-        private bool isInReorder = false;
-
         private AddMode _addMode = AddMode.None;
 
-        #region UI PROPERTY
+        private bool LOAD_ONCE = false;
+
+        #region NAVIGATION UI
         private string _title;
         public string Title
         {
@@ -70,15 +70,15 @@ namespace MyerList.ViewModel
                     {
                         case 0:
                             {
-                                Title = "待办事项";
+                                Title = ResourcesHelper.GetString("ToDoPivotItem");
+                                DeleteIconAlpha =0.3;
+                                TodoIconAlpha = 1;
                             }; break;
                         case 1:
                             {
-                                Title = "已删除";
-                            }; break;
-                        case 2:
-                            {
-                                Title = "标签";
+                                Title = ResourcesHelper.GetString("DeletedPivotItem");
+                                DeleteIconAlpha = 1;
+                                TodoIconAlpha = 0.3;
                             }; break;
                     }
                 }
@@ -111,58 +111,41 @@ namespace MyerList.ViewModel
             }
         }
 
-        private RelayCommand _selectCateCommand;
-        public RelayCommand SelectCateCommand
+        private double _todoIconAlpha;
+        public double TodoIconAlpha
         {
             get
             {
-                if (_selectCateCommand != null) return _selectCateCommand;
-                return _selectCateCommand = new RelayCommand(() =>
-                 {
-                     SelectedIndex = 2;
-                 });
-            }
-        }
-
-        #endregion
-
-        /// <summary>
-        /// 对话框显示的标题
-        /// </summary>
-        private string _modetitle;
-        public string ModeTitle
-        {
-            get
-            {
-                return _modetitle;
+                return _todoIconAlpha;
             }
             set
             {
-                if (_modetitle != value)
-                    _modetitle = value;
-                RaisePropertyChanged(() => ModeTitle);
-            }
-        }
-
-        /// <summary>
-        /// 表示当前的用户
-        /// </summary>
-        private MyerListUser _currentUser;
-        public MyerListUser CurrentUser
-        {
-            get
-            {
-                return _currentUser;
-            }
-            set
-            {
-                if (_currentUser != value)
+                if (_todoIconAlpha != value)
                 {
-                    _currentUser = value;
-                    RaisePropertyChanged(() => CurrentUser);
+                    _todoIconAlpha = value;
+                    RaisePropertyChanged(() => TodoIconAlpha);
                 }
             }
         }
+
+        private double _deleteIconAlpha;
+        public double DeleteIconAlpha
+        {
+            get
+            {
+                return _deleteIconAlpha;
+            }
+            set
+            {
+                if (_deleteIconAlpha != value)
+                {
+                    _deleteIconAlpha = value;
+                    RaisePropertyChanged(() => DeleteIconAlpha);
+                }
+            }
+        }
+        #endregion
+
 
         /// <summary>
         ///是否显示要求登录按钮
@@ -218,47 +201,44 @@ namespace MyerList.ViewModel
             }
         }
 
-#if WINDOWS_PHONE_APP
+
         /// <summary>
-        /// For Windows Phone- reorder mode
+        /// 表示当前的用户
         /// </summary>
-        private ListViewReorderMode _reorderMode;
-        public ListViewReorderMode ReorderMode
+        private MyerListUser _currentUser;
+        public MyerListUser CurrentUser
         {
             get
             {
-                return _reorderMode;
+                return _currentUser;
             }
             set
             {
-                if (_reorderMode != value)
+                if (_currentUser != value)
                 {
-                    _reorderMode = value;
-
-                    if (value == ListViewReorderMode.Enabled)
-                    {
-                        isInReorder = true;
-                        Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "InReorder");
-                    }
-
-                    else
-                    {
-                        isInReorder = false;
-                        Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "OutReorder");
-                    }
-
-                    var task=PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), Schedule.GetCurrentOrderString(MySchedules));
-                    Messenger.Default.Send(new GenericMessage<ObservableCollection<Schedule>>(MySchedules), "UpdateTile");
-
-                    RaisePropertyChanged(() => ReorderMode);
-
+                    _currentUser = value;
+                    RaisePropertyChanged(() => CurrentUser);
                 }
             }
         }
 
-#endif
-
-        #region Data
+        /// <summary>
+        /// 对话框显示的标题
+        /// </summary>
+        private string _modetitle;
+        public string ModeTitle
+        {
+            get
+            {
+                return _modetitle;
+            }
+            set
+            {
+                if (_modetitle != value)
+                    _modetitle = value;
+                RaisePropertyChanged(() => ModeTitle);
+            }
+        }
 
         /// <summary>
         /// 表示当前添加的待办事项
@@ -280,6 +260,8 @@ namespace MyerList.ViewModel
             }
         }
 
+        #region CommandBar
+
         /// <summary>
         /// 点击+号添加新的待办事项
         /// </summary>
@@ -294,12 +276,8 @@ namespace MyerList.ViewModel
                 }
                 return _addCommand = new RelayCommand(() =>
                 {
-                    //Messenger.Default.Send(new GenericMessage<string>(""), "AddScheduleUI");
-
-                    var loader = new ResourceLoader();
-
-                    Messenger.Default.Send(new GenericMessage<string>(loader.GetString("AddTitle")), "SetTitle");
-
+                    ModeTitle = ResourcesHelper.GetString("AddTitle");
+                        
                     NewToDo = new ToDo();
 
                     _addMode = AddMode.Add;
@@ -307,6 +285,39 @@ namespace MyerList.ViewModel
             }
         }
 
+        /// <summary>
+        /// 同步列表
+        /// </summary>
+        private RelayCommand _syncCommand;
+        public RelayCommand SyncCommand
+        {
+            get
+            {
+                if (_syncCommand != null)
+                {
+                    return _syncCommand;
+                }
+                return _syncCommand = new RelayCommand(async () =>
+                {
+                    await SyncAllToDos();
+                });
+            }
+        }
+
+        private RelayCommand _toggleReorderCommand;
+        public RelayCommand ToggleReorderCommand
+        {
+            get
+            {
+                if (_toggleReorderCommand != null) return _toggleReorderCommand;
+                return _toggleReorderCommand = new RelayCommand(() =>
+                  {
+
+                  });
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// 添加/修改待办事项时候的“完成”
@@ -324,7 +335,7 @@ namespace MyerList.ViewModel
         }
 
         /// <summary>
-        /// Pop out the content dialog
+        ///添加/修改待办事项时候的“取消”
         /// </summary>
         private RelayCommand _cancelCommand;
         public RelayCommand CancelCommand
@@ -343,57 +354,255 @@ namespace MyerList.ViewModel
             }
         }
 
-        #endregion
 
-        #region Command
-
-        //        private RelayCommand _reorderCommand;
-        //        public RelayCommand ReorderCommand
-        //        {
-        //            get
-        //            {
-        //                if (_reorderCommand != null)
-        //                {
-        //                    return _reorderCommand;
-        //                }
-        //                return _reorderCommand = new RelayCommand(() =>
-        //                {
-        //#if WINDOWS_PHONE_APP
-        //                    if (ReorderMode == ListViewReorderMode.Enabled)
-        //                    {
-        //                        ReorderMode = ListViewReorderMode.Disabled;
-        //                        Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "OutReorder");
-        //                    }
-        //                    else
-        //                    {
-        //                        ReorderMode = ListViewReorderMode.Enabled;
-
-        //                    }
-        //#endif
-        //                });
-        //            }
-        //        }
-
-
-
-        private RelayCommand _retryCommand;
-        public RelayCommand RetryCommand
+        /// <summary>
+        ///显示没有待办事项
+        /// </summary>
+        private Visibility _shownoitems;
+        public Visibility ShowNoItems
         {
             get
             {
-                if (_retryCommand != null)
+                return _shownoitems;
+            }
+            set
+            {
+                _shownoitems = value;
+                RaisePropertyChanged(() => ShowNoItems);
+            }
+        }
+
+
+        /// <summary>
+        /// 当前的待办事项
+        /// </summary>
+        private ObservableCollection<ToDo> _myToDos;
+        public ObservableCollection<ToDo> MyToDos
+        {
+            get
+            {
+                if (_myToDos != null)
                 {
-                    return _retryCommand;
+                    if (_myToDos.Count == 0) ShowNoItems = Visibility.Visible;
+                    else ShowNoItems = Visibility.Collapsed;
+                    return _myToDos;
                 }
-                return _retryCommand = new RelayCommand(() =>
+                return _myToDos = new ObservableCollection<ToDo>();
+            }
+            set
+            {
+                if (_myToDos != value)
                 {
-                    //await Login();
+                    _myToDos = value;
+                }
+                RaisePropertyChanged(() => MyToDos);
+            }
+        }
+
+
+        /// <summary>
+        ///删除待办事项
+        /// </summary>
+        private RelayCommand<object> _deleteCommand;
+        public RelayCommand<object> DeleteCommand
+        {
+            get
+            {
+                if (_deleteCommand != null)
+                {
+                    return _deleteCommand;
+                }
+
+                return _deleteCommand = new RelayCommand<object>(async (param) =>
+                {
+                    string id = (string)param;
+                    await DeleteToDo(id);
+                });
+            }
+        }
+
+        /// <summary>
+        /// 完成待办事项
+        /// </summary>
+        private RelayCommand<object> _checkCommand;
+        public RelayCommand<object> CheckCommand
+        {
+            get
+            {
+                if (_checkCommand != null) return _checkCommand;
+                return _checkCommand = new RelayCommand<object>(async (param) =>
+                {
+                    string id = (string)param;
+                    await CompleteTodo(id);
                 });
             }
         }
 
 
-        #region Menu Command
+        /// <summary>
+        /// 点击列表的项目，修改待办事项
+        /// </summary>
+        private RelayCommand<ToDo> _modifyCommand;
+        public RelayCommand<ToDo> ModifyCommand
+        {
+            get
+            {
+                if (_modifyCommand != null)
+                {
+                    return _modifyCommand;
+                }
+
+                return _modifyCommand = new RelayCommand<ToDo>((todo) =>
+                {
+                    try
+                    {
+                        var id = todo.ID;
+                        var scheduleToModify = MyToDos.ToList().Find(sche =>
+                        {
+                            if (sche.ID == id) return true;
+                            else return false;
+                        });
+
+                        if (scheduleToModify == null)
+                        {
+                            return;
+                        }
+
+                        this.NewToDo.ID = scheduleToModify.ID;
+                        this.NewToDo.Content = scheduleToModify.Content;
+
+
+                        Messenger.Default.Send(new GenericMessage<string>(""), "Modify");
+
+                        ModeTitle = ResourcesHelper.GetString("ModifyTitle");
+
+                        _addMode = AddMode.Modify;
+                    }
+                    catch (Exception e)
+                    {
+                        var task = ExceptionHelper.WriteRecord(e);
+                    }
+                });
+            }
+        }
+
+        #region Deleted Page
+        /// <summary>
+        /// 已经删除了的待办事项
+        /// </summary>
+        private ObservableCollection<ToDo> _deletedToDos;
+        public ObservableCollection<ToDo> DeletedToDos
+        {
+            get
+            {
+                if (_deletedToDos != null)
+                {
+                    if (_deletedToDos.Count == 0) NoDeletedItemsVisibility = Visibility.Visible;
+                    else NoDeletedItemsVisibility = Visibility.Collapsed;
+                    return _deletedToDos;
+                }
+                return _deletedToDos = new ObservableCollection<ToDo>();
+            }
+            set
+            {
+                if (_deletedToDos != value)
+                {
+                    _deletedToDos = value;
+                    RaisePropertyChanged(() => DeletedToDos);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 没有已经删除的内容
+        /// </summary>
+        private Visibility _noDeletedItemsVisibility;
+        public Visibility NoDeletedItemsVisibility
+        {
+            get
+            {
+                return _noDeletedItemsVisibility;
+            }
+            set
+            {
+                if (_noDeletedItemsVisibility != value)
+                {
+                    _noDeletedItemsVisibility = value;
+                    RaisePropertyChanged(() => NoDeletedItemsVisibility);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 重新添加回列表
+        /// </summary>
+        private RelayCommand<string> _redoCommand;
+        public RelayCommand<string> RedoCommand
+        {
+            get
+            {
+                if (_redoCommand != null) return _redoCommand;
+                return _redoCommand = new RelayCommand<string>(async (id) =>
+                {
+                    var scheToAdd = DeletedToDos.ToList().Find(s =>
+                    {
+                        if (s.ID == id) return true;
+                        else return false;
+                    });
+
+                    _addMode = AddMode.None;
+                    NewToDo = scheToAdd;
+                    OkCommand.Execute(null);
+
+                    DeletedToDos.Remove(scheToAdd);
+                    await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, "deleteditems.sch", true);
+
+                });
+            }
+            set
+            {
+                if (_redoCommand != value)
+                {
+                    _redoCommand = value;
+                    RaisePropertyChanged(() => RedoCommand);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 永久删除
+        /// </summary>
+        private RelayCommand<string> _permanentDeleteCommand;
+        public RelayCommand<string> PermanentDeleteCommand
+        {
+            get
+            {
+                if (_permanentDeleteCommand != null) return _permanentDeleteCommand;
+                return _permanentDeleteCommand = new RelayCommand<string>(async (id) =>
+                {
+                    DeletedToDos.Remove(DeletedToDos.ToList().Find(s =>
+                    {
+                        if (s.ID == id) return true;
+                        else return false;
+                    }));
+                    await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, "deleteditems.sch", true);
+
+                });
+            }
+            set
+            {
+                if (_permanentDeleteCommand != value)
+                {
+                    _permanentDeleteCommand = value;
+                    RaisePropertyChanged(() => PermanentDeleteCommand);
+                }
+            }
+        }
+
+        #endregion
+
+
+        #region Hamburger menu
 
         private RelayCommand _toStartPageCommand;
         public RelayCommand ToStartPageCommand
@@ -402,26 +611,27 @@ namespace MyerList.ViewModel
             {
                 if (_toStartPageCommand != null) return _toStartPageCommand;
                 return _toStartPageCommand = new RelayCommand(() =>
-                  {
-                      var rootFrame = Window.Current.Content as Frame;
-                      rootFrame.Navigate(typeof(StartPage));
-                  });
+                {
+                    var rootFrame = Window.Current.Content as Frame;
+                    rootFrame.Navigate(typeof(StartPage));
+                });
             }
         }
 
+
         /// <summary>
-        /// Go to about
+        /// 跳到 About 页面
         /// </summary>
-        private RelayCommand _aboutCommand;
-        public RelayCommand AboutCommand
+        private RelayCommand _goToAboutCommand;
+        public RelayCommand GoToAboutCommand
         {
             get
             {
-                if (_aboutCommand != null)
+                if (_goToAboutCommand != null)
                 {
-                    return _aboutCommand;
+                    return _goToAboutCommand;
                 }
-                return _aboutCommand = new RelayCommand(async () =>
+                return _goToAboutCommand = new RelayCommand(async () =>
                 {
                     await Task.Delay(50);
                     Frame frame = Window.Current.Content as Frame;
@@ -431,18 +641,18 @@ namespace MyerList.ViewModel
         }
 
         /// <summary>
-        /// Go to setting
+        /// 跳到 Settings 页面
         /// </summary>
-        private RelayCommand _settingCommand;
-        public RelayCommand SettingCommand
+        private RelayCommand _gotoSettingCommand;
+        public RelayCommand GoToSettingCommand
         {
             get
             {
-                if (_settingCommand != null)
+                if (_gotoSettingCommand != null)
                 {
-                    return _settingCommand;
+                    return _gotoSettingCommand;
                 }
-                return _settingCommand = new RelayCommand(async () =>
+                return _gotoSettingCommand = new RelayCommand(async () =>
                 {
                     await Task.Delay(50);
                     Frame frame = Window.Current.Content as Frame;
@@ -451,6 +661,9 @@ namespace MyerList.ViewModel
             }
         }
 
+        /// <summary>
+        /// 登出
+        /// </summary>
         private RelayCommand _logoutCommand;
         public RelayCommand LogoutCommand
         {
@@ -463,17 +676,16 @@ namespace MyerList.ViewModel
 
                 return _logoutCommand = new RelayCommand(async () =>
                 {
-                    var loader = new ResourceLoader();
 
-                    MessageDialog md = new MessageDialog(loader.GetString("LogoutContent"), loader.GetString("Notice"));
-                    md.Commands.Add(new UICommand(loader.GetString("Ok"), act =>
+                    MessageDialog md = new MessageDialog(ResourcesHelper.GetString("LogoutContent"), ResourcesHelper.GetString("Notice"));
+                    md.Commands.Add(new UICommand(ResourcesHelper.GetString("Ok"), act =>
                     {
                         LocalSettingHelper.CleanUpAll();
 
                         Frame rootFrame = Window.Current.Content as Frame;
                         if (rootFrame != null) rootFrame.Navigate(typeof(StartPage));
                     }));
-                    md.Commands.Add(new UICommand(loader.GetString("Cancel"), act =>
+                    md.Commands.Add(new UICommand(ResourcesHelper.GetString("Cancel"), act =>
                     {
 
                     }));
@@ -485,32 +697,29 @@ namespace MyerList.ViewModel
 
         #endregion
 
-
-
-        #endregion
-
         public MainViewModel()
         {
             IsLoading = Visibility.Collapsed;
+            NoDeletedItemsVisibility = Visibility.Collapsed;
+
+            //初始化
             NewToDo = new ToDo();
-
             CurrentUser = new MyerListUser();
+            MyToDos = new ObservableCollection<ToDo>();
+            DeletedToDos = new ObservableCollection<ToDo>();
 
+            //设置当前页面为 To-Do
             SelectedIndex = 0;
-            Title = "待办事项";
+            TodoIconAlpha = 1;
+            DeleteIconAlpha = 0.3;
+            Title = ResourcesHelper.GetString("ToDoPivotItem");
 
-            Messenger.Default.Register<GenericMessage<string>>(this,"SetLoading", msg =>
-             {
-                 IsLoading = Visibility.Visible;
-             });
-            Messenger.Default.Register<GenericMessage<string>>(this, "UnSetLoading", msg =>
-              {
-                  IsLoading = Visibility.Collapsed;
-              });
+            //清除当前的ToDo 
             Messenger.Default.Register<GenericMessage<string>>(this, "ClearNote", act =>
             {
                 this.NewToDo = new ToDo();
             });
+            //按下Enter后
             Messenger.Default.Register<GenericMessage<string>>(this, "PressEnter", act =>
             {
                 if (!string.IsNullOrEmpty(act.Content))
@@ -518,6 +727,28 @@ namespace MyerList.ViewModel
                     NewToDo.Content = act.Content;
                     OkCommand.Execute(null);
                 }
+            });
+
+            //完成ToDo
+            Messenger.Default.Register<GenericMessage<string>>(this, "Check", act =>
+            {
+                var id = act.Content;
+                CheckCommand.Execute(id);
+            });
+
+            //删除To-Do
+            Messenger.Default.Register<GenericMessage<string>>(this, "Delete", act =>
+            {
+                var id = act.Content;
+                DeleteCommand.Execute(id);
+            });
+
+          
+            
+            Messenger.Default.Register<GenericMessage<ToDo>>(this, "Redo", act =>
+            {
+                this.NewToDo = act.Content;
+                OkCommand.Execute(false);
             });
         }
 
@@ -532,9 +763,7 @@ namespace MyerList.ViewModel
             {
                 if (NewToDo != null)
                 {
-                    Messenger.Default.Send(new GenericMessage<string>(""), "SetLoading");
-
-                    Messenger.Default.Send(new GenericMessage<string>(""), "SyncStoryBegin");
+                    IsLoading = Visibility.Visible;
 
                     if (_addMode != AddMode.None)
                     {
@@ -582,7 +811,7 @@ namespace MyerList.ViewModel
 
                 NewToDo = new ToDo();
 
-                Messenger.Default.Send(new GenericMessage<string>(""), "UnSetLoading");
+                IsLoading = Visibility.Collapsed;
 
 
             }
@@ -612,7 +841,8 @@ namespace MyerList.ViewModel
                     NewToDo = new ToDo();
 
                     Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
-                    Messenger.Default.Send(new GenericMessage<string>(""), "UnSetLoading");
+
+                    IsLoading = Visibility.Collapsed;
 
 
                     await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, SerializerFileNames.ToDoFileName);
@@ -622,12 +852,165 @@ namespace MyerList.ViewModel
 
         }
 
+        /// <summary>
+        /// 删除todo
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        /// 先从列表删除，然后把列表内容都序列化保存，接着：
+        /// 1.如果已经登陆的，尝试发送请求；
+        /// 2.离线模式，不用管
+        private async Task DeleteToDo(string id)
+        {
+            try
+            {
+                var itemToDeleted = MyToDos.ToList().Find(s =>
+                  {
+                      if (s.ID == id) return true;
+                      else return false;
+                  });
+
+                DeletedToDos.Add(itemToDeleted);
+                await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, "deleteditems.sch", true);
+
+                if (itemToDeleted !=null)
+                {
+                    MyToDos.Remove(itemToDeleted);
+                    await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
+                }
+
+                if (!App.isInOfflineMode)
+                {
+                    var result = await PostHelper.DeleteSchedule(id);
+                    await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
+                }
+
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+
+            }
+            catch (Exception e)
+            {
+                var task = ExceptionHelper.WriteRecord(e);
+            }
+        }
+
+        /// <summary>
+        /// 完成待办事项
+        /// </summary>
+        /// <param name="id">待办事项的ID</param>
+        /// <returns></returns>
+        private async Task CompleteTodo(string id)
+        {
+            try
+            {
+                var currentMemo = MyToDos.ElementAt(MyToDos.ToList().FindIndex(sch =>
+                {
+                    if (sch.ID == id) return true;
+                    else return false;
+                }));
+                currentMemo.IsDone = !currentMemo.IsDone;
+
+                await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
+
+                if (!App.isInOfflineMode)
+                {
+                    var isDone = await PostHelper.FinishSchedule(id, currentMemo.IsDone ? "1" : "0");
+                    if (isDone)
+                    {
+                        await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
+
+                        Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                    }
+                }
+                else Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+            }
+            catch (Exception e)
+            {
+                var task = ExceptionHelper.WriteRecord(e);
+            }
+
+        }
+
+        /// <summary>
+        /// 从云端同步所有待办事项
+        /// </summary>
+        /// <returns></returns>
+        private async Task SyncAllToDos()
+        {
+            try
+            {
+                //没网络
+                if (App.isNoNetwork)
+                {
+                    //通知没有网络
+                    Messenger.Default.Send(new GenericMessage<string>("NoNetwork"), MessengerToken.ToastToken);
+                    return;
+                }
+
+                //加载滚动条
+                IsLoading = Visibility.Visible;
+
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(3.2);
+                timer.Tick += ((sendert, et) =>
+                {
+                    IsLoading = Visibility.Collapsed;
+                });
+                timer.Start();
+
+                var result = await PostHelper.GetMySchedules(LocalSettingHelper.GetValue("sid"));
+                if (!string.IsNullOrEmpty(result))
+                {
+                    //获得无序的待办事项
+                    var scheduleWithoutOrder = ToDo.ParseJsonToObs(result);
+
+                    //获得顺序列表
+                    var orders = await PostHelper.GetMyOrder(LocalSettingHelper.GetValue("sid"));
+
+                    //排序
+                    MyToDos = ToDo.SetOrderByString(scheduleWithoutOrder, orders);
+
+                    //设置类别颜色
+                    int cate = 0;
+                    foreach (var item in MyToDos)
+                    {
+                        if (cate == 5) cate++;
+                        item.Category = cate;
+                        cate++;
+                    }
+
+                    await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
+                }
+
+                //最后更新动态磁贴
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+            }
+            catch (Exception e)
+            {
+                var task = ExceptionHelper.WriteRecord(e);
+            }
+        }
+
+        private async Task AddAllToDos()
+        {
+            foreach (var sche in MyToDos)
+            {
+                var result = await PostHelper.AddSchedule(LocalSettingHelper.GetValue("sid"), sche.Content, sche.IsDone ? "1" : "0");
+            }
+        }
+
+        /// <summary>
+        /// 修改待办事项
+        /// </summary>
+        /// <returns></returns>
         private async Task ModifyToDo()
         {
-            Messenger.Default.Send(new GenericMessage<string>(""), "SetLoading");
+            IsLoading = Visibility.Visible;
 
+            //离线模式
             if (App.isInOfflineMode)
             {
+                //修改当前列表
                 MyToDos.ToList().Find(sche =>
                 {
                     if (sche.ID == NewToDo.ID) return true;
@@ -645,6 +1028,7 @@ namespace MyerList.ViewModel
                 return;
 
             }
+            //非离线模式
             else
             {
                 var resultUpdate = await PostHelper.UpdateContent(this.NewToDo.ID, this.NewToDo.Content);
@@ -663,10 +1047,26 @@ namespace MyerList.ViewModel
                 }
 
             }
-            Messenger.Default.Send(new GenericMessage<string>(""), "UnSetLoading");
+            IsLoading = Visibility.Collapsed;
 
         }
 
+
+        /// <summary>
+        /// 从储存反序列化所有数据
+        /// </summary>
+        /// <returns></returns>
+        private async Task RestoreData(bool restoreMainList)
+        {
+            if (restoreMainList)
+            {
+                MyToDos = await SerializerHelper.DeserializerFromJsonByFileName<ObservableCollection<ToDo>>(SerializerFileNames.ToDoFileName);
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+            }
+            DeletedToDos =await SerializerHelper.DeserializerFromJsonByFileName<ObservableCollection<ToDo>>(SerializerFileNames.DeletedFileName);
+
+            LOAD_ONCE = true;
+        }
 
 
         /// <summary>
@@ -677,6 +1077,9 @@ namespace MyerList.ViewModel
         {
             if (param is LoginMode)
             {
+                if (LOAD_ONCE) return;
+                LOAD_ONCE = true;
+
                 var mode = (LoginMode)param;
                 switch (mode)
                 {
@@ -688,6 +1091,8 @@ namespace MyerList.ViewModel
                             {
                                 Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
                                 App.isNoNetwork = true;
+
+                                var restoreTask = RestoreData(true);
                             }
                             //有网络
                             else
@@ -699,6 +1104,9 @@ namespace MyerList.ViewModel
                                 ShowLoginBtnVisibility = Visibility.Collapsed;
                                 ShowAccountInfoVisibility = Visibility.Visible;
 
+                                SyncCommand.Execute(null);
+
+                                var resotreTask = RestoreData(false);
                             }
                         }; break;
                     //处于离线模式
@@ -707,7 +1115,7 @@ namespace MyerList.ViewModel
                             ShowLoginBtnVisibility = Visibility.Visible;
                             ShowAccountInfoVisibility = Visibility.Collapsed;
                             App.isNoNetwork = false;
-
+                            var restoreTask = RestoreData(true);
                         }; break;
                 }
             }

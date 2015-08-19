@@ -1,9 +1,9 @@
 App.xbf
 ResourceDictionary\ColorDictionary.xbf
 ResourceDictionary\StyleDictionary.xbf
+ResourceDictionary\TemplateDictionary.xbf
 UserControl\DeleteScheduleControl.xbf
 UserControl\ScheduleControl.xbf
-UserControl\TitleTextBlock.xbf
 UserControl\ToastUC.xbf
 View\AboutPage.xbf
 View\LoginPage.xbf

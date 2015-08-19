@@ -294,7 +294,7 @@
   <data name="ReorderABB.Label" xml:space="preserve">
     <value>Reorder</value>
   </data>
-  <data name="ReorderLabel" xml:space="preserve">
+  <data name="ReorderAppbarBtn.Label" xml:space="preserve">
     <value>Reorder</value>
   </data>
   <data name="SyncABB.Label" xml:space="preserve">
@@ -312,10 +312,7 @@
   <data name="LoginHintTB.Text" xml:space="preserve">
     <value>Login to sync your to-dos on all your devices</value>
   </data>
-  <data name="RecycleTB.Text" xml:space="preserve">
-    <value>DELETED ITEMS</value>
-  </data>
-  <data name="Recycle" xml:space="preserve">
+  <data name="DeletedPivotItem" xml:space="preserve">
     <value>DELETED</value>
   </data>
   <data name="NoDeletedTB.Text" xml:space="preserve">
@@ -353,5 +350,8 @@
   </data>
   <data name="CancelBtnTB.Text" xml:space="preserve">
     <value>Cancel</value>
+  </data>
+  <data name="ToDoPivotItem" xml:space="preserve">
+    <value>ToDo</value>
   </data>
 </root>

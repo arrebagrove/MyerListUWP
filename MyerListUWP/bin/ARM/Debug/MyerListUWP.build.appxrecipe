@@ -18,6 +18,15 @@
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\AnimatedTextBlock.dll">
+      <PackagePath>AnimatedTextBlock.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\AnimatedTextBlock\AnimatedTextBlock.xr.xml">
+      <PackagePath>AnimatedTextBlock\AnimatedTextBlock.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\AnimatedTextBlock\Properties\AnimatedTextBlock.rd.xml">
+      <PackagePath>AnimatedTextBlock\Properties\AnimatedTextBlock.rd.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
@@ -32,6 +41,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\back3.png">
       <PackagePath>Assets\back3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\CLIP_WHITE.png">
+      <PackagePath>Assets\CLIP_WHITE.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\Account.png">
       <PackagePath>Assets\Icon\Account.png</PackagePath>
@@ -56,9 +68,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\LOCK_100.png">
       <PackagePath>Assets\Icon\LOCK_100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\LOCK_500.png">
-      <PackagePath>Assets\Icon\LOCK_500.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Icon\NAVI_CATE.png">
       <PackagePath>Assets\Icon\NAVI_CATE.png</PackagePath>
@@ -93,8 +102,8 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\loginbackgrd.jpg">
       <PackagePath>Assets\loginbackgrd.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\loginbackgrd_orii.jpg">
-      <PackagePath>Assets\loginbackgrd_orii.jpg</PackagePath>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\SOLID_WHITE_500.png">
+      <PackagePath>Assets\SOLID_WHITE_500.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -108,11 +117,11 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\WHITE_500.png">
+      <PackagePath>Assets\WHITE_500.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\ARM\Debug\Core\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>

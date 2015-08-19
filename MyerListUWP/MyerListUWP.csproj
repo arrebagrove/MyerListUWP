@@ -131,25 +131,17 @@
     <Compile Include="UserControl\ScheduleControl.xaml.cs">
       <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\TitleTextBlock.xaml.cs">
-      <DependentUpon>TitleTextBlock.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\ToastUC.xaml.cs">
       <DependentUpon>ToastUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AboutViewModel.cs" />
-    <Compile Include="ViewModel\DeletedItemViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SettingPageViewModel.cs" />
     <Compile Include="ViewModel\StartViewModel.cs" />
-    <Compile Include="ViewModel\ToDoViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\DeletedItemPage.xaml.cs">
-      <DependentUpon>DeletedItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -163,9 +155,6 @@
     <Compile Include="View\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ToDoPage.xaml.cs">
-      <DependentUpon>ToDoPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -178,6 +167,7 @@
     <Content Include="Assets\back.png" />
     <Content Include="Assets\back2.png" />
     <Content Include="Assets\back3.png" />
+    <Content Include="Assets\CLIP_WHITE.png" />
     <Content Include="Assets\Icon\Account.png" />
     <Content Include="Assets\Icon\Add.png" />
     <Content Include="Assets\Icon\Back.png" />
@@ -196,8 +186,9 @@
     <Content Include="Assets\Icon\Refresh.png" />
     <Content Include="Assets\Icon\Setting.png" />
     <Content Include="Assets\loginbackgrd.jpg" />
-    <Content Include="Assets\loginbackgrd_orii.jpg" />
+    <Content Include="Assets\SOLID_WHITE_500.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\WHITE_500.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -235,10 +226,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\TitleTextBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControl\ToastUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -246,10 +233,6 @@
     <Page Include="View\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\DeletedItemPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -267,12 +250,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ToDoPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AnimatedTextBlock\AnimatedTextBlock.csproj">
+      <Project>{4e0becfb-8f8d-4c55-bfb3-5b63e047ee92}</Project>
+      <Name>AnimatedTextBlock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\JP.Utils\JP.Utils\JP.Utils.csproj">
       <Project>{9d13cebe-a582-4729-b859-22fc78653a56}</Project>
       <Name>JP.Utils</Name>

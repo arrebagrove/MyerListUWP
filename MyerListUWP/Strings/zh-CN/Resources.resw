@@ -258,7 +258,7 @@
   <data name="ReorderABB.Label" xml:space="preserve">
     <value>排序</value>
   </data>
-  <data name="ReorderLabel" xml:space="preserve">
+  <data name="ReorderAppbarBtn.Label" xml:space="preserve">
     <value>排序</value>
   </data>
   <data name="RetryTB.Text" xml:space="preserve">
@@ -312,10 +312,7 @@
   <data name="LoginHintTB.Text" xml:space="preserve">
     <value>登录以在所有设备同步你的待办事项</value>
   </data>
-  <data name="RecycleTB.Text" xml:space="preserve">
-    <value>已删除</value>
-  </data>
-  <data name="Recycle" xml:space="preserve">
+  <data name="DeletedPivotItem" xml:space="preserve">
     <value>已删除</value>
   </data>
   <data name="NoDeletedTB.Text" xml:space="preserve">
@@ -353,5 +350,8 @@
   </data>
   <data name="CancelBtnTB.Text" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="ToDoPivotItem" xml:space="preserve">
+    <value>待办事项</value>
   </data>
 </root>
