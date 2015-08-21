@@ -8,10 +8,12 @@ using Windows.ApplicationModel.Resources.Core;
 using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Data;
 using HttpReqModule;
+using MyerList.Interface;
 
 namespace MyerList.ViewModel
 {
-    public class SettingPageViewModel:ViewModelBase
+
+    public class SettingPageViewModel:ViewModelBase,INavigable
     {
         private BitmapImage tileimage;
         public BitmapImage TileImage
@@ -313,6 +315,14 @@ namespace MyerList.ViewModel
                 var resourceContext = ResourceContext.GetForCurrentView();
                 resourceContext.Reset();
             }
+        }
+
+        public void Activate(object param)
+        {
+        }
+
+        public void Deactivate(object param)
+        {
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MyerList.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
 
-            SimpleIoc.Default.Register<SettingPageViewModel>();
+            SimpleIoc.Default.Register<SettingPageViewModel>(false);
         }
 
         public MainViewModel MainVM

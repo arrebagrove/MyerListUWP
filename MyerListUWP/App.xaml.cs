@@ -64,20 +64,6 @@ namespace MyerListUWP
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-            ConfigHelper.CheckConfig();
-
-            if (LocalSettingHelper.HasValue("AppLang") == false)
-            {
-                var lang = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
-                if (lang.Contains("zh"))
-                {
-                    ApplicationLanguages.PrimaryLanguageOverride = "zh-CN";
-                }
-                else ApplicationLanguages.PrimaryLanguageOverride = "en-US";
-
-                LocalSettingHelper.AddValue("AppLang", ApplicationLanguages.PrimaryLanguageOverride);
-            }
-            else ApplicationLanguages.PrimaryLanguageOverride = LocalSettingHelper.GetValue("AppLang");
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -99,6 +85,19 @@ namespace MyerListUWP
 
                 ConfigHelper.CheckConfig();
 
+                if (LocalSettingHelper.HasValue("AppLang") == false)
+                {
+                    var lang = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
+                    if (lang.Contains("zh"))
+                    {
+                        ApplicationLanguages.PrimaryLanguageOverride = "zh-CN";
+                    }
+                    else ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+
+                    LocalSettingHelper.AddValue("AppLang", ApplicationLanguages.PrimaryLanguageOverride);
+                }
+                else ApplicationLanguages.PrimaryLanguageOverride = LocalSettingHelper.GetValue("AppLang");
+
                 if (LocalSettingHelper.HasValue("email"))
                 {
                     rootFrame.Navigate(typeof(NewMainPage), LoginMode.Login);
@@ -113,6 +112,8 @@ namespace MyerListUWP
                     App.isInOfflineMode = false;
                     rootFrame.Navigate(typeof(StartPage));
                 }
+
+                
             }
             // Ensure the current window is active
             Window.Current.Activate();

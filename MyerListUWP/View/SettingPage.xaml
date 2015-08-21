@@ -1,278 +1,15 @@
-﻿<Page
+﻿<base:BindablePage
     x:Class="MyerList.SettingPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MyerList"
+    xmlns:base="using:MyerList.Base"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{StaticResource Locator}"
+    DataContext="{Binding SettingVM,Source={StaticResource Locator}}"
     IsTextScaleFactorEnabled="False">
     
-    <Page.Resources>
-        <FontFamily x:Key="ContentControlThemeFontFamily">Segoe WP</FontFamily>
-        <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
-        <x:Double x:Key="TextStyleExtraLargeFontSize">25.5</x:Double>
-        <FontFamily x:Key="PhoneFontFamilyNormal">Segoe WP</FontFamily>
-        <SolidColorBrush x:Key="ToggleSwitcHeaderContentPresenterStylehTrackBorderThemeBrush" Color="Transparent"/>
-        <Style x:Key="ToggleSwitchStyle1" TargetType="ToggleSwitch">
-            <Setter Property="Foreground" Value="{ThemeResource ToggleSwitchForegroundThemeBrush}"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="Padding" Value="0,0,25.5,0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToggleSwitch">
-                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal"/>
-                                    <VisualState x:Name="PointerOver"/>
-                                    <VisualState x:Name="Pressed"/>
-                                    <VisualState x:Name="Disabled">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OffContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToggleSwitchDisabledForegroundThemeBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="OnContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToggleSwitchDisabledForegroundThemeBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="ToggleStates">
-                                    <VisualStateGroup.Transitions>
-                                        <VisualTransition x:Name="DraggingToOnTransition" From="Dragging" GeneratedDuration="0" To="On">
-                                            <Storyboard>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.KnobCurrentToOnOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchKnob"/>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.CurtainCurrentToOnOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchCurtain"/>
-                                            </Storyboard>
-                                        </VisualTransition>
-                                        <VisualTransition x:Name="DraggingToOffTransition" From="Dragging" GeneratedDuration="0" To="Off">
-                                            <Storyboard>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.KnobCurrentToOffOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchKnob"/>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.CurtainCurrentToOffOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchCurtain"/>
-                                            </Storyboard>
-                                        </VisualTransition>
-                                        <VisualTransition x:Name="OnToOffTransition" From="On" GeneratedDuration="0" To="Off">
-                                            <Storyboard>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.KnobOnToOffOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchKnob"/>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.CurtainOnToOffOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchCurtain"/>
-                                            </Storyboard>
-                                        </VisualTransition>
-                                        <VisualTransition x:Name="OffToOnTransition" From="Off" GeneratedDuration="0" To="On">
-                                            <Storyboard>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.KnobOffToOnOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchKnob"/>
-                                                <RepositionThemeAnimation FromHorizontalOffset="{Binding TemplateSettings.CurtainOffToOnOffset, RelativeSource={RelativeSource Mode=TemplatedParent}}" Storyboard.TargetName="SwitchCurtain"/>
-                                            </Storyboard>
-                                        </VisualTransition>
-                                    </VisualStateGroup.Transitions>
-                                    <VisualState x:Name="Dragging"/>
-                                    <VisualState x:Name="Off">
-                                        <Storyboard>
-                                            <DoubleAnimation Duration="0" To="-64" Storyboard.TargetProperty="X" Storyboard.TargetName="CurtainTranslateTransform"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="On">
-                                        <Storyboard>
-                                            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="CurtainTranslateTransform"/>
-                                            <DoubleAnimation Duration="0" To="56.5" Storyboard.TargetProperty="X" Storyboard.TargetName="KnobTranslateTransform"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                                <VisualStateGroup x:Name="ContentStates">
-                                    <VisualState x:Name="OffContent">
-                                        <Storyboard>
-                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="OffContentPresenter"/>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="OffContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="True"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="OnContent">
-                                        <Storyboard>
-                                            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="OnContentPresenter"/>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="IsHitTestVisible" Storyboard.TargetName="OnContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="True"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <Grid Background="Transparent">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="13.5"/>
-                                    <ColumnDefinition Width="77"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="9.5"/>
-                                </Grid.RowDefinitions>
-                                <ContentPresenter x:Name="HeaderContentPresenter" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}" Style="{StaticResource HeaderContentPresenterStyle}"/>
-                                <Grid Margin="{TemplateBinding Padding}" Grid.Row="1">
-                                    <ContentPresenter x:Name="OffContentPresenter" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding OffContentTemplate}" Content="{TemplateBinding OffContent}" FontWeight="Normal" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" FontFamily="{ThemeResource PhoneFontFamilyNormal}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="False" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                    <ContentPresenter x:Name="OnContentPresenter" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding OnContentTemplate}" Content="{TemplateBinding OnContent}" FontWeight="Normal" FontSize="{ThemeResource TextStyleExtraLargeFontSize}" FontFamily="{ThemeResource PhoneFontFamilyNormal}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="False" Opacity="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                </Grid>
-                                <Grid Grid.Column="2" ManipulationMode="None" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Bottom">
-                                    <Grid x:Name="SwitchKnobBounds" Height="36">
-                                        <Border x:Name="OuterBorder" BorderBrush="{TemplateBinding Foreground}" BorderThickness="2.5" Margin="3,4.5,3,4.5">
-                                            <Border x:Name="InnerBorder" BorderBrush="{ThemeResource ToggleSwitchTrackBorderThemeBrush}" BorderThickness="2.5">
-                                                <ContentPresenter x:Name="SwitchCurtainBounds" Foreground="{StaticResource MyerListBlueLight}">
-                                                    <ContentPresenter x:Name="SwitchCurtainClip" Foreground="{TemplateBinding Foreground}">
-                                                        <Rectangle x:Name="SwitchCurtain" Fill="{StaticResource MyerListBlueLight}" Width="64">
-                                                            <Rectangle.RenderTransform>
-                                                                <TranslateTransform x:Name="CurtainTranslateTransform" X="-64"/>
-                                                            </Rectangle.RenderTransform>
-                                                        </Rectangle>
-                                                    </ContentPresenter>
-                                                </ContentPresenter>
-                                            </Border>
-                                        </Border>
-                                        <Rectangle x:Name="SwitchKnob" HorizontalAlignment="Left" Stroke="{TemplateBinding Foreground}" StrokeThickness="2.5" Width="20.5">
-                                            <Rectangle.Fill>
-                                                <SolidColorBrush Color="White"/>
-                                            </Rectangle.Fill>
-                                            <Rectangle.RenderTransform>
-                                                <TranslateTransform x:Name="KnobTranslateTransform"/>
-                                            </Rectangle.RenderTransform>
-                                        </Rectangle>
-                                    </Grid>
-                                    <Thumb x:Name="SwitchThumb" AutomationProperties.AccessibilityView="Raw" Margin="-13.5,-15.5,-13.5,-6.5">
-                                        <Thumb.Template>
-                                            <ControlTemplate TargetType="Thumb">
-                                                <Rectangle Fill="Transparent"/>
-                                            </ControlTemplate>
-                                        </Thumb.Template>
-                                    </Thumb>
-                                </Grid>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Storyboard x:Name="StartStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="toggleSwitch">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="toggleSwitch1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="toggleSwitch2">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="toggleSwitch3">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="comboBox">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBlock1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="toggleSwitch">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="toggleSwitch1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="toggleSwitch2">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="toggleSwitch3">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="comboBox">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="textBlock1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="-100"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseOut"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Page.Resources>
     <Page.Background>
         <StaticResource ResourceKey="MyerListBlueLight"/>
     </Page.Background>
@@ -283,55 +20,55 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Grid Height="70" VerticalAlignment="Bottom" Background="{StaticResource MyerListBlueLight}" HorizontalAlignment="Left">
-            <TextBlock x:Uid="SettingTB" Text="SETTING" Foreground="{StaticResource MyerListGray}" FontSize="40" VerticalAlignment="Center" Margin="10" FontFamily="Segoe WP"/>
+        <Grid Background="#FF47A5DD">
+            <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="{StaticResource MyerListGray}" FontSize="26.667" VerticalAlignment="Bottom" Margin="10" FontFamily="Segoe WP" FontWeight="Bold"/>
         </Grid>
-        <ScrollViewer Grid.Row="1" Background="{StaticResource MyerListGray}">
-            <StackPanel Grid.Row="1" DataContext="{Binding SettingVM}">
+        <ScrollViewer Grid.Row="1" Background="White">
+            <StackPanel Grid.Row="1">
                 <StackPanel.ChildrenTransitions>
                     <TransitionCollection>
                         <EntranceThemeTransition FromHorizontalOffset="30" />
 
                     </TransitionCollection>
                 </StackPanel.ChildrenTransitions>
-                <ToggleSwitch x:Name="toggleSwitch" x:Uid="HamburgerTS" Header="Hamburger Gesture" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlueLight}" Style="{StaticResource ToggleSwitchStyle1}" IsOn="{Binding EnableGesture,Mode=TwoWay}" BorderBrush="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <ToggleSwitch x:Name="toggleSwitch" x:Uid="HamburgerTS" Header="Hamburger Gesture" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.EnableGesture,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
                     <ToggleSwitch.RenderTransform>
                         <CompositeTransform/>
                     </ToggleSwitch.RenderTransform>
                 </ToggleSwitch>
-                <ToggleSwitch x:Name="toggleSwitch1" x:Uid="KeyboardTS" Header="Show keyboard while tap to add" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlueLight}" Style="{StaticResource ToggleSwitchStyle1}" IsOn="{Binding ShowKeyboard,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" Opacity="0">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-
-                <ToggleSwitch x:Name="toggleSwitch2" x:Uid="TileTS" Header="LIVE TILE" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlueLight}" Style="{StaticResource ToggleSwitchStyle1}" IsOn="{Binding EnableTile,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" Opacity="0">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-                <ToggleSwitch x:Name="toggleSwitch3" x:Uid="AddToBottomts" Header="ADD TO BOTTOM" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlueLight}" Style="{StaticResource ToggleSwitchStyle1}" IsOn="{Binding IsAddToBottom,Mode=TwoWay}" FontFamily="Microsoft YaHei" FontSize="17.333" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <ToggleSwitch x:Name="toggleSwitch1" x:Uid="KeyboardTS" Header="Show keyboard while tap to add" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.ShowKeyboard,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
                     <ToggleSwitch.RenderTransform>
                         <CompositeTransform/>
                     </ToggleSwitch.RenderTransform>
                 </ToggleSwitch>
 
-                <!--<ToggleSwitch x:Uid="backgrdTaskSwitch" Header="BACKGROUND TASK" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlue}" Style="{StaticResource ToggleSwitchStyle1}" IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" FontFamily="Global User Interface" />
+                <ToggleSwitch x:Name="toggleSwitch2" x:Uid="TileTS" Header="LIVE TILE" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black" IsOn="{x:Bind SettingVM.EnableTile,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
+                    <ToggleSwitch.RenderTransform>
+                        <CompositeTransform/>
+                    </ToggleSwitch.RenderTransform>
+                </ToggleSwitch>
+                <ToggleSwitch x:Name="toggleSwitch3" x:Uid="AddToBottomts" Header="ADD TO BOTTOM" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.IsAddToBottom,Mode=TwoWay}" FontSize="15" RenderTransformOrigin="0.5,0.5">
+                    <ToggleSwitch.RenderTransform>
+                        <CompositeTransform/>
+                    </ToggleSwitch.RenderTransform>
+                </ToggleSwitch>
+
+                <!--<ToggleSwitch x:Uid="backgrdTaskSwitch" Header="BACKGROUND TASK" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlue}"   IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" FontFamily="Global User Interface" />
                 <TextBlock x:Uid="noticeTB" TextWrapping="Wrap" Text="NOTICE" Margin="10,10,0,0" Foreground="#FF8D8D8D" FontSize="18.667" FontWeight="Bold"/>
                 <TextBlock x:Uid="backgrdTaskTB" Text="The background task function is just in exp. period, and the current build just use the normal Live Tile tyle. " TextWrapping="Wrap" Foreground="{StaticResource MyerListBlue}" Margin="10" FontSize="15"/>-->
-                <TextBlock x:Name="textBlock" x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="10,10,0,0" Foreground="#FF8D8D8D" FontSize="18.667" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <TextBlock x:Name="textBlock" x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="10,10,0,0" Foreground="#FF8D8D8D" FontSize="18.667" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
                 </TextBlock>
-                <ComboBox x:Name="comboBox" Margin="10" SelectedIndex="{Binding CurrentLanguage,Mode=TwoWay}" Foreground="{StaticResource MyerListBlueLight}" PlaceholderText="Language" BorderThickness="2" BorderBrush="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5" Opacity="0">
+                <ComboBox x:Name="comboBox" Margin="10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="2" BorderBrush="{StaticResource MyerListDark}" RenderTransformOrigin="0.5,0.5">
                     <ComboBox.RenderTransform>
                         <CompositeTransform/>
                     </ComboBox.RenderTransform>
                     <ComboBoxItem Content="English" Foreground="{StaticResource MyerListBlueLight}"/>
                     <ComboBoxItem Content="简体中文"  Foreground="{StaticResource MyerListBlueLight}"/>
                 </ComboBox>
-                <TextBlock x:Name="textBlock1" x:Uid="NoticeHint" Text="" TextWrapping="Wrap" Foreground="{StaticResource MyerListBlueLight}" FontSize="20" Margin="10" RenderTransformOrigin="0.5,0.5" Opacity="0" >
+                <TextBlock x:Name="textBlock1" x:Uid="NoticeHint" Text="" TextWrapping="Wrap" Foreground="Black" FontSize="14.667" Margin="10" RenderTransformOrigin="0.5,0.5" >
                     <TextBlock.RenderTransform>
                         <CompositeTransform/>
                     </TextBlock.RenderTransform>
@@ -340,4 +77,4 @@
         </ScrollViewer>
 
     </Grid>
-</Page>
+</base:BindablePage>

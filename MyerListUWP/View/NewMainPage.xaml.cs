@@ -122,7 +122,7 @@ namespace MyerListUWP.View
 
         private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            if (_oriX < 10 && e.Delta.Translation.X > 10)
+            if (_oriX < 10 && e.Delta.Translation.X > 10 && LocalSettingHelper.GetValue("EnableGesture")=="true")
             {
                 HamInStory.Begin();
                 _isHamIn = true;

@@ -354,4 +354,7 @@
   <data name="ToDoPivotItem" xml:space="preserve">
     <value>待办事项</value>
   </data>
+  <data name="SettingsTB.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
 </root>

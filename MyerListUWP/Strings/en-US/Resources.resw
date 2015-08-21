@@ -196,7 +196,7 @@
     <value>ON</value>
   </data>
   <data name="LanguageTB.Text" xml:space="preserve">
-    <value>LANGUAGE</value>
+    <value>Language</value>
   </data>
   <data name="LoadingTB.Text" xml:space="preserve">
     <value>Loading..</value>
@@ -322,7 +322,7 @@
     <value>Deleted memos will be showed up here.</value>
   </data>
   <data name="AddToBottomTS.Header" xml:space="preserve">
-    <value>ADD TO BOTOM</value>
+    <value>Add to bottom</value>
   </data>
   <data name="AddToBottomTS.OffContent" xml:space="preserve">
     <value>OFF</value>
@@ -353,5 +353,8 @@
   </data>
   <data name="ToDoPivotItem" xml:space="preserve">
     <value>ToDo</value>
+  </data>
+  <data name="SettingsTB.Text" xml:space="preserve">
+    <value>SETTINGS</value>
   </data>
 </root>

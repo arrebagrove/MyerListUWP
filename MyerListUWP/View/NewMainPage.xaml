@@ -262,7 +262,7 @@
         </Grid>
 
         <Grid ManipulationMode="TranslateX" ManipulationDelta="Grid_ManipulationDelta"  ManipulationStarted="Grid_ManipulationStarted" Grid.Row="1" Background="White" d:IsHidden="True">
-            <Pivot Margin="0" x:Name="pivot" SelectedIndex="{x:Bind MainVM.SelectedIndex,Mode=OneWay}">
+            <Pivot Margin="0" x:Name="pivot" SelectedIndex="{x:Bind MainVM.SelectedIndex,Mode=TwoWay}">
                 <Pivot.RenderTransform>
                     <CompositeTransform />
                 </Pivot.RenderTransform>
@@ -316,7 +316,7 @@
             </CommandBar.RenderTransform>
             <AppBarButton x:Uid="AddAppbarBtn" Click="AddClick" Icon="Add" Label="添加" Command="{x:Bind MainVM.AddCommand}"/>
             <AppBarButton x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新" Command="{x:Bind MainVM.SyncCommand}"/>
-            <AppBarButton x:Uid="ReorderAppbarBtn" Label="排序" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
+            <AppBarButton x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
 
         </CommandBar>
 
@@ -404,7 +404,7 @@
                             <TextBlock x:Uid="LogoutTB"  Text="LOGOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
                         </StackPanel>
                     </Button>
-                    <Button Style="{StaticResource ButtonCommonStyle}" BorderThickness="0" HorizontalAlignment="Stretch" Height="40" Background="{x:Null}">
+                    <Button Command="{x:Bind MainVM.GoToSettingCommand}" Style="{StaticResource ButtonCommonStyle}" BorderThickness="0" HorizontalAlignment="Stretch" Height="40" Background="{x:Null}">
                         <StackPanel Orientation="Horizontal" Background="White">
                             <SymbolIcon Symbol="Setting" Margin="20,0,0,0"/>
 

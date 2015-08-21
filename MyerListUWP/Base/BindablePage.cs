@@ -30,6 +30,8 @@ namespace MyerList.Base
 
             SetUpTitleBar();
             SetUpStatusBar();
+
+            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
