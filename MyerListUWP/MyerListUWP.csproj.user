@@ -11,7 +11,7 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DeviceId>8BDF218D-FDBB-4A97-90F9-3AA33B559A92</DeviceId>
+    <DeviceId>2DDADD82-5910-40E6-894F-17EB5CD463EF</DeviceId>
     <UseEmulator>false</UseEmulator>
   </PropertyGroup>
 </Project>

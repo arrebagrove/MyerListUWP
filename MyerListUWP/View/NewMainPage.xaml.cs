@@ -242,6 +242,11 @@ namespace MyerListUWP.View
         #endregion
 
         #region Override
+        protected override void SetNavigationBackBtn()
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+        }
+
         protected override void RegisterHandleBackLogic()
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += NewMainPage_BackRequested;
@@ -259,7 +264,6 @@ namespace MyerListUWP.View
                 HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
             }
         }
-
 
         private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
         {
@@ -289,7 +293,6 @@ namespace MyerListUWP.View
             }
         }
 
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -303,7 +306,17 @@ namespace MyerListUWP.View
 
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            if(_isHamIn)
+            {
+                HamOutStory.Begin();
+                _isHamIn = false;
+            }
+        }
+
         #endregion
-    
+
     }
 }

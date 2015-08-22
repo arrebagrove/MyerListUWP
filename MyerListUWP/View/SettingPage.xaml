@@ -8,73 +8,70 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding SettingVM,Source={StaticResource Locator}}"
-    IsTextScaleFactorEnabled="False">
-    
-    <Page.Background>
-        <StaticResource ResourceKey="MyerListBlueLight"/>
-    </Page.Background>
-
+    IsTextScaleFactorEnabled="False" Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="130"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid Background="#FF47A5DD">
-            <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="{StaticResource MyerListGray}" FontSize="26.667" VerticalAlignment="Bottom" Margin="10" FontFamily="Segoe WP" FontWeight="Bold"/>
+            <Grid MaxWidth="550">
+                <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="White" FontSize="26.667" VerticalAlignment="Bottom" Margin="20,0,0,10" FontFamily="Segoe WP" FontWeight="Bold" HorizontalAlignment="Left"/>
+            </Grid>
         </Grid>
-        <ScrollViewer Grid.Row="1" Background="White">
-            <StackPanel Grid.Row="1">
-                <StackPanel.ChildrenTransitions>
-                    <TransitionCollection>
-                        <EntranceThemeTransition FromHorizontalOffset="30" />
+        <Grid Grid.Row="1" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxWidth="550" Background="White" Margin="0">
+                <StackPanel Grid.Row="1" >
+                    <Border Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="HabbitTB" TextWrapping="Wrap" Text="USER HABBIT" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ToggleSwitch x:Uid="HamburgerTS" Header="Hamburger Gesture" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.EnableGesture,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:Uid="KeyboardTS" Header="Show keyboard" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.ShowKeyboard,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:Uid="AddToBottomts" Header="Add to bottom" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.IsAddToBottom,Mode=TwoWay}" FontSize="15" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <Border Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="TileTB" TextWrapping="Wrap" Text="LIVE TILE" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ToggleSwitch x:Uid="TileTS" Header="Live tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black" IsOn="{x:Bind SettingVM.EnableTile,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:Uid="TransparentTS" Header="Transparent Tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black" IsOn="{x:Bind SettingVM.EnableTile,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:Uid="BackgrdTaskTS" Header="Background task" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10" Foreground="Black"   IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Stretch" />
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="DefaultCateTB" TextWrapping="Wrap" Text="DEFAULT CATEGORY" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox Margin="10,10,30,10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="20" Height="20" Fill="#FFABABAB" />
+                                <TextBlock Text="默认" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="20" Height="20" Fill="{StaticResource MyerListBlueLight}" />
+                                <TextBlock Text="生活" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="ThemeTB" TextWrapping="Wrap" Text="THEME" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox Margin="10,10,30,10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Content="Classic" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
+                        <ComboBoxItem Content="Light" Foreground="Black" Background="{x:Null}"/>
+                        <ComboBoxItem Content="Dark" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
+                    </ComboBox>
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox Margin="10,10,30,10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Content="English" Foreground="Black"/>
+                        <ComboBoxItem Content="简体中文"  Foreground="Black"/>
+                    </ComboBox>
+                    <TextBlock x:Uid="NoticeHint" Text="" TextWrapping="Wrap" Foreground="Black" FontSize="14.667" Margin="10" RenderTransformOrigin="0.5,0.5" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
 
-                    </TransitionCollection>
-                </StackPanel.ChildrenTransitions>
-                <ToggleSwitch x:Name="toggleSwitch" x:Uid="HamburgerTS" Header="Hamburger Gesture" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.EnableGesture,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-                <ToggleSwitch x:Name="toggleSwitch1" x:Uid="KeyboardTS" Header="Show keyboard while tap to add" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.ShowKeyboard,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-
-                <ToggleSwitch x:Name="toggleSwitch2" x:Uid="TileTS" Header="LIVE TILE" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black" IsOn="{x:Bind SettingVM.EnableTile,Mode=TwoWay}" RenderTransformOrigin="0.5,0.5">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-                <ToggleSwitch x:Name="toggleSwitch3" x:Uid="AddToBottomts" Header="ADD TO BOTTOM" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{x:Bind SettingVM.IsAddToBottom,Mode=TwoWay}" FontSize="15" RenderTransformOrigin="0.5,0.5">
-                    <ToggleSwitch.RenderTransform>
-                        <CompositeTransform/>
-                    </ToggleSwitch.RenderTransform>
-                </ToggleSwitch>
-
-                <!--<ToggleSwitch x:Uid="backgrdTaskSwitch" Header="BACKGROUND TASK" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="{StaticResource MyerListBlue}"   IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" FontFamily="Global User Interface" />
-                <TextBlock x:Uid="noticeTB" TextWrapping="Wrap" Text="NOTICE" Margin="10,10,0,0" Foreground="#FF8D8D8D" FontSize="18.667" FontWeight="Bold"/>
-                <TextBlock x:Uid="backgrdTaskTB" Text="The background task function is just in exp. period, and the current build just use the normal Live Tile tyle. " TextWrapping="Wrap" Foreground="{StaticResource MyerListBlue}" Margin="10" FontSize="15"/>-->
-                <TextBlock x:Name="textBlock" x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="10,10,0,0" Foreground="#FF8D8D8D" FontSize="18.667" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-                <ComboBox x:Name="comboBox" Margin="10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="2" BorderBrush="{StaticResource MyerListDark}" RenderTransformOrigin="0.5,0.5">
-                    <ComboBox.RenderTransform>
-                        <CompositeTransform/>
-                    </ComboBox.RenderTransform>
-                    <ComboBoxItem Content="English" Foreground="{StaticResource MyerListBlueLight}"/>
-                    <ComboBoxItem Content="简体中文"  Foreground="{StaticResource MyerListBlueLight}"/>
-                </ComboBox>
-                <TextBlock x:Name="textBlock1" x:Uid="NoticeHint" Text="" TextWrapping="Wrap" Foreground="Black" FontSize="14.667" Margin="10" RenderTransformOrigin="0.5,0.5" >
-                    <TextBlock.RenderTransform>
-                        <CompositeTransform/>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </StackPanel>
-        </ScrollViewer>
 
     </Grid>
 </base:BindablePage>

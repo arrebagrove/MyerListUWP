@@ -40,7 +40,8 @@ namespace MyerListUWP.Helper
             titleBar.ButtonInactiveForegroundColor = Colors.White;
             titleBar.ButtonHoverBackgroundColor = (App.Current.Resources["MyerListBlue"] as SolidColorBrush).Color;
             titleBar.ButtonHoverForegroundColor = Colors.White;
-            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListBlue"] as SolidColorBrush).Color;
+            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListDarkBlue"] as SolidColorBrush).Color;
+            titleBar.ButtonPressedForegroundColor = Colors.White;
         }
 
         public static void SetUpBlackTitleBar()

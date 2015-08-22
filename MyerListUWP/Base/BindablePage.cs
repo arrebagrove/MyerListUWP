@@ -13,9 +13,18 @@ using Windows.UI.Xaml.Navigation;
 
 namespace MyerList.Base
 {
-    public class BindablePage:Page
+    public class BindablePage : Page
     {
         public BindablePage()
+        {
+            SetUpPageAnimation();
+            
+            SetUpNavigationCache();
+
+            IsTextScaleFactorEnabled = false;
+        }
+
+        protected virtual void SetUpPageAnimation()
         {
             TransitionCollection collection = new TransitionCollection();
             NavigationThemeTransition theme = new NavigationThemeTransition();
@@ -24,18 +33,12 @@ namespace MyerList.Base
 
             theme.DefaultNavigationTransitionInfo = info;
             collection.Add(theme);
-            this.Transitions = collection;
-
-            this.IsTextScaleFactorEnabled = false;
-
-            SetUpTitleBar();
-            SetUpStatusBar();
-
-            NavigationCacheMode = NavigationCacheMode.Enabled;
+            Transitions = collection;
         }
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+
+        protected virtual void SetUpNavigationCache()
         {
-            base.OnNavigatingFrom(e);
+            NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         protected virtual void SetUpTitleBar()
@@ -49,6 +52,11 @@ namespace MyerList.Base
             {
                 StatusBarHelper.SetUpBlueStatusBar();
             }
+        }
+
+        protected virtual void SetNavigationBackBtn()
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         protected virtual void RegisterHandleBackLogic()
@@ -111,22 +119,30 @@ namespace MyerList.Base
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var NavigationViewModel = (INavigable)this.DataContext;
-            if (NavigationViewModel != null)
+            if (DataContext is INavigable)
             {
-                NavigationViewModel.Activate(e.Parameter);
+                var NavigationViewModel = (INavigable)DataContext;
+                if (NavigationViewModel != null)
+                {
+                    NavigationViewModel.Activate(e.Parameter);
+                }
             }
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            SetNavigationBackBtn();
+            SetUpTitleBar();
+            SetUpStatusBar();
             RegisterHandleBackLogic();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            var NavigationViewModel = (INavigable)this.DataContext;
-            if (NavigationViewModel != null)
+            if (DataContext is INavigable)
             {
-                NavigationViewModel.Deactivate(null);
+                var NavigationViewModel = (INavigable)DataContext;
+                if (NavigationViewModel != null)
+                {
+                    NavigationViewModel.Deactivate(null);
+                }
             }
             UnRegisterHandleBackLogic();
         }

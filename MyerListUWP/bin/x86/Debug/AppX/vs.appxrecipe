@@ -22,13 +22,13 @@
     <AppXManifest Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-08-21T13:51:07.083</Modified>
+      <Modified>2015-08-22T07:22:27.130</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\AnimatedTextBlock.dll">
       <PackagePath>AnimatedTextBlock.dll</PackagePath>
-      <Modified>2015-08-20T10:48:30.849</Modified>
+      <Modified>2015-08-21T15:49:34.771</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\AnimatedTextBlock\AnimatedTextBlock.xr.xml">
       <PackagePath>AnimatedTextBlock\AnimatedTextBlock.xr.xml</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\about_img.png">
       <PackagePath>Assets\about_img.png</PackagePath>
-      <Modified>2015-07-31T05:44:26.190</Modified>
+      <Modified>2015-08-21T16:21:24.673</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\back.png">
       <PackagePath>Assets\back.png</PackagePath>
@@ -176,7 +176,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\CloudService.dll">
       <PackagePath>CloudService.dll</PackagePath>
-      <Modified>2015-08-20T10:48:29.066</Modified>
+      <Modified>2015-08-21T15:49:33.832</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\CloudService\Properties\CloudService.rd.xml">
       <PackagePath>CloudService\Properties\CloudService.rd.xml</PackagePath>
@@ -188,7 +188,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\entrypoint\MyerListUWP.exe">
       <PackagePath>entrypoint\MyerListUWP.exe</PackagePath>
-      <Modified>2015-08-21T13:51:05.249</Modified>
+      <Modified>2015-08-22T07:22:25.782</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -204,7 +204,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\JP.Utils.dll">
       <PackagePath>JP.Utils.dll</PackagePath>
-      <Modified>2015-08-15T17:57:08.463</Modified>
+      <Modified>2015-08-21T15:49:32.198</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -236,11 +236,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\MyerListUWP.exe">
       <PackagePath>MyerListUWP.exe</PackagePath>
-      <Modified>2015-08-21T13:51:07.082</Modified>
+      <Modified>2015-08-22T07:22:27.129</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\MyerListUWP.xr.xml">
       <PackagePath>MyerListUWP.xr.xml</PackagePath>
-      <Modified>2015-08-21T13:42:55.535</Modified>
+      <Modified>2015-08-22T05:37:06.944</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -248,7 +248,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\NotificationsExtensions.dll">
       <PackagePath>NotificationsExtensions.dll</PackagePath>
-      <Modified>2015-08-15T06:20:19.530</Modified>
+      <Modified>2015-08-21T15:49:32.765</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -256,7 +256,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-08-21T13:51:06.663</Modified>
+      <Modified>2015-08-22T07:22:26.826</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>

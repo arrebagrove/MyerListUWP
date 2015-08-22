@@ -141,9 +141,6 @@
   <data name="AddTitle" xml:space="preserve">
     <value>添加待办事项</value>
   </data>
-  <data name="BackgrdTaskTS.Header" xml:space="preserve">
-    <value>后台任务</value>
-  </data>
   <data name="BackgrdTaskTS.OffContent" xml:space="preserve">
     <value>关</value>
   </data>
@@ -356,5 +353,29 @@
   </data>
   <data name="SettingsTB.Text" xml:space="preserve">
     <value>设置</value>
+  </data>
+  <data name="ThemeTB.Text" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="DefaultCateTB.Text" xml:space="preserve">
+    <value>默认类别</value>
+  </data>
+  <data name="BackgrdTaskTS.Header" xml:space="preserve">
+    <value>后台更新磁贴</value>
+  </data>
+  <data name="HabbitTB.Text" xml:space="preserve">
+    <value>用户习惯</value>
+  </data>
+  <data name="TileTB.Text" xml:space="preserve">
+    <value>动态磁贴</value>
+  </data>
+  <data name="TransparentTS.Header" xml:space="preserve">
+    <value>透明磁贴</value>
+  </data>
+  <data name="TransparentTS.OnContent" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="TransparentTS.OffContent" xml:space="preserve">
+    <value>关</value>
   </data>
 </root>

@@ -156,7 +156,7 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[27];
+            _typeNameTable = new string[29];
             _typeNameTable[0] = "MyerList.ViewModel.ViewModelLocator";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "MyerList.ViewModel.MainViewModel";
@@ -167,25 +167,27 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             _typeNameTable[7] = "MyerList.Converter.CateColorConverter";
             _typeNameTable[8] = "Windows.UI.Text.FontWeight";
             _typeNameTable[9] = "System.ValueType";
-            _typeNameTable[10] = "MyerList.UC.DeleteScheduleControl";
-            _typeNameTable[11] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[12] = "MyerList.UC.ScheduleControl";
-            _typeNameTable[13] = "MyerList.UC.ToastUC";
-            _typeNameTable[14] = "MyerList.AboutPage";
-            _typeNameTable[15] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[10] = "Windows.UI.Color";
+            _typeNameTable[11] = "Byte";
+            _typeNameTable[12] = "MyerList.UC.DeleteScheduleControl";
+            _typeNameTable[13] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[14] = "MyerList.UC.ScheduleControl";
+            _typeNameTable[15] = "MyerList.UC.ToastUC";
             _typeNameTable[16] = "MyerList.Base.BindablePage";
-            _typeNameTable[17] = "MyerList.LoginPage";
-            _typeNameTable[18] = "JP.Utils.Framework.ListViewBaseCommandEx";
-            _typeNameTable[19] = "System.Windows.Input.ICommand";
-            _typeNameTable[20] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[21] = "JP.Utils.UI.AnimatedTextBlock";
-            _typeNameTable[22] = "Windows.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[23] = "String";
-            _typeNameTable[24] = "MyerListUWP.View.NewMainPage";
-            _typeNameTable[25] = "MyerList.SettingPage";
-            _typeNameTable[26] = "MyerList.StartPage";
+            _typeNameTable[17] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[18] = "MyerList.AboutPage";
+            _typeNameTable[19] = "MyerList.LoginPage";
+            _typeNameTable[20] = "JP.Utils.Framework.ListViewBaseCommandEx";
+            _typeNameTable[21] = "System.Windows.Input.ICommand";
+            _typeNameTable[22] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[23] = "JP.Utils.UI.AnimatedTextBlock";
+            _typeNameTable[24] = "Windows.UI.Xaml.Controls.ContentControl";
+            _typeNameTable[25] = "String";
+            _typeNameTable[26] = "MyerListUWP.View.NewMainPage";
+            _typeNameTable[27] = "MyerList.SettingPage";
+            _typeNameTable[28] = "MyerList.StartPage";
 
-            _typeTable = new global::System.Type[27];
+            _typeTable = new global::System.Type[29];
             _typeTable[0] = typeof(global::MyerList.ViewModel.ViewModelLocator);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::MyerList.ViewModel.MainViewModel);
@@ -196,23 +198,25 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             _typeTable[7] = typeof(global::MyerList.Converter.CateColorConverter);
             _typeTable[8] = typeof(global::Windows.UI.Text.FontWeight);
             _typeTable[9] = typeof(global::System.ValueType);
-            _typeTable[10] = typeof(global::MyerList.UC.DeleteScheduleControl);
-            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[12] = typeof(global::MyerList.UC.ScheduleControl);
-            _typeTable[13] = typeof(global::MyerList.UC.ToastUC);
-            _typeTable[14] = typeof(global::MyerList.AboutPage);
-            _typeTable[15] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[10] = typeof(global::Windows.UI.Color);
+            _typeTable[11] = typeof(global::System.Byte);
+            _typeTable[12] = typeof(global::MyerList.UC.DeleteScheduleControl);
+            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[14] = typeof(global::MyerList.UC.ScheduleControl);
+            _typeTable[15] = typeof(global::MyerList.UC.ToastUC);
             _typeTable[16] = typeof(global::MyerList.Base.BindablePage);
-            _typeTable[17] = typeof(global::MyerList.LoginPage);
-            _typeTable[18] = typeof(global::JP.Utils.Framework.ListViewBaseCommandEx);
-            _typeTable[19] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[20] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[21] = typeof(global::JP.Utils.UI.AnimatedTextBlock);
-            _typeTable[22] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
-            _typeTable[23] = typeof(global::System.String);
-            _typeTable[24] = typeof(global::MyerListUWP.View.NewMainPage);
-            _typeTable[25] = typeof(global::MyerList.SettingPage);
-            _typeTable[26] = typeof(global::MyerList.StartPage);
+            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[18] = typeof(global::MyerList.AboutPage);
+            _typeTable[19] = typeof(global::MyerList.LoginPage);
+            _typeTable[20] = typeof(global::JP.Utils.Framework.ListViewBaseCommandEx);
+            _typeTable[21] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[22] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[23] = typeof(global::JP.Utils.UI.AnimatedTextBlock);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
+            _typeTable[25] = typeof(global::System.String);
+            _typeTable[26] = typeof(global::MyerListUWP.View.NewMainPage);
+            _typeTable[27] = typeof(global::MyerList.SettingPage);
+            _typeTable[28] = typeof(global::MyerList.StartPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -253,17 +257,17 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
         private object Activate_5_SettingPageViewModel() { return new global::MyerList.ViewModel.SettingPageViewModel(); }
         private object Activate_6_ShowDoneLineConverter() { return new global::MyerList.Converter.ShowDoneLineConverter(); }
         private object Activate_7_CateColorConverter() { return new global::MyerList.Converter.CateColorConverter(); }
-        private object Activate_10_DeleteScheduleControl() { return new global::MyerList.UC.DeleteScheduleControl(); }
-        private object Activate_12_ScheduleControl() { return new global::MyerList.UC.ScheduleControl(); }
-        private object Activate_13_ToastUC() { return new global::MyerList.UC.ToastUC(); }
-        private object Activate_14_AboutPage() { return new global::MyerList.AboutPage(); }
+        private object Activate_12_DeleteScheduleControl() { return new global::MyerList.UC.DeleteScheduleControl(); }
+        private object Activate_14_ScheduleControl() { return new global::MyerList.UC.ScheduleControl(); }
+        private object Activate_15_ToastUC() { return new global::MyerList.UC.ToastUC(); }
         private object Activate_16_BindablePage() { return new global::MyerList.Base.BindablePage(); }
-        private object Activate_17_LoginPage() { return new global::MyerList.LoginPage(); }
-        private object Activate_18_ListViewBaseCommandEx() { return new global::JP.Utils.Framework.ListViewBaseCommandEx(); }
-        private object Activate_21_AnimatedTextBlock() { return new global::JP.Utils.UI.AnimatedTextBlock(); }
-        private object Activate_24_NewMainPage() { return new global::MyerListUWP.View.NewMainPage(); }
-        private object Activate_25_SettingPage() { return new global::MyerList.SettingPage(); }
-        private object Activate_26_StartPage() { return new global::MyerList.StartPage(); }
+        private object Activate_18_AboutPage() { return new global::MyerList.AboutPage(); }
+        private object Activate_19_LoginPage() { return new global::MyerList.LoginPage(); }
+        private object Activate_20_ListViewBaseCommandEx() { return new global::JP.Utils.Framework.ListViewBaseCommandEx(); }
+        private object Activate_23_AnimatedTextBlock() { return new global::JP.Utils.UI.AnimatedTextBlock(); }
+        private object Activate_26_NewMainPage() { return new global::MyerListUWP.View.NewMainPage(); }
+        private object Activate_27_SettingPage() { return new global::MyerList.SettingPage(); }
+        private object Activate_28_StartPage() { return new global::MyerList.StartPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -337,40 +341,44 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 10:   //  MyerList.UC.DeleteScheduleControl
+            case 10:   //  Windows.UI.Color
+                userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.AddMemberName("A");
+                userType.AddMemberName("B");
+                userType.AddMemberName("G");
+                userType.AddMemberName("R");
+                xamlType = userType;
+                break;
+
+            case 11:   //  Byte
+                userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 12:   //  MyerList.UC.DeleteScheduleControl
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_10_DeleteScheduleControl;
+                userType.Activator = Activate_12_DeleteScheduleControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Windows.UI.Xaml.Controls.UserControl
+            case 13:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  MyerList.UC.ScheduleControl
+            case 14:   //  MyerList.UC.ScheduleControl
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_12_ScheduleControl;
+                userType.Activator = Activate_14_ScheduleControl;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  MyerList.UC.ToastUC
+            case 15:   //  MyerList.UC.ToastUC
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_13_ToastUC;
+                userType.Activator = Activate_15_ToastUC;
                 userType.SetIsLocalType();
                 xamlType = userType;
-                break;
-
-            case 14:   //  MyerList.AboutPage
-                userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_AboutPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 15:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 16:   //  MyerList.Base.BindablePage
@@ -380,64 +388,75 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  MyerList.LoginPage
+            case 17:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 18:   //  MyerList.AboutPage
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
-                userType.Activator = Activate_17_LoginPage;
+                userType.Activator = Activate_18_AboutPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  JP.Utils.Framework.ListViewBaseCommandEx
+            case 19:   //  MyerList.LoginPage
+                userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
+                userType.Activator = Activate_19_LoginPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 20:   //  JP.Utils.Framework.ListViewBaseCommandEx
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_18_ListViewBaseCommandEx;
+                userType.Activator = Activate_20_ListViewBaseCommandEx;
                 userType.AddMemberName("ItemClickCommand");
                 userType.AddMemberName("ItemClickCommandParameter");
                 xamlType = userType;
                 break;
 
-            case 19:   //  System.Windows.Input.ICommand
+            case 21:   //  System.Windows.Input.ICommand
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 20:   //  Windows.UI.Xaml.DependencyObject
+            case 22:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 21:   //  JP.Utils.UI.AnimatedTextBlock
+            case 23:   //  JP.Utils.UI.AnimatedTextBlock
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.ContentControl"));
-                userType.Activator = Activate_21_AnimatedTextBlock;
+                userType.Activator = Activate_23_AnimatedTextBlock;
                 userType.AddMemberName("TextContent");
                 xamlType = userType;
                 break;
 
-            case 22:   //  Windows.UI.Xaml.Controls.ContentControl
+            case 24:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  String
+            case 25:   //  String
                 xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 24:   //  MyerListUWP.View.NewMainPage
+            case 26:   //  MyerListUWP.View.NewMainPage
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
-                userType.Activator = Activate_24_NewMainPage;
+                userType.Activator = Activate_26_NewMainPage;
                 userType.AddMemberName("MainVM");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 25:   //  MyerList.SettingPage
+            case 27:   //  MyerList.SettingPage
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
-                userType.Activator = Activate_25_SettingPage;
+                userType.Activator = Activate_27_SettingPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 26:   //  MyerList.StartPage
+            case 28:   //  MyerList.StartPage
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
-                userType.Activator = Activate_26_StartPage;
+                userType.Activator = Activate_28_StartPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -510,33 +529,73 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             var that = (global::MyerList.ViewModel.ViewModelLocator)instance;
             return that.SettingVM;
         }
-        private object get_2_ListViewBaseCommandEx_ItemClickCommand(object instance)
+        private object get_2_Color_A(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.A;
+        }
+        private void set_2_Color_A(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.A = (global::System.Byte)Value;
+        }
+        private object get_3_Color_B(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.B;
+        }
+        private void set_3_Color_B(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.B = (global::System.Byte)Value;
+        }
+        private object get_4_Color_G(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.G;
+        }
+        private void set_4_Color_G(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.G = (global::System.Byte)Value;
+        }
+        private object get_5_Color_R(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.R;
+        }
+        private void set_5_Color_R(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.R = (global::System.Byte)Value;
+        }
+        private object get_6_ListViewBaseCommandEx_ItemClickCommand(object instance)
         {
             return global::JP.Utils.Framework.ListViewBaseCommandEx.GetItemClickCommand((global::Windows.UI.Xaml.DependencyObject)instance);
         }
-        private void set_2_ListViewBaseCommandEx_ItemClickCommand(object instance, object Value)
+        private void set_6_ListViewBaseCommandEx_ItemClickCommand(object instance, object Value)
         {
             global::JP.Utils.Framework.ListViewBaseCommandEx.SetItemClickCommand((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Windows.Input.ICommand)Value);
         }
-        private object get_3_ListViewBaseCommandEx_ItemClickCommandParameter(object instance)
+        private object get_7_ListViewBaseCommandEx_ItemClickCommandParameter(object instance)
         {
             return global::JP.Utils.Framework.ListViewBaseCommandEx.GetItemClickCommandParameter((global::Windows.UI.Xaml.DependencyObject)instance);
         }
-        private void set_3_ListViewBaseCommandEx_ItemClickCommandParameter(object instance, object Value)
+        private void set_7_ListViewBaseCommandEx_ItemClickCommandParameter(object instance, object Value)
         {
             global::JP.Utils.Framework.ListViewBaseCommandEx.SetItemClickCommandParameter((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Object)Value);
         }
-        private object get_4_AnimatedTextBlock_TextContent(object instance)
+        private object get_8_AnimatedTextBlock_TextContent(object instance)
         {
             var that = (global::JP.Utils.UI.AnimatedTextBlock)instance;
             return that.TextContent;
         }
-        private void set_4_AnimatedTextBlock_TextContent(object instance, object Value)
+        private void set_8_AnimatedTextBlock_TextContent(object instance, object Value)
         {
             var that = (global::JP.Utils.UI.AnimatedTextBlock)instance;
             that.TextContent = (global::System.String)Value;
         }
-        private object get_5_NewMainPage_MainVM(object instance)
+        private object get_9_NewMainPage_MainVM(object instance)
         {
             var that = (global::MyerListUWP.View.NewMainPage)instance;
             return that.MainVM;
@@ -561,33 +620,57 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
                 xamlMember.Getter = get_1_ViewModelLocator_SettingVM;
                 xamlMember.SetIsReadOnly();
                 break;
+            case "Windows.UI.Color.A":
+                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "A", "Byte");
+                xamlMember.Getter = get_2_Color_A;
+                xamlMember.Setter = set_2_Color_A;
+                break;
+            case "Windows.UI.Color.B":
+                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "B", "Byte");
+                xamlMember.Getter = get_3_Color_B;
+                xamlMember.Setter = set_3_Color_B;
+                break;
+            case "Windows.UI.Color.G":
+                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "G", "Byte");
+                xamlMember.Getter = get_4_Color_G;
+                xamlMember.Setter = set_4_Color_G;
+                break;
+            case "Windows.UI.Color.R":
+                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "R", "Byte");
+                xamlMember.Getter = get_5_Color_R;
+                xamlMember.Setter = set_5_Color_R;
+                break;
             case "JP.Utils.Framework.ListViewBaseCommandEx.ItemClickCommand":
                 userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JP.Utils.Framework.ListViewBaseCommandEx");
                 xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "ItemClickCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_2_ListViewBaseCommandEx_ItemClickCommand;
-                xamlMember.Setter = set_2_ListViewBaseCommandEx_ItemClickCommand;
+                xamlMember.Getter = get_6_ListViewBaseCommandEx_ItemClickCommand;
+                xamlMember.Setter = set_6_ListViewBaseCommandEx_ItemClickCommand;
                 break;
             case "JP.Utils.Framework.ListViewBaseCommandEx.ItemClickCommandParameter":
                 userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JP.Utils.Framework.ListViewBaseCommandEx");
                 xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "ItemClickCommandParameter", "Object");
                 xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
                 xamlMember.SetIsAttachable();
-                xamlMember.Getter = get_3_ListViewBaseCommandEx_ItemClickCommandParameter;
-                xamlMember.Setter = set_3_ListViewBaseCommandEx_ItemClickCommandParameter;
+                xamlMember.Getter = get_7_ListViewBaseCommandEx_ItemClickCommandParameter;
+                xamlMember.Setter = set_7_ListViewBaseCommandEx_ItemClickCommandParameter;
                 break;
             case "JP.Utils.UI.AnimatedTextBlock.TextContent":
                 userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("JP.Utils.UI.AnimatedTextBlock");
                 xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "TextContent", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_AnimatedTextBlock_TextContent;
-                xamlMember.Setter = set_4_AnimatedTextBlock_TextContent;
+                xamlMember.Getter = get_8_AnimatedTextBlock_TextContent;
+                xamlMember.Setter = set_8_AnimatedTextBlock_TextContent;
                 break;
             case "MyerListUWP.View.NewMainPage.MainVM":
                 userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyerListUWP.View.NewMainPage");
                 xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "MainVM", "MyerList.ViewModel.MainViewModel");
-                xamlMember.Getter = get_5_NewMainPage_MainVM;
+                xamlMember.Getter = get_9_NewMainPage_MainVM;
                 xamlMember.SetIsReadOnly();
                 break;
             }

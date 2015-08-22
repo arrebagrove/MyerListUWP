@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -36,6 +37,18 @@ namespace MyerList
         public SettingPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void SetUpPageAnimation()
+        {
+            TransitionCollection collection = new TransitionCollection();
+            NavigationThemeTransition theme = new NavigationThemeTransition();
+
+            var info = new ContinuumNavigationTransitionInfo();
+
+            theme.DefaultNavigationTransitionInfo = info;
+            collection.Add(theme);
+            this.Transitions = collection;
         }
     }
 }

@@ -100,7 +100,7 @@
 
                 <TextBox Style="{StaticResource TextBoxStyle}" x:Uid="Emailbox"  InputScope="EmailSmtpAddress" Margin="10,30,10,0" Text="{x:Bind LoginVM.TempEmail, Mode=TwoWay}"  TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="2" PlaceholderText="Email" BorderBrush="{x:Null}" BorderThickness="2" Background="White" Padding="10,3,10,5"/>
                 <PasswordBox x:Uid="PasswordBox" Margin="10,20,10,0" Password="{x:Bind LoginVM.InputPassword, Mode=TwoWay}" VerticalAlignment="Center" Grid.Row="3" PlaceholderText="Password" BorderBrush="{x:Null}" BorderThickness="2" Background="White"/>
-                <PasswordBox x:Uid="ConfirmBox" Visibility="{x:Bind LoginVM.ShowRegister}" Margin="10,20,10,0" Password="{x:Bind LoginVM.ConfirmPassword, Mode=TwoWay}" VerticalAlignment="Center" Grid.Row="4" PlaceholderText="Confirm Password" BorderBrush="{x:Null}" BorderThickness="2" Background="{x:Null}"/>
+                <PasswordBox x:Uid="ConfirmBox" Visibility="{x:Bind LoginVM.ShowRegister,Mode=OneWay}" Margin="10,20,10,0" Password="{x:Bind LoginVM.ConfirmPassword, Mode=TwoWay}" VerticalAlignment="Center" Grid.Row="4" PlaceholderText="Confirm Password" BorderBrush="{x:Null}" BorderThickness="2" Background="{x:Null}"/>
                 <Button Height="40" 
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Top" 
@@ -111,7 +111,7 @@
                         Command="{x:Bind LoginVM.NextCommand}"
                         Style="{StaticResource MyerListButtonStyle}">
                     <Border Background="{StaticResource MyerListBlueLight}">
-                        <TextBlock Text="{x:Bind LoginVM.BtnContent}" Foreground="{StaticResource MyerListGray}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="{x:Bind LoginVM.BtnContent,Mode=OneWay}" Foreground="{StaticResource MyerListGray}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                     
                 </Button>
@@ -126,14 +126,14 @@
                 </Border>
             </HyperlinkButton>
         </Grid>
-        <Grid x:Name="grid1" d:IsHidden="True"  Visibility="{x:Bind LoginVM.IsLoading}" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" >
+        <Grid x:Name="grid1"  Visibility="{x:Bind LoginVM.IsLoading,Mode=OneWay}" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" >
             <Grid.RenderTransform>
                 <CompositeTransform/>
             </Grid.RenderTransform>
             <Border Background="Black" Opacity="0.7"/>
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                 <ProgressRing IsActive="True" Width="50" Foreground="{StaticResource MyerListLight}" Height="50" Background="{x:Null}" />
-                <TextBlock x:Uid="LoadingTB" Text="Loading" TextAlignment="Center" FontSize="40"/>
+                <TextBlock x:Uid="LoadingTB" Text="Loading" TextAlignment="Center" FontSize="26.667" Foreground="White"/>
             </StackPanel>
 
         </Grid>

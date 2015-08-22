@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using MyerList.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ using Windows.System;
 
 namespace MyerList.ViewModel
 {
-    public class AboutViewModel:ViewModelBase
+    public class AboutViewModel:ViewModelBase,INavigable
     {
         /// <summary>
         /// Rate
@@ -37,6 +38,14 @@ namespace MyerList.ViewModel
         public AboutViewModel()
         {
 
+        }
+
+        public void Activate(object param)
+        {
+        }
+
+        public void Deactivate(object param)
+        {
         }
     }
 }

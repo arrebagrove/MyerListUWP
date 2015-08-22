@@ -135,9 +135,6 @@
   <data name="AddTitle" xml:space="preserve">
     <value>ADD A MEMO</value>
   </data>
-  <data name="BackgrdTaskTS.Header" xml:space="preserve">
-    <value>Enable Background task</value>
-  </data>
   <data name="BackgrdTaskTS.OffContent" xml:space="preserve">
     <value>OFF</value>
   </data>
@@ -356,5 +353,29 @@
   </data>
   <data name="SettingsTB.Text" xml:space="preserve">
     <value>SETTINGS</value>
+  </data>
+  <data name="ThemeTB.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="DefaultCateTB.Text" xml:space="preserve">
+    <value>Default Category</value>
+  </data>
+  <data name="BackgrdTaskTS.Header" xml:space="preserve">
+    <value>Background Task</value>
+  </data>
+  <data name="HabbitTB.Text" xml:space="preserve">
+    <value>UserHabbit</value>
+  </data>
+  <data name="TileTB.Text" xml:space="preserve">
+    <value>Live Tile</value>
+  </data>
+  <data name="TransparentTS.Header" xml:space="preserve">
+    <value>Transparent Tile</value>
+  </data>
+  <data name="TransparentTS.OnContent" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="TransparentTS.OffContent" xml:space="preserve">
+    <value>OFF</value>
   </data>
 </root>
