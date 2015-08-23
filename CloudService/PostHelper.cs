@@ -280,15 +280,17 @@ namespace MyerList.Helper
         /// </summary>
         /// <param name="id">日程ID</param>
         /// <param name="content">更新后的内容</param>
+        /// <param name="cate">类别</param>
         /// <returns>成功返回True</returns>
-        public async static Task<bool> UpdateContent(string id, string content)
+        public async static Task<bool> UpdateContent(string id, string content,int cate=0)
         {
             try
             {
                 var param = new Dictionary<string, string>()
                 {
                     {"content",content},
-                    {"id",id}
+                    {"id",id},
+                    {"cate",cate.ToString() }
                 };
 
                 HttpClient client = new HttpClient();

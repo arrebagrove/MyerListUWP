@@ -73,7 +73,7 @@ namespace MyerList.ViewModel
 
                     Frame rootFrame = Window.Current.Content as Frame;
                     Task.Delay(50);
-                    rootFrame.Navigate(typeof(NewMainPage),LoginMode.OfflineMode);
+                    rootFrame.Navigate(typeof(MainPage),LoginMode.OfflineMode);
                 });
             }
         }

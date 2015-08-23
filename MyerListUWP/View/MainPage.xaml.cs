@@ -54,31 +54,31 @@ namespace MyerListUWP.View
                 ToastControl.ShowMessage(msg.Content);
             });
 
-            Messenger.Default.Register<GenericMessage<string>>(this, "AddScheduleUI", msg =>
-            {
-                AddGrid.Visibility = Visibility.Visible;
-                AddStory.Begin();
-                AddContentBox.Focus(FocusState.Programmatic);
-            });
-            Messenger.Default.Register<GenericMessage<string>>(this, "RemoveScheduleUI", msg =>
+            //Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.AddScheduleUI, msg =>
+            //{
+            //    AddGrid.Visibility = Visibility.Visible;
+            //    AddStory.Begin();
+            //    AddContentBox.Focus(FocusState.Programmatic);
+            //});
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.RemoveScheduleUI, msg =>
             {
                 if (AddGrid.Visibility == Visibility.Visible)
                 {
                     RemoveStory.Begin();
                 }
             });
-            Messenger.Default.Register<GenericMessage<string>>(this, "Modify", msg =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.ShowModifyUI, msg =>
             {
                 AddGrid.Visibility = Visibility.Visible;
                 AddStory.Begin();
             });
-            Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, "UpdateTile", async schedules =>
+            Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, MessengerToken.UpdateTile, async schedules =>
             {
-                //if (LocalSettingHelper.GetValue("EnableTile") == "false")
-                //{
-                //    UpdateTileHelper.ClearAllSchedules();
-                //    return;
-                //}
+                if (LocalSettingHelper.GetValue("EnableTile") == "false")
+                {
+                    UpdateTileHelper.ClearAllSchedules();
+                    return;
+                }
 
                 //if (LocalSettingHelper.GetValue("EnableBackgroundTask") == "true")
                 //{
@@ -94,8 +94,25 @@ namespace MyerListUWP.View
 
             RemoveStory.Completed += ((senderc, ec) =>
               {
+                  _isAddIn = false;
                   AddGrid.Visibility = Visibility.Collapsed;
+                  SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
               });
+
+            AddStory.Completed += ((sendera, ea) =>
+              {
+                  _isAddIn = true;
+                  SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+              });
+
+            this.KeyDown += ((sender,e)=>
+            {
+                if (_isAddIn && e.Key==Windows.System.VirtualKey.Enter && e.KeyStatus.RepeatCount==1)
+                {
+                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.EnterToAdd);
+                    RemoveStory.Begin();
+                }
+            });
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
@@ -104,7 +121,12 @@ namespace MyerListUWP.View
             AddGrid.Visibility = Visibility.Visible;
             AddStory.Begin();
             AddContentBox.Focus(FocusState.Programmatic);
+
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
+
+
+        #region Hamburger
 
         private void HamClick(object sender, RoutedEventArgs e)
         {
@@ -119,6 +141,10 @@ namespace MyerListUWP.View
                 HamOutStory.Begin();
             }
         }
+        private void Grid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
+        {
+            _oriX = e.Position.X;
+        }
 
         private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
@@ -129,10 +155,7 @@ namespace MyerListUWP.View
             }
         }
 
-        private void Grid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
-        {
-            _oriX = e.Position.X;
-        }
+        #endregion
 
         #region UPDATE TILE
         private async Task UpdateCustomeTile(ObservableCollection<ToDo> schedules)
@@ -280,7 +303,6 @@ namespace MyerListUWP.View
 
         private void HandleBackLogic()
         {
-
             if (_isAddIn)
             {
                 RemoveStory.Begin();

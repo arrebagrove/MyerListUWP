@@ -17,6 +17,7 @@
     <RootPropertyPathName Name="DeleteCommand" />
     <RootPropertyPathName Name="IsDone" />
     <RootPropertyPathName Name="Category" />
+    <RootPropertyPathName Name="NewToDo" />
     <RootPropertyPathName Name="SettingVM" />
     <RootPropertyPathName Name="EnableBackgroundTask" />
   </Roots.PropertyPathNames>
@@ -293,6 +294,7 @@
       <RootProperty Name="Mode" />
       <RootProperty Name="Source" />
       <RootProperty Name="Converter" />
+      <RootProperty Name="UpdateSourceTrigger" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.RelativeSource">
       <RootProperty Name="Mode" />
@@ -564,7 +566,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontWeight" />
     </RootType>
-    <RootType FullName="MyerListUWP.View.NewMainPage" />
+    <RootType FullName="MyerListUWP.View.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Margin" />
       <RootProperty Name="SelectedIndex" />

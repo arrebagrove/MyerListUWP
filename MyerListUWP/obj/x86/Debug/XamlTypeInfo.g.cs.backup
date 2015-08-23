@@ -183,7 +183,7 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             _typeNameTable[23] = "JP.Utils.UI.AnimatedTextBlock";
             _typeNameTable[24] = "Windows.UI.Xaml.Controls.ContentControl";
             _typeNameTable[25] = "String";
-            _typeNameTable[26] = "MyerListUWP.View.NewMainPage";
+            _typeNameTable[26] = "MyerListUWP.View.MainPage";
             _typeNameTable[27] = "MyerList.SettingPage";
             _typeNameTable[28] = "MyerList.StartPage";
 
@@ -214,7 +214,7 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             _typeTable[23] = typeof(global::JP.Utils.UI.AnimatedTextBlock);
             _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
             _typeTable[25] = typeof(global::System.String);
-            _typeTable[26] = typeof(global::MyerListUWP.View.NewMainPage);
+            _typeTable[26] = typeof(global::MyerListUWP.View.MainPage);
             _typeTable[27] = typeof(global::MyerList.SettingPage);
             _typeTable[28] = typeof(global::MyerList.StartPage);
         }
@@ -265,7 +265,7 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
         private object Activate_19_LoginPage() { return new global::MyerList.LoginPage(); }
         private object Activate_20_ListViewBaseCommandEx() { return new global::JP.Utils.Framework.ListViewBaseCommandEx(); }
         private object Activate_23_AnimatedTextBlock() { return new global::JP.Utils.UI.AnimatedTextBlock(); }
-        private object Activate_26_NewMainPage() { return new global::MyerListUWP.View.NewMainPage(); }
+        private object Activate_26_MainPage() { return new global::MyerListUWP.View.MainPage(); }
         private object Activate_27_SettingPage() { return new global::MyerList.SettingPage(); }
         private object Activate_28_StartPage() { return new global::MyerList.StartPage(); }
 
@@ -439,9 +439,9 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
                 xamlType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 26:   //  MyerListUWP.View.NewMainPage
+            case 26:   //  MyerListUWP.View.MainPage
                 userType = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("MyerList.Base.BindablePage"));
-                userType.Activator = Activate_26_NewMainPage;
+                userType.Activator = Activate_26_MainPage;
                 userType.AddMemberName("MainVM");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -595,9 +595,9 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
             var that = (global::JP.Utils.UI.AnimatedTextBlock)instance;
             that.TextContent = (global::System.String)Value;
         }
-        private object get_9_NewMainPage_MainVM(object instance)
+        private object get_9_MainPage_MainVM(object instance)
         {
-            var that = (global::MyerListUWP.View.NewMainPage)instance;
+            var that = (global::MyerListUWP.View.MainPage)instance;
             return that.MainVM;
         }
 
@@ -667,10 +667,10 @@ namespace MyerListUWP.MyerListUWP_XamlTypeInfo
                 xamlMember.Getter = get_8_AnimatedTextBlock_TextContent;
                 xamlMember.Setter = set_8_AnimatedTextBlock_TextContent;
                 break;
-            case "MyerListUWP.View.NewMainPage.MainVM":
-                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyerListUWP.View.NewMainPage");
+            case "MyerListUWP.View.MainPage.MainVM":
+                userType = (global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MyerListUWP.View.MainPage");
                 xamlMember = new global::MyerListUWP.MyerListUWP_XamlTypeInfo.XamlMember(this, "MainVM", "MyerList.ViewModel.MainViewModel");
-                xamlMember.Getter = get_9_NewMainPage_MainVM;
+                xamlMember.Getter = get_9_MainPage_MainVM;
                 xamlMember.SetIsReadOnly();
                 break;
             }

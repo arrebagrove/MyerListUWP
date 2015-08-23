@@ -113,6 +113,7 @@
     <Compile Include="Converter\IsInReorderConverter.cs" />
     <Compile Include="Converter\ShowDoneLineConverter.cs" />
     <Compile Include="Helper\ApiInformationHelper.cs" />
+    <Compile Include="Helper\CategoryHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\MessengerExt.cs" />
     <Compile Include="Helper\MessengerToken.cs" />

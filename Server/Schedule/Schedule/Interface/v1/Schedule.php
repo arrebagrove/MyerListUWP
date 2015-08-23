@@ -12,6 +12,7 @@ do
 			$time=$_POST['time'];
 			$content=$_POST['content'];
 			$isdone=$_POST['isdone'];  // 0 for undone, 1 for done
+			$cate=$_POST['cate'];
 
 			if($sid=='' || $time=='' || $content=='' || $isdone=='')
 			{
@@ -71,7 +72,10 @@ do
 
 			$id=$_POST['id'];
 			$content=$_POST['content'];
-
+			$cate=$_POST['cate'];
+			
+			if($cate=='') $cate=0;  
+			
 			if($id=='' || $content=='')
 			{
 				$ApiResult['isSuccessed']=false;
@@ -103,9 +107,10 @@ do
 			}
 
 
-			$queryUpdate=$pdo->prepare('UPDATE schedule SET content=:content WHERE id=:id');
+			$queryUpdate=$pdo->prepare('UPDATE schedule SET content=:content AND cate=:cate WHERE id=:id');
 			$queryUpdate->bindParam(':id',$id,PDO::PARAM_INT);
 			$queryUpdate->bindParam(':content',$content,PDO::PARAM_STR);
+			$queryUpdate->bindParam(':cate',$cate,PDO::PARAM_INT);
 			
 			$resultUpdate=$queryUpdate->execute();
 			if($resultUpdate)

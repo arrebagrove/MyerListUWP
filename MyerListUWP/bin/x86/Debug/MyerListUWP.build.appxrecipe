@@ -45,6 +45,9 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\CLIP_WHITE.png">
       <PackagePath>Assets\CLIP_WHITE.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Font\fzltxh.TTF">
+      <PackagePath>Assets\Font\fzltxh.TTF</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Icon\Account.png">
       <PackagePath>Assets\Icon\Account.png</PackagePath>
     </AppxPackagedFile>

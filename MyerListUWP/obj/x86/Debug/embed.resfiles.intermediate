@@ -7,6 +7,6 @@ UserControl\ScheduleControl.xbf
 UserControl\ToastUC.xbf
 View\AboutPage.xbf
 View\LoginPage.xbf
-View\NewMainPage.xbf
+View\MainPage.xbf
 View\SettingPage.xbf
 View\StartPage.xbf

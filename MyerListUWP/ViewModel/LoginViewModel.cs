@@ -197,7 +197,7 @@ namespace MyerList.ViewModel
                                 if(isLogin)
                                 {
                                     Frame rootframe = Window.Current.Content as Frame;
-                                    if (rootframe != null) rootframe.Navigate(typeof(NewMainPage), LoginMode.Login);
+                                    if (rootframe != null) rootframe.Navigate(typeof(MainPage), LoginMode.Login);
                                 }
                             }
                         }
@@ -208,7 +208,7 @@ namespace MyerList.ViewModel
                             if (isLoginSuccessfylly)
                             {
                                 Frame rootframe = Window.Current.Content as Frame;
-                                if (rootframe != null) rootframe.Navigate(typeof(NewMainPage),LoginMode.Login);
+                                if (rootframe != null) rootframe.Navigate(typeof(MainPage),LoginMode.Login);
                             }
                         }
                     }

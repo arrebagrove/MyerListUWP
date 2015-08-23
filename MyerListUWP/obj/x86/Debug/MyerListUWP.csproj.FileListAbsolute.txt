@@ -8,7 +8,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\UserControl\ScheduleControl.xb
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\UserControl\ToastUC.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\AboutPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\LoginPage.xbf
-D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\NewMainPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\SettingPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\StartPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\MyerListUWP.xr.xml
@@ -317,8 +316,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\AboutPage.g.i.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\AboutPage.g.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\LoginPage.g.i.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\LoginPage.g.cs
-D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\NewMainPage.g.i.cs
-D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\NewMainPage.g.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\SettingPage.g.i.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\SettingPage.g.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\StartPage.g.i.cs
@@ -333,7 +330,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\ScheduleControl.xa
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\ToastUC.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\AboutPage.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\LoginPage.xaml
-D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\NewMainPage.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\SettingPage.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\StartPage.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\App.xbf
@@ -345,7 +341,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\ScheduleControl.xb
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\ToastUC.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\AboutPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\LoginPage.xbf
-D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\NewMainPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\SettingPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\StartPage.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\XamlSaveStateFile.xml
@@ -582,3 +577,9 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\MyerListUWP.xr.xml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\AnimatedTextBlock\AnimatedTextBlock.xr.xml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\WinMetadata\Windows.winmd
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\Core\resources.pri
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\MainPage.g.i.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\MainPage.g.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\MainPage.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\MainPage.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\MainPage.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Font\fzltxh.TTF

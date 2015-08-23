@@ -12,7 +12,6 @@
     DataContext="{Binding MainVM,Source={StaticResource Locator}}"
     mc:Ignorable="d">
     <base:BindablePage.Resources>
-
         <Storyboard x:Name="AddStory">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddGrid">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
@@ -187,7 +186,6 @@
             </DoubleAnimationUsingKeyFrames>
             <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
         </Storyboard>
-       
     </base:BindablePage.Resources>
 
     <Grid Background="White" >
@@ -222,7 +220,6 @@
                     </Grid>
                 </Button>
                 <cc:AnimatedTextBlock TextContent="{x:Bind MainVM.Title,Mode=OneWay}" Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                <!--<TextBlock Text="{x:Bind MainVM.Title,Mode=OneWay}" Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>-->
                 <ProgressRing Visibility="{x:Bind MainVM.IsLoading,Mode=OneWay}" IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
                     <Button Command="{x:Bind MainVM.SelectToDoCommand}" Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
@@ -244,23 +241,18 @@
         <Grid x:Name="TileGrid" Grid.Row="1">
             <Grid x:Name="WideGrid"  HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="310" Grid.RowSpan="2" >
                 <Border x:Name="backgrd1" BorderThickness="0" Background="#FF47A5DD"/>
-                <StackPanel Orientation="Vertical" Margin="2,20,10,7" VerticalAlignment="Top" Opacity="0.7">
-                    <TextBlock x:Name="Text0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,10,0,0" FontSize="17.333" Foreground="White" Text="文本Text" FontFamily="Microsoft YaHei UI"/>
-                    <TextBlock x:Name="Text1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="17.333" Foreground="White" Text="文本Text" FontFamily="Microsoft YaHei UI"/>
-                    <TextBlock x:Name="Text2" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="17.333" Foreground="White" Text="文本Text" FontFamily="Microsoft YaHei UI"/>
-                    <TextBlock x:Name="Text3" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="17.333" Foreground="White" Text="文本Text" FontFamily="Microsoft YaHei UI"/>
-
+                <StackPanel Orientation="Vertical" Margin="2,25,10,7" VerticalAlignment="Top" Opacity="0.8">
+                    <TextBlock x:Name="Text0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
+                    <TextBlock x:Name="Text1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
+                    <TextBlock x:Name="Text2" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
+                    <TextBlock x:Name="Text3" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,50,0" FontSize="18.667" Foreground="White" Text="文本Text" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10,5,4,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock x:Name="Count1_Copy" TextWrapping="Wrap" Text="TO-DO" FontSize="18.667"  TextAlignment="Right" Foreground="White" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontWeight="SemiBold" d:LayoutOverrides="TopPosition, BottomPosition"/>
-
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,10,5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-
+                <StackPanel Orientation="Horizontal" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <Image Source="ms-appx:///Assets/WHITE_500.png" Height="31" Width="20"/>
-
-                    <TextBlock x:Name="Count1" TextWrapping="Wrap" Text="3" FontSize="26.667"  TextAlignment="Right" Foreground="White" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Bottom" FontWeight="SemiBold"/>
-
+                    <TextBlock x:Name="Count1" TextWrapping="Wrap" Text="3" FontSize="29.333"  TextAlignment="Right" Foreground="White" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold"/>
                 </StackPanel>
             </Grid>
             <Grid x:Name="MediumGrid"  HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150" d:IsHidden="True" >
@@ -271,10 +263,9 @@
                 <TextBlock x:Name="Count2" TextWrapping="Wrap" Text="10" FontSize="33.333" FontWeight="Bold" TextAlignment="Right" Foreground="White" Margin="0,0,5,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Microsoft YaHei" Height="45"/>
                 <StackPanel Orientation="Vertical">
                     <TextBlock x:Name="Text00" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,10,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:Name="Text01" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:Name="Text02" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:Name="Text03" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-
+                    <TextBlock x:Name="Text01" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
+                    <TextBlock x:Name="Text02" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
+                    <TextBlock x:Name="Text03" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
                 </StackPanel>
             </Grid>
             <Grid x:Name="SmallGrid"  HorizontalAlignment="Center" Height="71" VerticalAlignment="Center" Width="71" Margin="50,215" d:IsHidden="True" >
@@ -352,7 +343,7 @@
             </Grid.RenderTransform>
             <StackPanel MaxWidth="450" VerticalAlignment="Bottom" Margin="0,0,0,10">
                 <TextBlock Text="{x:Bind MainVM.ModeTitle,Mode=OneWay}" Foreground="White" FontSize="26.667" FontWeight="Bold" Margin="10,0,0,0" FontFamily="Microsoft YaHei"/>
-                <TextBox x:Name="AddContentBox" Text="{x:Bind MainVM.NewToDo.Content,Mode=TwoWay}" PlaceholderText="例如：晚上跟好基友吃饭" Margin="10,10,10,0" BorderBrush="#FF5CB1E4" Style="{StaticResource TextBoxStyle}"/>
+                <TextBox x:Name="AddContentBox" Text="{Binding NewToDo.Content,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PlaceholderText="例如：晚上跟好基友吃饭" Margin="10,10,10,0" BorderBrush="#FF5CB1E4" Style="{StaticResource TextBoxStyle}"/>
                 <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
                     <Button Command="{x:Bind MainVM.OkCommand}" Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}">
                         <Grid Width="100" Height="35" Background="#FF81CBF7" BorderBrush="#FF81CBF7" BorderThickness="2">

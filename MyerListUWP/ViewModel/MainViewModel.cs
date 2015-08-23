@@ -348,7 +348,7 @@ namespace MyerList.ViewModel
                 }
                 return _cancelCommand = new RelayCommand(() =>
                 {
-                    Messenger.Default.Send(new GenericMessage<string>(""), "RemoveScheduleUI");
+                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.RemoveScheduleUI);
                     NewToDo = new ToDo();
                 });
             }
@@ -472,7 +472,7 @@ namespace MyerList.ViewModel
                         this.NewToDo.Content = scheduleToModify.Content;
 
 
-                        Messenger.Default.Send(new GenericMessage<string>(""), "Modify");
+                        Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.ShowModifyUI);
 
                         ModeTitle = ResourcesHelper.GetString("ModifyTitle");
 
@@ -714,17 +714,11 @@ namespace MyerList.ViewModel
             DeleteIconAlpha = 0.3;
             Title = ResourcesHelper.GetString("ToDoPivotItem");
 
-            //清除当前的ToDo 
-            Messenger.Default.Register<GenericMessage<string>>(this, "ClearNote", act =>
-            {
-                this.NewToDo = new ToDo();
-            });
             //按下Enter后
-            Messenger.Default.Register<GenericMessage<string>>(this, "PressEnter", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.EnterToAdd, act =>
             {
-                if (!string.IsNullOrEmpty(act.Content))
+                if (!string.IsNullOrEmpty(NewToDo.Content))
                 {
-                    NewToDo.Content = act.Content;
                     OkCommand.Execute(null);
                 }
             });
@@ -767,7 +761,7 @@ namespace MyerList.ViewModel
 
                     if (_addMode != AddMode.None)
                     {
-                        Messenger.Default.Send(new GenericMessage<string>(""), "RemoveScheduleUI");
+                        Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.RemoveScheduleUI);
                     }
 
                     //添加
@@ -807,12 +801,11 @@ namespace MyerList.ViewModel
                 }
                 await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, SerializerFileNames.ToDoFileName);
 
-                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
 
                 NewToDo = new ToDo();
 
                 IsLoading = Visibility.Collapsed;
-
 
             }
             else if (App.isNoNetwork)
@@ -840,7 +833,7 @@ namespace MyerList.ViewModel
 
                     NewToDo = new ToDo();
 
-                    Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                    Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
 
                     IsLoading = Visibility.Collapsed;
 
@@ -885,7 +878,7 @@ namespace MyerList.ViewModel
                     await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
                 }
 
-                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
 
             }
             catch (Exception e)
@@ -919,10 +912,10 @@ namespace MyerList.ViewModel
                     {
                         await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
 
-                        Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                        Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
                     }
                 }
-                else Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                else Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
             }
             catch (Exception e)
             {
@@ -983,7 +976,7 @@ namespace MyerList.ViewModel
                 }
 
                 //最后更新动态磁贴
-                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
             }
             catch (Exception e)
             {
@@ -1019,11 +1012,11 @@ namespace MyerList.ViewModel
 
                 await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
 
-                Messenger.Default.Send(new GenericMessage<string>(""), "RemoveScheduleUI");
+                Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.RemoveScheduleUI);
 
                 NewToDo = new ToDo();
 
-                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
 
                 return;
 
@@ -1031,7 +1024,7 @@ namespace MyerList.ViewModel
             //非离线模式
             else
             {
-                var resultUpdate = await PostHelper.UpdateContent(this.NewToDo.ID, this.NewToDo.Content);
+                var resultUpdate = await PostHelper.UpdateContent(NewToDo.ID, NewToDo.Content,NewToDo.Category);
                 if (resultUpdate)
                 {
                     MyToDos.ToList().Find(sche =>
@@ -1040,10 +1033,10 @@ namespace MyerList.ViewModel
                         else return false;
                     }).Content = NewToDo.Content;
 
-                    Messenger.Default.Send(new GenericMessage<string>(""), "RemoveScheduleUI");
+                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.RemoveScheduleUI);
                     NewToDo = new ToDo();
 
-                    Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                    Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
                 }
 
             }
@@ -1061,7 +1054,7 @@ namespace MyerList.ViewModel
             if (restoreMainList)
             {
                 MyToDos = await SerializerHelper.DeserializerFromJsonByFileName<ObservableCollection<ToDo>>(SerializerFileNames.ToDoFileName);
-                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), "UpdateTile");
+                Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
             }
             DeletedToDos =await SerializerHelper.DeserializerFromJsonByFileName<ObservableCollection<ToDo>>(SerializerFileNames.DeletedFileName);
 
