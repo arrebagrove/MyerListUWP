@@ -21,3 +21,4 @@ D:\Dev\apps\MyerListUWP\CloudService\obj\Debug\pri.resfiles.intermediate
 D:\Dev\apps\MyerListUWP\CloudService\obj\Debug\qualifiers.txt
 D:\Dev\apps\MyerListUWP\CloudService\obj\Debug\qualifiers.txt.intermediate
 D:\Dev\apps\MyerListUWP\CloudService\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+D:\Dev\apps\MyerListUWP\CloudService\obj\Debug\CloudService.csprojResolveAssemblyReference.cache

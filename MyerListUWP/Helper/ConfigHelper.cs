@@ -39,6 +39,12 @@ namespace MyerList.Helper
             {
                 LocalSettingHelper.AddValue("AddMode", "1");
             }
+
+            if(!LocalSettingHelper.HasValue("ThemeColor"))
+            {
+                LocalSettingHelper.AddValue("ThemeColor", "0");
+
+            }
         }
     }
 }

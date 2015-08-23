@@ -17,7 +17,7 @@
 
         <Grid Background="#FF47A5DD">
             <Grid MaxWidth="550">
-                <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="White" FontSize="26.667" VerticalAlignment="Bottom" Margin="20,0,0,10" FontFamily="Segoe WP" FontWeight="Bold" HorizontalAlignment="Left"/>
+                <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="White" FontSize="26.667" VerticalAlignment="Bottom" Margin="10,0,0,10" FontFamily="Segoe WP" FontWeight="Bold" HorizontalAlignment="Left"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Background="White">

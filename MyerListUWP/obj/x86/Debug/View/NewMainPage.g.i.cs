@@ -10,7 +10,7 @@
 
 namespace MyerListUWP.View
 {
-    partial class NewMainPage : global::MyerList.Base.BindablePage
+    partial class MainPage : global::MyerList.Base.BindablePage
     {
 
 
@@ -110,14 +110,14 @@ namespace MyerListUWP.View
         }
 
         
-        private interface INewMainPage_Bindings
+        private interface IMainPage_Bindings
         {
             void Initialize();
             void Update();
             void StopTracking();
         }
 #pragma warning disable 0169    //  Proactively suppress unused field warning in case Bindings is not used.
-        private INewMainPage_Bindings Bindings;
+        private IMainPage_Bindings Bindings;
 #pragma warning restore 0169
     }
 }

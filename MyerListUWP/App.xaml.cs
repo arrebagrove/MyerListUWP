@@ -100,12 +100,12 @@ namespace MyerListUWP
 
                 if (LocalSettingHelper.HasValue("email"))
                 {
-                    rootFrame.Navigate(typeof(NewMainPage), LoginMode.Login);
+                    rootFrame.Navigate(typeof(MainPage), LoginMode.Login);
                 }
                 else if (LocalSettingHelper.GetValue("OfflineMode") == "true")
                 {
                     App.isInOfflineMode = true;
-                    rootFrame.Navigate(typeof(NewMainPage), LoginMode.OfflineMode);
+                    rootFrame.Navigate(typeof(MainPage), LoginMode.OfflineMode);
                 }
                 else
                 {

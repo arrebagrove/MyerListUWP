@@ -9,12 +9,81 @@ using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Data;
 using HttpReqModule;
 using MyerList.Interface;
+using Windows.UI.Xaml.Media;
 
 namespace MyerList.ViewModel
 {
 
     public class SettingPageViewModel:ViewModelBase,INavigable
     {
+        private SolidColorBrush _mainTextColor;
+        public SolidColorBrush MainTextColor
+        {
+            get
+            {
+                return _mainTextColor;
+            }
+            set
+            {
+                if (_mainTextColor != value)
+                {
+                    _mainTextColor = value;
+                    RaisePropertyChanged(() => MainTextColor);
+                }
+            }
+        }
+
+        private SolidColorBrush _titleTextColor;
+        public SolidColorBrush TitleTextColor
+        {
+            get
+            {
+                return _titleTextColor;
+            }
+            set
+            {
+                if (_titleTextColor != value)
+                {
+                    _titleTextColor = value;
+                    RaisePropertyChanged(() => TitleTextColor);
+                }
+            }
+        }
+
+        private SolidColorBrush _backgrdColor;
+        public SolidColorBrush BackgrdColor
+        {
+            get
+            {
+                return _backgrdColor;
+            }
+            set
+            {
+                if (_backgrdColor != value)
+                {
+                    _backgrdColor = value;
+                    RaisePropertyChanged(() => BackgrdColor);
+                }
+            }
+        }
+
+        private SolidColorBrush _themeColor;
+        public SolidColorBrush ThemeColor
+        {
+            get
+            {
+                return _themeColor;
+            }
+            set
+            {
+                if (_themeColor != value)
+                {
+                    _themeColor = value;
+                    RaisePropertyChanged(() => ThemeColor);
+                }
+            }
+        }
+
         private BitmapImage tileimage;
         public BitmapImage TileImage
         {
@@ -296,6 +365,23 @@ namespace MyerList.ViewModel
             {
                 LocalSettingHelper.AddValue("TransparentTile", "true");
                 TransparentTile = true;
+            }
+
+            switch (LocalSettingHelper.GetValue("ThemeColor"))
+            {
+                case "0":
+                    {
+
+                    }; break;
+                case "1":
+                    {
+
+                    };break;
+                case "2":
+                    {
+
+                    }; break;
+
             }
         }
 
