@@ -53,7 +53,11 @@ namespace MyerListUWP.View
             {
                 ToastControl.ShowMessage(msg.Content);
             });
-
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.CloseHam, msg =>
+            {
+                HamOutStory.Begin();
+                _isHamIn = false;
+            });
             //Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.AddScheduleUI, msg =>
             //{
             //    AddGrid.Visibility = Visibility.Visible;

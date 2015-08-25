@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using JP.Utils.Network;
 using MyerListUWP;
 using MyerListUWP.Model;
+using DialogExt;
 #if WINDOWS_PHONE_APP
 #endif
 
@@ -486,6 +487,21 @@ namespace MyerList.ViewModel
             }
         }
 
+        private RelayCommand<object> _changeCateCommand;
+        public RelayCommand<object> ChangeCateCommand
+        {
+            get
+            {
+                if (_changeCateCommand != null) return _changeCateCommand;
+                return _changeCateCommand = new RelayCommand<object>(async(param) =>
+                 {
+                     var id = (string)param;
+                     await ChangeCategory(id);
+                 });
+            }
+        }
+
+
         #region Deleted Page
         /// <summary>
         /// 已经删除了的待办事项
@@ -674,22 +690,33 @@ namespace MyerList.ViewModel
                     return _logoutCommand;
                 }
 
-                return _logoutCommand = new RelayCommand(async () =>
+                return _logoutCommand = new RelayCommand(async() =>
                 {
+                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.CloseHam);
 
-                    MessageDialog md = new MessageDialog(ResourcesHelper.GetString("LogoutContent"), ResourcesHelper.GetString("Notice"));
-                    md.Commands.Add(new UICommand(ResourcesHelper.GetString("Ok"), act =>
-                    {
-                        LocalSettingHelper.CleanUpAll();
+                    ContentDialogEx cdex = new ContentDialogEx(ResourcesHelper.GetString("Notice"), ResourcesHelper.GetString("LogoutContent"));
+                    cdex.OnLeftBtnClick += ((senderl, el) =>
+                      {
+                          LocalSettingHelper.CleanUpAll();
 
-                        Frame rootFrame = Window.Current.Content as Frame;
-                        if (rootFrame != null) rootFrame.Navigate(typeof(StartPage));
-                    }));
-                    md.Commands.Add(new UICommand(ResourcesHelper.GetString("Cancel"), act =>
-                    {
+                          Frame rootFrame = Window.Current.Content as Frame;
+                          if (rootFrame != null) rootFrame.Navigate(typeof(StartPage));
+                      });
+                    cdex.OnRightBtnClick += ((senderr, er) =>
+                      {
+                          cdex.Hide();
+                      });
+                    await cdex.ShowAsync();
+                    //MessageDialog md = new MessageDialog(ResourcesHelper.GetString("LogoutContent"), ResourcesHelper.GetString("Notice"));
+                    //md.Commands.Add(new UICommand(ResourcesHelper.GetString("Ok"), act =>
+                    //{
+                        
+                    //}));
+                    //md.Commands.Add(new UICommand(ResourcesHelper.GetString("Cancel"), act =>
+                    //{
 
-                    }));
-                    await md.ShowAsync();
+                    //}));
+                    //await md.ShowAsync();
 
                 });
             }
@@ -936,7 +963,7 @@ namespace MyerList.ViewModel
                 if (App.isNoNetwork)
                 {
                     //通知没有网络
-                    Messenger.Default.Send(new GenericMessage<string>("NoNetwork"), MessengerToken.ToastToken);
+                    Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
                     return;
                 }
 
@@ -963,17 +990,11 @@ namespace MyerList.ViewModel
                     //排序
                     MyToDos = ToDo.SetOrderByString(scheduleWithoutOrder, orders);
 
-                    //设置类别颜色
-                    int cate = 0;
-                    foreach (var item in MyToDos)
-                    {
-                        if (cate == 5) cate++;
-                        item.Category = cate;
-                        cate++;
-                    }
+                    Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("SyncSuccessfully")), MessengerToken.ToastToken);
 
                     await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
                 }
+
 
                 //最后更新动态磁贴
                 Messenger.Default.Send(new GenericMessage<ObservableCollection<ToDo>>(MyToDos), MessengerToken.UpdateTile);
@@ -1044,6 +1065,19 @@ namespace MyerList.ViewModel
 
         }
 
+        private async Task ChangeCategory(string id)
+        {
+            var scheduleToChange = MyToDos.ToList().Find(s =>
+              {
+                  if (s.ID == id) return true;
+                  else return false;
+              });
+            if(scheduleToChange!= null)
+            {
+                scheduleToChange.Category++;
+                await PostHelper.UpdateContent(id, scheduleToChange.Content, scheduleToChange.Category);
+            }
+        }
 
         /// <summary>
         /// 从储存反序列化所有数据
@@ -1066,7 +1100,7 @@ namespace MyerList.ViewModel
         /// 进入 MainPage 会调用
         /// </summary>
         /// <param name="param"></param>
-        public void Activate(object param)
+        public async void Activate(object param)
         {
             if (param is LoginMode)
             {
@@ -1082,10 +1116,12 @@ namespace MyerList.ViewModel
                             //没有网络
                             if (!NetworkHelper.HasNetWork)
                             {
-                                Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
                                 App.isNoNetwork = true;
 
-                                var restoreTask = RestoreData(true);
+                                await RestoreData(true);
+
+                                await Task.Delay(500);
+                                Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
                             }
                             //有网络
                             else

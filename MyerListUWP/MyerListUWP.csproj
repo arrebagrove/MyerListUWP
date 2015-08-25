@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10166.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -134,8 +134,8 @@
     <Compile Include="UserControl\ScheduleControl.xaml.cs">
       <DependentUpon>ScheduleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ToastUC.xaml.cs">
-      <DependentUpon>ToastUC.xaml</DependentUpon>
+    <Compile Include="UserControl\ToastControl.xaml.cs">
+      <DependentUpon>ToastControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -171,25 +171,32 @@
     <Content Include="Assets\back2.png" />
     <Content Include="Assets\back3.png" />
     <Content Include="Assets\CLIP_WHITE.png" />
+    <Content Include="Assets\Icon\accept.png" />
     <Content Include="Assets\Icon\Account.png" />
-    <Content Include="Assets\Icon\Add.png" />
-    <Content Include="Assets\Icon\Back.png" />
-    <Content Include="Assets\Icon\Delete.png" />
-    <Content Include="Assets\Icon\Delete2.png" />
-    <Content Include="Assets\Icon\Delete3.png" />
-    <Content Include="Assets\Icon\Like.png" />
+    <Content Include="Assets\Icon\Alert_BLACK.png" />
+    <Content Include="Assets\Icon\DELETE_BLACK.png" />
+    <Content Include="Assets\Icon\DELETE_WHITE.png" />
+    <Content Include="Assets\Icon\Like_BLACK.png" />
     <Content Include="Assets\Icon\LOCK_100.png" />
-    <Content Include="Assets\Icon\NAVI_CATE.png" />
-    <Content Include="Assets\Icon\NAVI_CATE2.png" />
-    <Content Include="Assets\Icon\NAVI_DELETE.png" />
-    <Content Include="Assets\Icon\NAVI_DELETE2.png" />
+    <Content Include="Assets\Icon\LOCK_500.png" />
+    <Content Include="Assets\Icon\NAVI_DELETE_GRAY.png" />
     <Content Include="Assets\Icon\NAVI_TODO.png" />
     <Content Include="Assets\Icon\NAVI_TODO2.png" />
     <Content Include="Assets\Icon\Redo.png" />
     <Content Include="Assets\Icon\Refresh.png" />
-    <Content Include="Assets\Icon\Setting.png" />
+    <Content Include="Assets\Icon\Settings_BLACK.png" />
     <Content Include="Assets\loginbackgrd.jpg" />
     <Content Include="Assets\SOLID_WHITE_500.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\Square71x71Logo.scale-100.png" />
+    <Content Include="Assets\Square71x71Logo.scale-125.png" />
+    <Content Include="Assets\Square71x71Logo.scale-150.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\WHITE_500.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
@@ -230,7 +237,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControl\ToastUC.xaml">
+    <Page Include="UserControl\ToastControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -259,6 +266,10 @@
     <ProjectReference Include="..\..\AnimatedTextBlock\AnimatedTextBlock.csproj">
       <Project>{4e0becfb-8f8d-4c55-bfb3-5b63e047ee92}</Project>
       <Name>AnimatedTextBlock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ContentDialogEx\ContentDialogEx\ContentDialogEx.csproj">
+      <Project>{5d4b47df-d685-4fe9-9ad4-ebc3fc812e2c}</Project>
+      <Name>ContentDialogEx</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\JP.Utils\JP.Utils\JP.Utils.csproj">
       <Project>{9d13cebe-a582-4729-b859-22fc78653a56}</Project>

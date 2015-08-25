@@ -229,7 +229,7 @@
                     </Button>
                     <Button Command="{x:Bind MainVM.SelectDeleteCommand}" Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
-                            <Image Opacity="{x:Bind MainVM.DeleteIconAlpha,Mode=OneWay}" Source="ms-appx:///Assets/Icon/NAVI_DELETE2.png" Width="25" Height="25" />
+                            <Image Opacity="{x:Bind MainVM.DeleteIconAlpha,Mode=OneWay}" Source="ms-appx:///Assets/Icon/DELETE_WHITE.png" Width="25" Height="25" />
                         </Grid>
                     </Button>
 
@@ -331,7 +331,7 @@
             </CommandBar.RenderTransform>
             <AppBarButton x:Uid="AddAppbarBtn" Click="AddClick" Icon="Add" Label="添加" Command="{x:Bind MainVM.AddCommand}"/>
             <AppBarButton x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新" Command="{x:Bind MainVM.SyncCommand}"/>
-            <AppBarButton x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
+            <AppBarToggleButton x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
 
         </CommandBar>
 
@@ -412,28 +412,24 @@
                     </StackPanel>
                 </ScrollViewer>
                 <StackPanel Grid.Row="1" Background="White" VerticalAlignment="Bottom" Margin="0">
-
-                    <Button Command="{x:Bind MainVM.LogoutCommand}" HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}"  BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}" Margin="0">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <SymbolIcon Symbol="People" Margin="20,0,0,0"/>
-                            <TextBlock x:Uid="LogoutTB"  Text="LOGOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </Button>
                     <Button Command="{x:Bind MainVM.GoToSettingCommand}" HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}"  BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}" Margin="0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <SymbolIcon Symbol="Setting" Margin="20,0,0,0"/>
+                            <Image Source="ms-appx:///Assets/Icon/Settings_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
                             <TextBlock x:Uid="SettingTB" Text="SETTINGS" VerticalAlignment="Center" Margin="20,0,0,0"/>
                         </StackPanel>
                     </Button>
-
                     <Button Command="{x:Bind MainVM.GoToAboutCommand}" HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}" BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <SymbolIcon Symbol="Emoji2" Margin="20,0,0,0"/>
-
+                            <Image Source="ms-appx:///Assets/Icon/Like_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
                             <TextBlock x:Uid="AboutTB" Text="ABOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
                         </StackPanel>
                     </Button>
-
+                    <Button Command="{x:Bind MainVM.LogoutCommand}" HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}"  BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}" Margin="0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Image Source="ms-appx:///Assets/Icon/Alert_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
+                            <TextBlock x:Uid="LogoutTB"  Text="LOGOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
 

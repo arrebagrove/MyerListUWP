@@ -154,22 +154,22 @@
     <value>Connect to internet to sync</value>
   </data>
   <data name="CreditTB.Text" xml:space="preserve">
-    <value>Credit</value>
+    <value>DEVELOPER</value>
   </data>
   <data name="EmailBox.PlaceholderText" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="EmailInvaild" xml:space="preserve">
-    <value>Email format invaild.</value>
+    <value />
   </data>
-  <data name="EmailMeHLB.Content" xml:space="preserve">
+  <data name="EmailMeTB.Text" xml:space="preserve">
     <value>Email me</value>
   </data>
   <data name="EnjoyTB.Text" xml:space="preserve">
     <value>Enjoy your day ;-)</value>
   </data>
   <data name="FeedbackTB.Text" xml:space="preserve">
-    <value>Feedback</value>
+    <value>FEEDBACK</value>
   </data>
   <data name="HamburgerTS.Header" xml:space="preserve">
     <value>Use gesture to open drawer</value>
@@ -237,8 +237,8 @@
   <data name="PasswordInvaild" xml:space="preserve">
     <value>Please confirm that your password is right.</value>
   </data>
-  <data name="RateHLB.Content" xml:space="preserve">
-    <value>Give me a rate</value>
+  <data name="RateTB.Text" xml:space="preserve">
+    <value>I like it!</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
@@ -277,7 +277,7 @@
     <value>ON</value>
   </data>
   <data name="VersionTB.Text" xml:space="preserve">
-    <value>Version</value>
+    <value>VERSION</value>
   </data>
   <data name="WorkDoneTB.Text" xml:space="preserve">
     <value>WORKDONE</value>
@@ -377,5 +377,11 @@
   </data>
   <data name="TransparentTS.OffContent" xml:space="preserve">
     <value>OFF</value>
+  </data>
+  <data name="Rate.Text" xml:space="preserve">
+    <value>RATE</value>
+  </data>
+  <data name="SyncSuccessfully" xml:space="preserve">
+    <value>Sync successfully</value>
   </data>
 </root>

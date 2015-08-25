@@ -33,10 +33,7 @@
             Style="{StaticResource ButtonCommonStyle}" 
             BorderThickness="0,2,0,0" Background="{x:Null}">
             <Grid>
-                <!--<SymbolIcon Symbol="Redo" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" Foreground="{StaticResource MyerListBlue}">
-
-                    </SymbolIcon>-->
-                <Image Source="ms-appx:///Assets/Icon/Redo.png" Width="20" Height="20"/>
+                <SymbolIcon Symbol="RepeatAll" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.RowSpan="2" Foreground="#FF838383"/>
             </Grid>
         </Button>
 
@@ -47,8 +44,7 @@
             Style="{StaticResource ButtonCommonStyle}" 
             BorderThickness="0,2,0,0" HorizontalAlignment="Right" Margin="0" Background="{x:Null}">
             <Grid>
-
-                <Image Source="ms-appx:///Assets/Icon/Delete2.png" Width="20" Height="20" />
+                <SymbolIcon Symbol="Delete" Foreground="#FFC2C2C2"/>
             </Grid>
         </Button>
 

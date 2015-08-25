@@ -54,11 +54,18 @@ namespace MyerList
 
         private async void FeedbackClick(object sender,RoutedEventArgs e)
         {
-            EmailRecipient rec = new EmailRecipient("dengweichao@hotmail.com");
-            EmailMessage mes = new EmailMessage();
-            mes.To.Add(rec);
-            mes.Subject = "MyerList for Windows 10 feedback";
-            await EmailManager.ShowComposeNewEmailAsync(mes);
+            try
+            {
+                EmailRecipient rec = new EmailRecipient("dengweichao@hotmail.com");
+                EmailMessage mes = new EmailMessage();
+                mes.To.Add(rec);
+                mes.Subject = "MyerList for Windows 10 feedback";
+                await EmailManager.ShowComposeNewEmailAsync(mes);
+            }
+            catch(Exception)
+            {
+
+            }
         }
 
         private async void RateClick(object sender, RoutedEventArgs e)

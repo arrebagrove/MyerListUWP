@@ -1,0 +1,4 @@
+"/t:System.Object,System.Runtime,xml"
+"/t:System.Collections.Generic.Dictionary`2[[System.String,System.Runtime],[System.Object,System.Runtime]],System.Collections,dcs"
+"/t:System.Object,System.Runtime,json"
+"/t:System.Collections.ObjectModel.ObservableCollection`1[[MyerList.Model.ToDo,MyerListUWP]],System.ObjectModel,json"

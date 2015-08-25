@@ -25,6 +25,7 @@ namespace MyerList.Model
                 {
                     _category = value;
                     RaisePropertyChanged(() => Category);
+                    if (_category == 5) _category = 0;
                 }
             }
         }
@@ -178,6 +179,7 @@ namespace MyerList.Model
 
                         newSchedule.Content = (string)sch["content"];
                         newSchedule.IsDone = (string)sch["isdone"] != "0";
+                        newSchedule.Category = (int)sch["cate"];
 
                         schedules.Add(newSchedule);
                     }

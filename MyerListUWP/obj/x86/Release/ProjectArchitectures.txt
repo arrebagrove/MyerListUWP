@@ -1,0 +1,7 @@
+D:\Dev\apps\AnimatedTextBlock\AnimatedTextBlock.csproj;x86
+D:\Dev\apps\JP.Utils\JP.Utils\JP.Utils.csproj;neutral
+D:\Dev\apps\JP.Utils\JP.Utils\JP.Utils.csproj;neutral
+D:\Dev\apps\MyerListUWP\CloudService\CloudService.csproj;x86
+D:\Dev\apps\MyerListUWP\MyerListUWP\MyerListUWP.csproj;x86
+D:\Dev\apps\MyerListUWP\NotificationsExtensions\NotificationsExtensions.csproj;neutral
+D:\Dev\apps\MyerListUWP\NotificationsExtensions\NotificationsExtensions.csproj;neutral

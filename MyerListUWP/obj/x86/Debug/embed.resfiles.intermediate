@@ -4,7 +4,7 @@ ResourceDictionary\StyleDictionary.xbf
 ResourceDictionary\TemplateDictionary.xbf
 UserControl\DeleteScheduleControl.xbf
 UserControl\ScheduleControl.xbf
-UserControl\ToastUC.xbf
+UserControl\ToastControl.xbf
 View\AboutPage.xbf
 View\LoginPage.xbf
 View\MainPage.xbf

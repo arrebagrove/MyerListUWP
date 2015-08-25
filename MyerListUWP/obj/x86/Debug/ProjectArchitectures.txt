@@ -1,4 +1,5 @@
 D:\Dev\apps\AnimatedTextBlock\AnimatedTextBlock.csproj;x86
+D:\Dev\apps\ContentDialogEx\ContentDialogEx\ContentDialogEx.csproj;x86
 D:\Dev\apps\JP.Utils\JP.Utils\JP.Utils.csproj;neutral
 D:\Dev\apps\JP.Utils\JP.Utils\JP.Utils.csproj;neutral
 D:\Dev\apps\MyerListUWP\CloudService\CloudService.csproj;x86

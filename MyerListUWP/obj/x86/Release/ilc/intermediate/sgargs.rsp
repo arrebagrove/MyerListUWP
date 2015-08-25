@@ -1,0 +1,9 @@
+/out:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\SgGenerated\\"
+/int:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\\"
+/ref:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\\"
+/ref:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\x86\ilc\lib\Private\\"
+/ref:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\in\\"
+/ref:"D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\in\WinMetadata\\"
+/ca:System.Private.CoreLib
+"@D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\PreMergeILTransformed\ComputedSerializationInput.txt"

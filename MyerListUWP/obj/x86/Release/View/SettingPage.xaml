@@ -1,0 +1,78 @@
+﻿<base:BindablePage x:ConnectionId='1'
+    x:Class="MyerList.SettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyerList"
+    xmlns:base="using:MyerList.Base"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding SettingVM,Source={StaticResource Locator}}"
+    IsTextScaleFactorEnabled="False" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FF47A5DD">
+            <Grid MaxWidth="550">
+                <TextBlock x:Uid="SettingTB" Text="SETTINGS" Foreground="White" FontSize="26.667" VerticalAlignment="Bottom" Margin="10,0,0,10" FontFamily="Segoe WP" FontWeight="Bold" HorizontalAlignment="Left"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" MaxWidth="550" Background="White" Margin="0">
+                <StackPanel Grid.Row="1" >
+                    <Border Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="HabbitTB" TextWrapping="Wrap" Text="USER HABBIT" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ToggleSwitch x:ConnectionId='2' x:Uid="HamburgerTS" Header="Hamburger Gesture" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                       RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:ConnectionId='3' x:Uid="KeyboardTS" Header="Show keyboard" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                      RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:ConnectionId='4' x:Uid="AddToBottomts" Header="Add to bottom" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                       FontSize="15" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <Border Margin="10,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="TileTB" TextWrapping="Wrap" Text="LIVE TILE" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ToggleSwitch x:ConnectionId='5' x:Uid="TileTS" Header="Live tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                  RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:ConnectionId='6' x:Uid="TransparentTS" Header="Transparent Tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                  RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
+                    <ToggleSwitch x:Uid="BackgrdTaskTS" Header="Background task" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10" Foreground="Black"   IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Stretch" />
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="DefaultCateTB" TextWrapping="Wrap" Text="DEFAULT CATEGORY" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox x:ConnectionId='7' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="20" Height="20" Fill="#FFABABAB" />
+                                <TextBlock Text="默认" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </ComboBoxItem>
+                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Width="20" Height="20" Fill="{StaticResource MyerListBlueLight}" />
+                                <TextBlock Text="生活" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="ThemeTB" TextWrapping="Wrap" Text="THEME" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox x:ConnectionId='8' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Content="Classic" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
+                        <ComboBoxItem Content="Light" Foreground="Black" Background="{x:Null}"/>
+                        <ComboBoxItem Content="Dark" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
+                    </ComboBox>
+                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <TextBlock x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" FontWeight="Bold"/>
+                    </Border>
+                    <ComboBox x:ConnectionId='9' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                        <ComboBoxItem Content="English" Foreground="Black"/>
+                        <ComboBoxItem Content="简体中文"  Foreground="Black"/>
+                    </ComboBox>
+                    <TextBlock x:Uid="NoticeHint" Text="" TextWrapping="Wrap" Foreground="Black" FontSize="14.667" Margin="10" RenderTransformOrigin="0.5,0.5" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+
+    </Grid>
+</base:BindablePage>
+

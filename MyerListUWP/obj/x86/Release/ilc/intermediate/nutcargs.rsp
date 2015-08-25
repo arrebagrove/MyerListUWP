@@ -1,0 +1,9 @@
+/ignoreAccessChecks
+/metadataFile "D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\ILTransformed\MyerListUWP.metadata"
+/reflectionMetadataAssemblyName "System.Private.CoreLib"
+/o
+/sharedGenerics
+/ilmergeinfo "D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\ILTransformed\MyerListUWP.csv"
+/sharedGenericsMode StandardHeuristics
+/in "D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\ILTransformed\MyerListUWP.ilexe"
+/out "D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ilc\intermediate\MDIL\MyerListUWP.mdilexe"

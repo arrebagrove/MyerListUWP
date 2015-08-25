@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="19204JuniperPhoton.MyerListBETA" Publisher="CN=A9291247-1C35-4EE6-8B51-1551AF1EB838" Version="2.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="19204JuniperPhoton.MyerListBETA" Publisher="CN=A9291247-1C35-4EE6-8B51-1551AF1EB838" Version="2.0.1.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="1a1fe346-18c9-4122-aaa5-704b7fac6cac" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>MyerList BETA</DisplayName>
@@ -15,7 +15,7 @@
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10166.0" MaxVersionTested="10.0.10240.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10240.0" />
   </Dependencies>
   <Resources>
     <Resource Language="EN-US" />
@@ -24,7 +24,7 @@
   <Applications>
     <Application Id="App" Executable="MyerListUWP.exe" EntryPoint="MyerListUWP.App">
       <uap:VisualElements DisplayName="MyerList" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="MyerListUWP" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="wide310x150Logo" />
           </uap:ShowNameOnTiles>

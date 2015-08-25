@@ -13,5 +13,6 @@ namespace MyerList.Helper
         public const string ShowModifyUI = "Modify";
         public const string UpdateTile = "UpdateTile";
         public const string EnterToAdd = "EnterToAdd";
+        public const string CloseHam = "CloseHam";
     }
 }

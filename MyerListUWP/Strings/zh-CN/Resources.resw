@@ -160,7 +160,7 @@
     <value>连接网络同步你的待办事项</value>
   </data>
   <data name="CreditTB.Text" xml:space="preserve">
-    <value>感谢</value>
+    <value>开发者</value>
   </data>
   <data name="EmailBox.PlaceholderText" xml:space="preserve">
     <value>电子邮件</value>
@@ -168,7 +168,7 @@
   <data name="EmailInvaild" xml:space="preserve">
     <value>电子邮箱格式不正确</value>
   </data>
-  <data name="EmailMeHLB.Content" xml:space="preserve">
+  <data name="EmailMeTB.Text" xml:space="preserve">
     <value>给我发邮件</value>
   </data>
   <data name="EnjoyTB.Text" xml:space="preserve">
@@ -243,8 +243,8 @@
   <data name="PasswordInvaild" xml:space="preserve">
     <value>请确认两次输入的密码相同</value>
   </data>
-  <data name="RateHLB.Content" xml:space="preserve">
-    <value>给个好评</value>
+  <data name="RateTB.Text" xml:space="preserve">
+    <value>给予评价;)</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>注册</value>
@@ -377,5 +377,11 @@
   </data>
   <data name="TransparentTS.OffContent" xml:space="preserve">
     <value>关</value>
+  </data>
+  <data name="Rate.Text" xml:space="preserve">
+    <value>评价</value>
+  </data>
+  <data name="SyncSuccessfully" xml:space="preserve">
+    <value>同步成功</value>
   </data>
 </root>
