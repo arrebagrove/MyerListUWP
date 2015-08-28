@@ -7,9 +7,10 @@ using Windows.Globalization;
 using Windows.ApplicationModel.Resources.Core;
 using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Data;
-using HttpReqModule;
 using MyerList.Interface;
 using Windows.UI.Xaml.Media;
+using JP.Utils.UI;
+using HttpReqModule;
 
 namespace MyerList.ViewModel
 {

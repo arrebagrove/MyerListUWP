@@ -9,6 +9,14 @@ using Windows.UI.Xaml.Media;
 
 namespace MyerListUWP.Helper
 {
+    public enum CateColors
+    {
+        DefaultColor,
+        WorkColor,
+        LifeColor,
+        FamilyColor,
+        EnterColor
+    }
     public static class TitleBarHelper
     {
         public static void SetUpGrayTitleBar()
@@ -27,20 +35,20 @@ namespace MyerListUWP.Helper
             titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListGray"] as SolidColorBrush).Color;
         }
 
-        public static void SetUpBlueTitleBar()
+        public static void SetUpCateTitleBar(string color)
         {
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.BackgroundColor = (App.Current.Resources["MyerListBlueLight"] as SolidColorBrush).Color;
+            titleBar.BackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
             titleBar.ForegroundColor = Colors.White;
             titleBar.InactiveBackgroundColor = titleBar.BackgroundColor;
             titleBar.InactiveForegroundColor = Colors.White;
-            titleBar.ButtonBackgroundColor = (App.Current.Resources["MyerListBlueLight"] as SolidColorBrush).Color;
+            titleBar.ButtonBackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
             titleBar.ButtonForegroundColor = Colors.White;
             titleBar.ButtonInactiveBackgroundColor = titleBar.BackgroundColor;
             titleBar.ButtonInactiveForegroundColor = Colors.White;
-            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources["MyerListBlue"] as SolidColorBrush).Color;
+            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
             titleBar.ButtonHoverForegroundColor = Colors.White;
-            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListDarkBlue"] as SolidColorBrush).Color;
+            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
             titleBar.ButtonPressedForegroundColor = Colors.White;
         }
 

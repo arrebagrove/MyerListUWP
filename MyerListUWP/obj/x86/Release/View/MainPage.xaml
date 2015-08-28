@@ -13,7 +13,7 @@
     mc:Ignorable="d">
     <base:BindablePage.Resources>
         <Storyboard x:ConnectionId='2' x:Name="AddStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddGrid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddingPane">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-400"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -49,7 +49,7 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:ConnectionId='3' x:Name="RemoveStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddGrid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="AddingPane">
                 <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-400">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -98,7 +98,7 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:ConnectionId='4' x:Name="HamInStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="HamGrid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Drawer">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-260"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -154,7 +154,7 @@
                 <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="HamGrid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Drawer">
                 <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-260">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -184,7 +184,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
-            <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="grid" d:IsOptimized="True"/>
+            <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Drawer" d:IsOptimized="True"/>
         </Storyboard>
     </base:BindablePage.Resources>
 
@@ -195,108 +195,70 @@
         </Grid.RowDefinitions>
         <Grid Background="{StaticResource MyerListBlueLight}">
             <Grid VerticalAlignment="Bottom" MaxWidth="450" Margin="0,0,0,10">
-                <Button x:ConnectionId='50'                  Style="{StaticResource ButtonCommonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" VerticalAlignment="Center" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" HorizontalAlignment="Left">
+                <Button x:ConnectionId='21'                  Style="{StaticResource ButtonCommonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" VerticalAlignment="Center" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" HorizontalAlignment="Left">
                     <Grid Width="40" Height="30" HorizontalAlignment="Center" Background="{StaticResource MyerListBlueLight}" VerticalAlignment="Center" >
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border x:ConnectionId='57' x:Name="border" Height="2" Width="20" Background="White" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='28' x:Name="border" Height="2" Width="20" Background="White" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
-                        <Border x:ConnectionId='58' x:Name="border1" Height="2" Width="20" Background="White" VerticalAlignment="Center" Margin="0" Grid.Row="1" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='29' x:Name="border1" Height="2" Width="20" Background="White" VerticalAlignment="Center" Margin="0" Grid.Row="1" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
-                        <Border x:ConnectionId='59' x:Name="border2" Height="2" Width="20" Background="White" VerticalAlignment="Top" Margin="0" Grid.Row="2" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='30' x:Name="border2" Height="2" Width="20" Background="White" VerticalAlignment="Top" Margin="0" Grid.Row="2" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
                     </Grid>
                 </Button>
-                <cc:AnimatedTextBlock x:ConnectionId='51'                                                 Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                <ProgressRing x:ConnectionId='52'                                                    IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
+                <cc:AnimatedTextBlock x:ConnectionId='22'                                                 Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                <ProgressRing x:ConnectionId='23'                                                    IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                    <Button x:ConnectionId='53'                                             Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
+                    <Button x:ConnectionId='24'                                             Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
-                            <Image x:ConnectionId='56'                                                     Source="ms-appx:///Assets/Icon/NAVI_TODO2.png" Width="25" Height="25"/>
+                            <Image x:ConnectionId='27'                                                     Source="ms-appx:///Assets/Icon/NAVI_TODO2.png" Width="25" Height="25"/>
                         </Grid>
                     </Button>
-                    <Button x:ConnectionId='54'                                               Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
+                    <Button x:ConnectionId='25'                                               Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
-                            <Image x:ConnectionId='55'                                                       Source="ms-appx:///Assets/Icon/DELETE_WHITE.png" Width="25" Height="25" />
+                            <Image x:ConnectionId='26'                                                       Source="ms-appx:///Assets/Icon/DELETE_WHITE.png" Width="25" Height="25" />
                         </Grid>
                     </Button>
-
                 </StackPanel>
-
             </Grid>
             <Border Height="2" VerticalAlignment="Bottom" Background="{StaticResource MyerListBlueLight}"/>
         </Grid>
-        <Grid x:ConnectionId='6' x:Name="TileGrid" Grid.Row="1">
-            <Grid x:ConnectionId='31' x:Name="WideGrid"  HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="310" Grid.RowSpan="2" >
-                <Border x:ConnectionId='43' x:Name="backgrd1" BorderThickness="0" Background="#FF47A5DD"/>
-                <StackPanel Orientation="Vertical" Margin="2,25,10,7" VerticalAlignment="Top" Opacity="0.8">
-                    <TextBlock x:ConnectionId='46' x:Name="Text0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
-                    <TextBlock x:ConnectionId='47' x:Name="Text1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
-                    <TextBlock x:ConnectionId='48' x:Name="Text2" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,0,0" FontSize="18.667" Foreground="White" Text="文本Text" />
-                    <TextBlock x:ConnectionId='49' x:Name="Text3" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,5,50,0" FontSize="18.667" Foreground="White" Text="文本Text" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="10,5,4,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <TextBlock x:ConnectionId='45' x:Name="Count1_Copy" TextWrapping="Wrap" Text="TO-DO" FontSize="18.667"  TextAlignment="Right" Foreground="White" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Bottom" FontWeight="SemiBold" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Image Source="ms-appx:///Assets/WHITE_500.png" Height="31" Width="20"/>
-                    <TextBlock x:ConnectionId='44' x:Name="Count1" TextWrapping="Wrap" Text="3" FontSize="29.333"  TextAlignment="Right" Foreground="White" FontFamily="Microsoft YaHei" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                </StackPanel>
-            </Grid>
-            <Grid x:ConnectionId='32' x:Name="MediumGrid"  HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="150" d:IsHidden="True" >
-                <Border x:ConnectionId='36' x:Name="backgrd2" BorderThickness="0" Background="{StaticResource MyerListBlueLight}"/>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                    <TextBlock x:ConnectionId='42' x:Name="textBlock2" TextWrapping="NoWrap" Text="TO-DO" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,0,5" FontWeight="SemiBold" FontFamily="Microsoft YaHei" FontSize="20"/>
-                </StackPanel>
-                <TextBlock x:ConnectionId='37' x:Name="Count2" TextWrapping="Wrap" Text="10" FontSize="33.333" FontWeight="Bold" TextAlignment="Right" Foreground="White" Margin="0,0,5,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Microsoft YaHei" Height="45"/>
-                <StackPanel Orientation="Vertical">
-                    <TextBlock x:ConnectionId='38' x:Name="Text00" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,10,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:ConnectionId='39' x:Name="Text01" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:ConnectionId='40' x:Name="Text02" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                    <TextBlock x:ConnectionId='41' x:Name="Text03" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="10,3,0,0" FontSize="16" Foreground="White" FontFamily="Microsoft YaHei UI" Text="TEXT"/>
-                </StackPanel>
-            </Grid>
-            <Grid x:ConnectionId='33' x:Name="SmallGrid"  HorizontalAlignment="Center" Height="71" VerticalAlignment="Center" Width="71" Margin="50,215" d:IsHidden="True" >
-                <Border x:ConnectionId='34' x:Name="backgrd3" BorderThickness="1" Background="{StaticResource MyerListBlueLight}"/>
-                <TextBlock x:ConnectionId='35' x:Name="Count3" TextWrapping="Wrap" Text="4" VerticalAlignment="Center" FontSize="32" FontWeight="Bold" TextAlignment="Right" Foreground="White" Margin="0,12,5,17" FontFamily="Microsoft YaHei"/>
-                <Image  HorizontalAlignment="Left" VerticalAlignment="Bottom" Source="Assets/Square71x71Logo.png" Height="50" Width="67" Margin="-1,0,0,11"/>
-            </Grid>
-
-        </Grid>
-
+        <uc:LiveTileTemplate x:ConnectionId='6' x:Name="TileControl" Grid.Row="1"/>
+     
         <Grid x:ConnectionId='7' ManipulationMode="TranslateX"                                                                                            Grid.Row="1" Background="White" d:IsHidden="True">
-            <Pivot x:ConnectionId='26' Margin="0" x:Name="pivot"                                                          >
+            <Pivot x:ConnectionId='16' Margin="0" x:Name="pivot"                                                          >
                 <Pivot.RenderTransform>
                     <CompositeTransform />
                 </Pivot.RenderTransform>
                 <PivotItem Margin="0,-50,0,0" >
                     <Grid>
-                        <ListView x:ConnectionId='29' x:Name="Listview" Grid.Row="1"
-				        ItemTemplate="{StaticResource ScheduleTemplete}"
-				                                                          
-				        ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
-				        MaxWidth="450"  
-                        SelectionMode="None" 
-                        Margin="10,20,0,0"
-                        CanReorderItems="False"
-                        AllowDrop="False"
-                        CanDragItems="False"
-                        IsItemClickEnabled="True"
-                                                                                                     
+                        <ListView x:ConnectionId='19' x:Name="Listview" Grid.Row="1"
+				            ItemTemplate="{StaticResource ScheduleTemplete}"
+				                                                              
+				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
+				            MaxWidth="450"  
+                            SelectionMode="None" 
+                            Margin="10,20,0,0"
+                            CanReorderItems="False"
+                            AllowDrop="False"
+                            CanDragItems="False"
+                            IsItemClickEnabled="True"
+                                                                                                         
                         />
-                        <StackPanel x:ConnectionId='30' x:Name="stackPanel1" Orientation="Vertical"                                                        Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
+                        <StackPanel x:ConnectionId='20' x:Name="stackPanel1" Orientation="Vertical"                                                        Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
                             <TextBlock x:Uid="WorkDoneTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="WORK DONE" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                             <TextBlock x:Uid="EnjoyTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enjoy your day ;-)" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                         </StackPanel>
@@ -304,7 +266,7 @@
                 </PivotItem>
                 <PivotItem Margin="0,-50,0,0">
                     <Grid>
-                        <ListView x:ConnectionId='27'
+                        <ListView x:ConnectionId='17'
                             ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                                                                   
                             ItemTemplate="{StaticResource DeletedTemplete}"
@@ -316,10 +278,9 @@
                             SelectionMode="None" BorderThickness="10,0" Margin="0,30,0,0">
 
                         </ListView>
-                        <StackPanel x:ConnectionId='28' Orientation="Vertical"                                                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel x:ConnectionId='18' Orientation="Vertical"                                                                   HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Uid="NoDeletedTB" Text="NoDeleted" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
                             <TextBlock x:Uid="DeletedHintTB" Text="Deleted items will be showed up here" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
-
                         </StackPanel>
                     </Grid>
                 </PivotItem>
@@ -329,111 +290,23 @@
             <CommandBar.RenderTransform>
                 <CompositeTransform/>
             </CommandBar.RenderTransform>
-            <AppBarButton x:ConnectionId='23' x:Uid="AddAppbarBtn"                  Icon="Add" Label="添加"                                     />
-            <AppBarButton x:ConnectionId='24' x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新"                                      />
-            <AppBarToggleButton x:ConnectionId='25' x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort"                                               />
+            <AppBarButton x:ConnectionId='13' x:Uid="AddAppbarBtn"                  Icon="Add" Label="添加"                                     />
+            <AppBarButton x:ConnectionId='14' x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新"                                      />
+            <AppBarToggleButton x:ConnectionId='15' x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort"                                               />
 
         </CommandBar>
 
         <Border x:ConnectionId='9' x:Name="MaskBorder"                            Visibility="Collapsed" Opacity="0.8" Grid.RowSpan="5" Background="Black"/>
-
-        <Grid x:ConnectionId='10' x:Name="AddGrid" Background="{StaticResource MyerListBlueLight}" Height="260" Grid.RowSpan="5" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
+        <uc:AddingPane x:ConnectionId='10' x:Name="AddingPane" Background="{StaticResource MyerListBlueLight}" Height="260" Grid.RowSpan="5" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <uc:AddingPane.RenderTransform>
                 <CompositeTransform TranslateY="-400"/>
-            </Grid.RenderTransform>
-            <StackPanel MaxWidth="450" VerticalAlignment="Bottom" Margin="0,0,0,10">
-                <TextBlock x:ConnectionId='19'                                              Foreground="White" FontSize="26.667" FontWeight="Bold" Margin="10,0,0,0" FontFamily="Microsoft YaHei"/>
-                <TextBox x:ConnectionId='20' x:Name="AddContentBox" Text="{Binding NewToDo.Content,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PlaceholderText="例如：晚上跟好基友吃饭" Margin="10,10,10,0" BorderBrush="#FF5CB1E4" Style="{StaticResource TextBoxStyle}"/>
-                <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
-                    <Button x:ConnectionId='21'                                     Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}">
-                        <Grid Width="100" Height="35" Background="#FF81CBF7" BorderBrush="#FF81CBF7" BorderThickness="2">
-                            <TextBlock x:Uid="OKBtnTB" Text="确认" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                        </Grid>
-                    </Button>
-                    <Button x:ConnectionId='22'                                         Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}">
-                        <Grid Width="100" Height="35" Background="#FF5CB1E4" BorderBrush="#FF5CB1E4" BorderThickness="2">
-                            <TextBlock x:Uid="CancelBtnTB" Text="取消" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                        </Grid>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-        <Grid x:ConnectionId='11' x:Name="HamGrid" Width="250" Grid.RowSpan="5" HorizontalAlignment="Left" Background="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
+            </uc:AddingPane.RenderTransform>
+        </uc:AddingPane>
+        <uc:NavigationDrawer x:ConnectionId='11' x:Name="Drawer" Width="250" Grid.RowSpan="5" HorizontalAlignment="Left" Background="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5">
+            <uc:NavigationDrawer.RenderTransform>
                 <CompositeTransform TranslateX="-260"/>
-            </Grid.RenderTransform>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="3*"/>
-            </Grid.RowDefinitions>
-            <Grid x:ConnectionId='13' x:Name="grid" Background="Black">
-                <Image Source="ms-appx:///Assets/loginbackgrd.jpg" Stretch="UniformToFill"/>
-                <Border x:ConnectionId='17' x:Name="border3" Background="Black" Opacity="0.5"/>
-                <StackPanel Margin="10,5" Orientation="Vertical" VerticalAlignment="Bottom">
-                    <TextBlock x:Uid="AccountTB" Text="ACCOUNT" Foreground="White" FontWeight="Bold"/>
-                    <TextBlock x:ConnectionId='18'                                                      Foreground="White"/>
-
-                </StackPanel>
-            </Grid>
-            <Grid Grid.Row="1" Background="White">
-                <ScrollViewer VerticalScrollBarVisibility="Disabled" Margin="0,0,0,130">
-                    <StackPanel Margin="5,0,0,0">
-                        <Button Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="0,10,0,0" HorizontalAlignment="Stretch" Height="40">
-                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Background="White">
-                                <Ellipse Width="20" Height="20" Fill="#FFFA2929"/>
-                                <TextBlock Text="工作" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="0,10,0,0" HorizontalAlignment="Stretch" Height="40">
-                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Background="White">
-                                <Ellipse Width="20" Height="20" Fill="#FFFAB029"/>
-                                <TextBlock Text="生活" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="0,10,0,0" HorizontalAlignment="Stretch" Height="40">
-                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Background="White">
-                                <Ellipse Width="20" Height="20" Fill="#FF2E72C7"/>
-                                <TextBlock Text="家庭" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="0,10,0,0" HorizontalAlignment="Stretch" Height="40">
-                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Background="White">
-                                <Ellipse Width="20" Height="20" Fill="#FF40CE9E"/>
-                                <TextBlock Text="娱乐" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-
-                        <Button  Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="0,10,0,0" HorizontalAlignment="Stretch" Height="40">
-                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Background="White">
-                                <Ellipse Width="20" Height="20" Fill="DarkGray"/>
-                                <TextBlock Text="默认" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                </ScrollViewer>
-                <StackPanel Grid.Row="1" Background="White" VerticalAlignment="Bottom" Margin="0">
-                    <Button x:ConnectionId='14'                                              HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}"  BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}" Margin="0">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Source="ms-appx:///Assets/Icon/Settings_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
-                            <TextBlock x:Uid="SettingTB" Text="SETTINGS" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:ConnectionId='15'                                            HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}" BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Source="ms-appx:///Assets/Icon/Like_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
-                            <TextBlock x:Uid="AboutTB" Text="ABOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:ConnectionId='16'                                         HorizontalContentAlignment="Stretch" Style="{StaticResource ListButtonStyle}"  BorderThickness="0" HorizontalAlignment="Stretch" Height="50" Background="{x:Null}" Margin="0">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                            <Image Source="ms-appx:///Assets/Icon/Alert_BLACK.png" Width="25" Height="25" Margin="17,0,0,0"/>
-                            <TextBlock x:Uid="LogoutTB"  Text="LOGOUT" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </Grid>
-
-        </Grid>
+            </uc:NavigationDrawer.RenderTransform>
+        </uc:NavigationDrawer>
         <uc:ToastUC x:ConnectionId='12' d:IsHidden="True" x:Name="ToastControl" Grid.RowSpan="2"/>
 
     </Grid>

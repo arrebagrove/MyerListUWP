@@ -384,4 +384,19 @@
   <data name="SyncSuccessfully" xml:space="preserve">
     <value>Sync successfully</value>
   </data>
+  <data name="CateDefault" xml:space="preserve">
+    <value>To-do</value>
+  </data>
+  <data name="CateEnter" xml:space="preserve">
+    <value>Entertainment</value>
+  </data>
+  <data name="CateFamily" xml:space="preserve">
+    <value>Family</value>
+  </data>
+  <data name="CateLife" xml:space="preserve">
+    <value>Life</value>
+  </data>
+  <data name="CateWork" xml:space="preserve">
+    <value>Work</value>
+  </data>
 </root>

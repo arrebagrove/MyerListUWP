@@ -10,6 +10,7 @@ Framework:
 AnimatedTextBlock.dll                                   : 1.0.0.0
 CloudService.dll                                        : 1.0.0.0
 ClrCompression.dll                                      : 1.0.23123.00 built by: PROJECTKREL
+ContentDialogEx.dll                                     : 1.0.0.0
 GalaSoft.MvvmLight.dll                                  : 5.1.1.35049
 GalaSoft.MvvmLight.Extras.dll                           : 5.1.1.35049
 GalaSoft.MvvmLight.Platform.dll                         : 5.1.1.35051

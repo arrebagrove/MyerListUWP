@@ -35,35 +35,18 @@
                     <ToggleSwitch x:ConnectionId='5' x:Uid="TileTS" Header="Live tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                  RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
                     <ToggleSwitch x:ConnectionId='6' x:Uid="TransparentTS" Header="Transparent Tile" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"                                                  RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>
                     <ToggleSwitch x:Uid="BackgrdTaskTS" Header="Background task" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10" Foreground="Black"   IsOn="{Binding EnableBackgroundTask,Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}" HorizontalAlignment="Stretch" />
-                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <TextBlock x:Uid="DefaultCateTB" TextWrapping="Wrap" Text="DEFAULT CATEGORY" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
-                    </Border>
-                    <ComboBox x:ConnectionId='7' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
-                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
-                            <StackPanel Orientation="Horizontal">
-                                <Ellipse Width="20" Height="20" Fill="#FFABABAB" />
-                                <TextBlock Text="默认" Margin="20,0,0,0"/>
-                            </StackPanel>
-                        </ComboBoxItem>
-                        <ComboBoxItem Foreground="{StaticResource MyerListDark}" Background="{x:Null}">
-                            <StackPanel Orientation="Horizontal">
-                                <Ellipse Width="20" Height="20" Fill="{StaticResource MyerListBlueLight}" />
-                                <TextBlock Text="生活" Margin="20,0,0,0"/>
-                            </StackPanel>
-                        </ComboBoxItem>
-                    </ComboBox>
-                    <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <!--<Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <TextBlock x:Uid="ThemeTB" TextWrapping="Wrap" Text="THEME" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
                     </Border>
-                    <ComboBox x:ConnectionId='8' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                    <ComboBox Margin="10,10,30,10" SelectedIndex="{x:Bind SettingVM.CurrentLanguage,Mode=TwoWay}" Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
                         <ComboBoxItem Content="Classic" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
                         <ComboBoxItem Content="Light" Foreground="Black" Background="{x:Null}"/>
                         <ComboBoxItem Content="Dark" Foreground="{StaticResource MyerListDark}" Background="{x:Null}"/>
-                    </ComboBox>
+                    </ComboBox>-->
                     <Border Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <TextBlock x:Uid="LanguageTB" TextWrapping="Wrap" Text="LANGUAGE" Margin="0,5,5,5" Foreground="{StaticResource MyerListBlueLight}" FontSize="15" FontFamily="Segoe WP" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" FontWeight="Bold"/>
                     </Border>
-                    <ComboBox x:ConnectionId='9' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
+                    <ComboBox x:ConnectionId='7' Margin="10,10,30,10"                                                                Foreground="Black" PlaceholderText="Language" BorderThickness="1.6" BorderBrush="#FFE2E2E2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Stretch" Background="White" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
                         <ComboBoxItem Content="English" Foreground="Black"/>
                         <ComboBoxItem Content="简体中文"  Foreground="Black"/>
                     </ComboBox>

@@ -384,4 +384,19 @@
   <data name="SyncSuccessfully" xml:space="preserve">
     <value>同步成功</value>
   </data>
+  <data name="CateDefault" xml:space="preserve">
+    <value>待办事项</value>
+  </data>
+  <data name="CateEnter" xml:space="preserve">
+    <value>娱乐</value>
+  </data>
+  <data name="CateFamily" xml:space="preserve">
+    <value>家庭</value>
+  </data>
+  <data name="CateLife" xml:space="preserve">
+    <value>生活</value>
+  </data>
+  <data name="CateWork" xml:space="preserve">
+    <value>工作</value>
+  </data>
 </root>

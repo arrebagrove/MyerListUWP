@@ -121,14 +121,16 @@
     <Content Include="Properties\CloudService.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JP.Utils\JP.Utils\JP.Utils.csproj">
-      <Project>{9d13cebe-a582-4729-b859-22fc78653a56}</Project>
+    <ProjectReference Include="..\..\JP.Utils\JP.Utils.csproj">
+      <Project>{7e22106b-24ab-49b3-b09d-255cc07fc159}</Project>
       <Name>JP.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NotificationsExtensions\NotificationsExtensions.csproj">
-      <Project>{3edce147-6170-46aa-93de-6ee29796b30c}</Project>
-      <Name>NotificationsExtensions</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="NotificationsExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\JP.Utils\NotificationsExtensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

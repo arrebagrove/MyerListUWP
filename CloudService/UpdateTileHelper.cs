@@ -8,12 +8,13 @@ using Windows.Storage;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
-using NotificationsExtensions.TileContent;
 using Windows.UI.Popups;
 using Windows.UI;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
+using NotificationsExtensions.TileContent;
+
 
 // ReSharper disable All
 

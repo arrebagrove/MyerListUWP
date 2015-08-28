@@ -1,4 +1,5 @@
 ﻿using JP.Utils.Data;
+using JP.Utils.Network;
 using MyerList;
 using MyerList.Helper;
 using MyerList.Model;
@@ -37,7 +38,13 @@ namespace MyerListUWP
         /// </summary>
         /// 
         public static bool isInOfflineMode = false;
-        public static bool isNoNetwork = false;
+        public static bool IsNoNetwork
+        {
+            get
+            {
+                return !NetworkHelper.HasNetWork;
+            }
+        }
 
         public static Frame ContentFrame = null;
 

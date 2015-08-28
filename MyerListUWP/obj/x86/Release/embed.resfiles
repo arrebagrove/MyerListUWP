@@ -2,9 +2,12 @@ App.xbf
 ResourceDictionary\ColorDictionary.xbf
 ResourceDictionary\StyleDictionary.xbf
 ResourceDictionary\TemplateDictionary.xbf
+UserControl\AddingPane.xbf
 UserControl\DeleteScheduleControl.xbf
+UserControl\LiveTileTemplate.xbf
+UserControl\NavigationDrawer.xbf
 UserControl\ScheduleControl.xbf
-UserControl\ToastUC.xbf
+UserControl\ToastControl.xbf
 View\AboutPage.xbf
 View\LoginPage.xbf
 View\MainPage.xbf

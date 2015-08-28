@@ -66,14 +66,14 @@ namespace MyerListUWP.View
             //});
             Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.RemoveScheduleUI, msg =>
             {
-                if (AddGrid.Visibility == Visibility.Visible)
+                if (AddingPane.Visibility == Visibility.Visible)
                 {
                     RemoveStory.Begin();
                 }
             });
             Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.ShowModifyUI, msg =>
             {
-                AddGrid.Visibility = Visibility.Visible;
+                AddingPane.Visibility = Visibility.Visible;
                 AddStory.Begin();
             });
             Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, MessengerToken.UpdateTile, async schedules =>
@@ -93,13 +93,13 @@ namespace MyerListUWP.View
                 //    await UpdateCustomeTile(schedules.Content);
                 //}
 
-                await UpdateCustomeTile(schedules.Content);
+                await TileControl.UpdateCustomeTile(schedules.Content);
             });
 
             RemoveStory.Completed += ((senderc, ec) =>
               {
                   _isAddIn = false;
-                  AddGrid.Visibility = Visibility.Collapsed;
+                  AddingPane.Visibility = Visibility.Collapsed;
                   SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
               });
 
@@ -122,9 +122,9 @@ namespace MyerListUWP.View
         private void AddClick(object sender, RoutedEventArgs e)
         {
             _isAddIn = true;
-            AddGrid.Visibility = Visibility.Visible;
+            AddingPane.Visibility = Visibility.Visible;
             AddStory.Begin();
-            AddContentBox.Focus(FocusState.Programmatic);
+            AddingPane.SetFocus();
 
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
@@ -162,110 +162,30 @@ namespace MyerListUWP.View
         #endregion
 
         #region UPDATE TILE
-        private async Task UpdateCustomeTile(ObservableCollection<ToDo> schedules)
-        {
-            try
-            {
-                if (LocalSettingHelper.GetValue("EnableTile") == "false")
-                {
-                    UpdateTileHelper.ClearAllSchedules();
-                    return;
-                }
+        
+        //private void UpdateNormalTile(ObservableCollection<ToDo> schedules)
+        //{
+        //    List<string> undoList = new List<string>();
+        //    foreach (var sche in schedules)
+        //    {
+        //        if (!sche.IsDone)
+        //        {
+        //            undoList.Add(sche.Content);
+        //        }
+        //    }
+        //    UpdateTileHelper.ClearAllSchedules();
 
-                CleanUpTileTemplate();
+        //    if (undoList.Count < 4)
+        //    {
+        //        UpdateTileHelper.UpdateNormalTile(undoList);
+        //    }
+        //    else
+        //    {
+        //        UpdateTileHelper.UpdateNormalTile(undoList, true);
+        //    }
+        //}
 
-                if (LocalSettingHelper.GetValue("TransparentTile") == "true")
-                {
-                    backgrd1.Background = backgrd2.Background = backgrd3.Background = new SolidColorBrush(Colors.Transparent);
-                }
 
-
-                List<string> undoList = new List<string>();
-
-                foreach (var sche in schedules)
-                {
-                    if (!sche.IsDone)
-                    {
-                        undoList.Add(sche.Content);
-                    }
-                }
-
-                Text0.Text = Text00.Text = undoList.ElementAtOrDefault(0) ?? "";
-                Text1.Text = Text01.Text = undoList.ElementAtOrDefault(1) ?? "";
-                Text2.Text = Text02.Text = undoList.ElementAtOrDefault(2) ?? "";
-                Text3.Text = Text03.Text = undoList.ElementAtOrDefault(3) ?? "";
-
-                Count1.Text = Count2.Text = Count3.Text = undoList.Count.ToString();
-
-                if (undoList.Count == 0)
-                {
-                    Text0.Text = Text00.Text = "Enjoy your day ;-)";
-                }
-
-                UpdateTileHelper.ClearAllSchedules();
-
-                if (undoList.Count <= 4)
-                {
-                    await UpdateTileHelper.UpdatePersonalTile(WideGrid, MediumGrid, SmallGrid, false);
-                }
-                else
-                {
-                    await UpdateTileHelper.UpdatePersonalTile(WideGrid, MediumGrid, SmallGrid, true);
-
-                    if (undoList.Count > 4)
-                    {
-                        Text0.Text = Text00.Text = undoList.ElementAtOrDefault(4) ?? "";
-                        Text1.Text = Text01.Text = undoList.ElementAtOrDefault(5) ?? "";
-                        Text2.Text = Text02.Text = undoList.ElementAtOrDefault(6) ?? "";
-                        Text3.Text = Text03.Text = undoList.ElementAtOrDefault(7) ?? "";
-                        await UpdateTileHelper.UpdatePersonalTile(WideGrid, MediumGrid, SmallGrid, true);
-                    }
-                    if (undoList.Count > 8)
-                    {
-                        Text0.Text = Text00.Text = undoList.ElementAtOrDefault(8) ?? "";
-                        Text1.Text = Text01.Text = undoList.ElementAtOrDefault(9) ?? "";
-                        Text2.Text = Text02.Text = undoList.ElementAtOrDefault(10) ?? "";
-                        Text3.Text = Text03.Text = undoList.ElementAtOrDefault(11) ?? "";
-                        await UpdateTileHelper.UpdatePersonalTile(WideGrid, MediumGrid, SmallGrid, true);
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                var task = ExceptionHelper.WriteRecord(e);
-
-            }
-
-        }
-
-        private void UpdateNormalTile(ObservableCollection<ToDo> schedules)
-        {
-            List<string> undoList = new List<string>();
-            foreach (var sche in schedules)
-            {
-                if (!sche.IsDone)
-                {
-                    undoList.Add(sche.Content);
-                }
-            }
-            UpdateTileHelper.ClearAllSchedules();
-
-            if (undoList.Count < 4)
-            {
-                UpdateTileHelper.UpdateNormalTile(undoList);
-            }
-            else
-            {
-                UpdateTileHelper.UpdateNormalTile(undoList, true);
-            }
-        }
-
-        private void CleanUpTileTemplate()
-        {
-            Text0.Text = Text1.Text = Text2.Text = Text3.Text = Text00.Text = Text01.Text = Text02.Text = "";
-            Count1.Text = Count2.Text = Count3.Text = "0";
-        }
         #endregion
 
         #region Override

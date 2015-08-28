@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-R2KDAE8</Machine>
+    <Machine>DESKTOP-D5VE22F</Machine>
     <WindowsUser>dengw</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -360,10 +360,13 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\CloudService\bin\x86\Release\CloudService.dll">
       <PackagePath>CloudService.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Dev\apps\JP.Utils\JP.Utils\bin\Release\JP.Utils.dll">
+    <AppxPackagedFile Include="D:\Dev\apps\ContentDialogEx\ContentDialogEx\bin\x86\Release\ContentDialogEx.dll">
+      <PackagePath>ContentDialogEx.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\JP.Utils\bin\Release\JP.Utils.dll">
       <PackagePath>JP.Utils.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\NotificationsExtensions\bin\Release\NotificationsExtensions.dll">
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\CloudService\bin\x86\Release\NotificationsExtensions.dll">
       <PackagePath>NotificationsExtensions.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\ApplicationInsights.config">
@@ -429,6 +432,36 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\SOLID_WHITE_500.png">
       <PackagePath>Assets\SOLID_WHITE_500.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square71x71Logo.scale-100.png">
+      <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square71x71Logo.scale-125.png">
+      <PackagePath>Assets\Square71x71Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\Square71x71Logo.scale-150.png">
+      <PackagePath>Assets\Square71x71Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
@@ -473,6 +506,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\AnimatedTextBlock\bin\x86\Release\AnimatedTextBlock.xr.xml">
       <PackagePath>AnimatedTextBlock\AnimatedTextBlock.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\ContentDialogEx\ContentDialogEx\bin\x86\Release\ContentDialogEx.xr.xml">
+      <PackagePath>ContentDialogEx\ContentDialogEx.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

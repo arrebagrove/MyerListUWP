@@ -13,52 +13,38 @@
         <Image Source="ms-appx:///Assets/back2.png" Stretch="UniformToFill" Opacity="0.02"/>
         <ScrollViewer>
             <StackPanel VerticalAlignment="Center">
-                <Image MaxHeight="250" Source="ms-appx:///Assets/SOLID_WHITE_500.png" Margin="0,0,0,30"/>
+                <Image MaxHeight="250" Source="ms-appx:///Assets/SOLID_WHITE_500.png" Margin="0,0,0,10"/>
                 <StackPanel x:ConnectionId='1' x:Name="stackPanel" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                     <TextBlock Text="Myer" FontSize="35" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" />
                     <TextBlock Text="List" FontSize="35" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}"/>
                 </StackPanel>
                 <TextBlock Text="for Windows 10" FontSize="20" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" />
                 <Grid Margin="0,50,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <TextBlock x:Uid="VersionTB" Text="VERSION" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
+                            <TextBlock  Text="2.0" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" Grid.Column="1" />
 
-                        </Grid.RowDefinitions>
-                        <TextBlock x:Uid="VersionTB" Text="VERSION" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" />
-                        <TextBlock x:Uid="CreditTB" Text="DEVELOPER" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" />
-                        <TextBlock x:Uid="FeedbackTB" Text="FEEDBACK" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" />
-                        <TextBlock x:Uid="Rate" Text="RATE" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
+                            <TextBlock x:Uid="CreditTB" Text="DEVELOPER" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
+                            <TextBlock  Text="JuniperPhoton" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Grid.Column="1" />
 
-                    </Grid>
-                    <Grid Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-
-                        </Grid.RowDefinitions>
-                        <TextBlock  Text="2.0" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" Grid.Column="1" />
-                        <TextBlock  Text="JuniperPhoton" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" Grid.Column="1" />
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0" Grid.Row="2" Grid.Column="1">
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
+                            <TextBlock x:Uid="FeedbackTB" Text="FEEDBACK" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
                             <Button x:ConnectionId='3'                       Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" BorderThickness="0" BorderBrush="{StaticResource MyerListDark}" HorizontalAlignment="Center" Margin="0">
                                 <TextBlock x:Uid="EmailMeTB" Text="EMAIL ME" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0" Grid.Column="1" />
                             </Button>
-                          
                         </StackPanel>
-                        <Button x:ConnectionId='2'                   Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Left" BorderThickness="0" BorderBrush="{StaticResource MyerListDark}" Grid.Column="1" Grid.Row="3">
-                            <TextBlock x:Uid="RateTB" Text="I LIKE IT;-)" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" />
-                        </Button>
-                    </Grid>
-
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
+                            <TextBlock x:Uid="Rate" Text="RATE" FontSize="15" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" />
+                            <Button x:ConnectionId='2'                   Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0" HorizontalAlignment="Center" BorderThickness="0" BorderBrush="{StaticResource MyerListDark}" Grid.Column="1" Grid.Row="3">
+                                <TextBlock x:Uid="RateTB" Text="I LIKE IT;-)" FontSize="15" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListDark}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0" />
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
                 </StackPanel>

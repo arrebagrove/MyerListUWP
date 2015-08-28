@@ -74,7 +74,16 @@
         </Grid.RenderTransform>
 
         <Border x:ConnectionId='10' x:Name="border"  BorderThickness="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0" Background="#004BB685"/>
-        <Ellipse Width="15" Height="15" Fill="{Binding Category,Converter={StaticResource CateColorConverter}}"/>
+        <Button
+            Style="{StaticResource ButtonCommonStyle}"
+             Command="{Binding MainVM.ChangeCateCommand,Mode=OneWay, Source={StaticResource Locator}}"
+             CommandParameter="{Binding ID}"
+            Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Border Background="White" Opacity="0.001"/>
+                <Ellipse Width="15" Height="15" Fill="{Binding Category,Converter={StaticResource CateColorConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Button>
         <Grid Grid.Column="1" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0" >
             <TextBlock HorizontalAlignment="Left" FontWeight="Light" Text="{Binding Content}" VerticalAlignment="Center" Grid.Column="1" FontSize="15" Foreground="#FF474747" Margin="0,0,0,0" TextTrimming="WordEllipsis" FontFamily="Segoe WP"/>
             <Border Background="#FF888888" Visibility="{Binding IsDone, Converter={StaticResource ShowDoneLineConverter}}" BorderThickness="0" Height="1" VerticalAlignment="Center"/>

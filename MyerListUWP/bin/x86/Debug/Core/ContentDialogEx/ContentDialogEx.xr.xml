@@ -103,5 +103,6 @@
       <RootProperty Name="Content" />
       <RootProperty Name="BorderBrush" />
     </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
   </Roots.RootTypes>
 </Roots>

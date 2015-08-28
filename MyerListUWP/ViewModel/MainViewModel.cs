@@ -22,6 +22,7 @@ using JP.Utils.Network;
 using MyerListUWP;
 using MyerListUWP.Model;
 using DialogExt;
+using MyerListUWP.Helper;
 #if WINDOWS_PHONE_APP
 #endif
 
@@ -36,6 +37,71 @@ namespace MyerList.ViewModel
         private bool LOAD_ONCE = false;
 
         #region NAVIGATION UI
+
+        private SolidColorBrush _cateColor;
+        public SolidColorBrush CateColor
+        {
+            get
+            {
+                return _cateColor;
+            }
+            set
+            {
+                if (_cateColor != value)
+                {
+                    _cateColor = value;
+                    RaisePropertyChanged(() => CateColor);
+                }
+            }
+        }
+
+        private RelayCommand<object> _selectCateCommand;
+        public RelayCommand<object> SelectCateCommand
+        {
+            get
+            {
+                if (_selectCateCommand != null) return _selectCateCommand;
+                return _selectCateCommand = new RelayCommand<object>((param) =>
+                 {
+                     Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.CloseHam);
+
+                     var cateid = int.Parse(param as string);
+                     CateColor = App.Current.Resources[Enum.GetName(typeof(CateColors), cateid)] as SolidColorBrush;
+                     TitleBarHelper.SetUpCateTitleBar(Enum.GetName(typeof(CateColors), cateid));
+
+                     switch (cateid)
+                     {
+                         case 0:
+                             {
+                                 Title = ResourcesHelper.GetString("CateDefault");
+                             }; break;
+                         case 1:
+                             {
+                                 Title = ResourcesHelper.GetString("CateWork");
+
+                             }; break;
+                         case 2:
+                             {
+                                 Title = ResourcesHelper.GetString("CateLife");
+
+                             }; break;
+                         case 3:
+                             {
+                                 Title = ResourcesHelper.GetString("CateFamily");
+
+                             }; break;
+                         case 4:
+                             {
+                                 Title = ResourcesHelper.GetString("CateEnter");
+
+                             }; break;
+                     }
+
+                 });
+            }
+        }
+
+
         private string _title;
         public string Title
         {
@@ -647,9 +713,8 @@ namespace MyerList.ViewModel
                 {
                     return _goToAboutCommand;
                 }
-                return _goToAboutCommand = new RelayCommand(async () =>
+                return _goToAboutCommand = new RelayCommand(() =>
                 {
-                    await Task.Delay(50);
                     Frame frame = Window.Current.Content as Frame;
                     if (frame != null) frame.Navigate(typeof(AboutPage));
                 });
@@ -668,9 +733,8 @@ namespace MyerList.ViewModel
                 {
                     return _gotoSettingCommand;
                 }
-                return _gotoSettingCommand = new RelayCommand(async () =>
+                return _gotoSettingCommand = new RelayCommand(() =>
                 {
-                    await Task.Delay(50);
                     Frame frame = Window.Current.Content as Frame;
                     if (frame != null) frame.Navigate(typeof(SettingPage));
                 });
@@ -734,6 +798,8 @@ namespace MyerList.ViewModel
             CurrentUser = new MyerListUser();
             MyToDos = new ObservableCollection<ToDo>();
             DeletedToDos = new ObservableCollection<ToDo>();
+
+            CateColor = App.Current.Resources["DefaultColor"] as SolidColorBrush;
 
             //设置当前页面为 To-Do
             SelectedIndex = 0;
@@ -813,7 +879,7 @@ namespace MyerList.ViewModel
         private async Task AddToDo()
         {
             //离线模式
-            if (App.isInOfflineMode || App.isNoNetwork)
+            if (App.isInOfflineMode || App.IsNoNetwork)
             {
                 NewToDo.ID = Guid.NewGuid().ToString();
 
@@ -835,7 +901,7 @@ namespace MyerList.ViewModel
                 IsLoading = Visibility.Collapsed;
 
             }
-            else if (App.isNoNetwork)
+            else if (App.IsNoNetwork)
             {
                 //TO DO: Store the schedule in SendingQueue
             }
@@ -960,7 +1026,7 @@ namespace MyerList.ViewModel
             try
             {
                 //没网络
-                if (App.isNoNetwork)
+                if (App.IsNoNetwork)
                 {
                     //通知没有网络
                     Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
@@ -1113,13 +1179,14 @@ namespace MyerList.ViewModel
                     //已经登陆过的了
                     case LoginMode.Login:
                         {
+                            CurrentUser.Email = LocalSettingHelper.GetValue("email");
+                            ShowLoginBtnVisibility = Visibility.Collapsed;
+                            ShowAccountInfoVisibility = Visibility.Visible;
+
                             //没有网络
-                            if (!NetworkHelper.HasNetWork)
+                            if (App.IsNoNetwork)
                             {
-                                App.isNoNetwork = true;
-
                                 await RestoreData(true);
-
                                 await Task.Delay(500);
                                 Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("NoNetworkHint")), MessengerToken.ToastToken);
                             }
@@ -1127,14 +1194,7 @@ namespace MyerList.ViewModel
                             else
                             {
                                 Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("WelcomeBackHint")), MessengerToken.ToastToken);
-                                App.isNoNetwork = false;
-
-                                CurrentUser.Email = LocalSettingHelper.GetValue("email");
-                                ShowLoginBtnVisibility = Visibility.Collapsed;
-                                ShowAccountInfoVisibility = Visibility.Visible;
-
                                 SyncCommand.Execute(null);
-
                                 var resotreTask = RestoreData(false);
                             }
                         }; break;
@@ -1143,7 +1203,6 @@ namespace MyerList.ViewModel
                         {
                             ShowLoginBtnVisibility = Visibility.Visible;
                             ShowAccountInfoVisibility = Visibility.Collapsed;
-                            App.isNoNetwork = false;
                             var restoreTask = RestoreData(true);
                         }; break;
                 }

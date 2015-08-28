@@ -18,7 +18,7 @@ namespace MyerList.Base
         public BindablePage()
         {
             SetUpPageAnimation();
-            
+            SetUpTitleBar();
             SetUpNavigationCache();
 
             IsTextScaleFactorEnabled = false;
@@ -43,7 +43,7 @@ namespace MyerList.Base
 
         protected virtual void SetUpTitleBar()
         {
-            TitleBarHelper.SetUpBlueTitleBar();
+            TitleBarHelper.SetUpCateTitleBar(CateColors.DefaultColor.ToString());
         }
 
         protected virtual void SetUpStatusBar()
@@ -128,7 +128,7 @@ namespace MyerList.Base
                 }
             }
             SetNavigationBackBtn();
-            SetUpTitleBar();
+            
             SetUpStatusBar();
             RegisterHandleBackLogic();
         }
