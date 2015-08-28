@@ -246,7 +246,7 @@
                     <Grid>
                         <ListView x:Name="Listview" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
-				            ItemsSource="{x:Bind MainVM.MyToDos,Mode=OneWay}" 
+				            ItemsSource="{x:Bind MainVM.CurrrentDisplayToDos,Mode=OneWay}" 
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
 				            MaxWidth="450"  
                             SelectionMode="None" 

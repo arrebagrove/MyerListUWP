@@ -72,6 +72,12 @@ namespace MyerList
         {
            
         }
-       
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            TitleBarHelper.SetUpGrayTitleBar();
+        }
+
     }
 }

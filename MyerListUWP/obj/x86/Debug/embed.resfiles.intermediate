@@ -1,5 +1,6 @@
 App.xbf
 ResourceDictionary\ColorDictionary.xbf
+ResourceDictionary\ConverterDictionary.xbf
 ResourceDictionary\StyleDictionary.xbf
 ResourceDictionary\TemplateDictionary.xbf
 UserControl\AddingPane.xbf

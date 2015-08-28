@@ -246,7 +246,7 @@
                     <Grid>
                         <ListView x:ConnectionId='20' x:Name="Listview" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
-				                                                              
+				                                                                           
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
 				            MaxWidth="450"  
                             SelectionMode="None" 

@@ -62,9 +62,8 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid x:ConnectionId='9' x:Name="SchduleTempleteGrid"  Tag="{Binding ID}"                                                       Height="35" ManipulationMode="System,TranslateX,TranslateRailsX" d:DesignWidth="320.167" RenderTransformOrigin="0.5,0.5">
+    <Grid x:ConnectionId='9' x:Name="SchduleTempleteGrid"  Tag="{Binding ID}"                                                       ManipulationMode="System,TranslateX,TranslateRailsX" d:DesignWidth="320.167" RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
@@ -74,20 +73,24 @@
         </Grid.RenderTransform>
 
         <Border x:ConnectionId='10' x:Name="border"  BorderThickness="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0" Background="#004BB685"/>
-        <Button
-            Style="{StaticResource ButtonCommonStyle}"
-             Command="{Binding MainVM.ChangeCateCommand,Mode=OneWay, Source={StaticResource Locator}}"
-             CommandParameter="{Binding ID}"
-            Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Grid>
-                <Border Background="White" Opacity="0.001"/>
-                <Ellipse Width="15" Height="15" Fill="{Binding Category,Converter={StaticResource CateColorConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal">
+            <Button
+                    Visibility="{Binding MainVM.ShowCategory,Mode=OneWay,Source={StaticResource Locator}}"
+                    Width="30"
+                    Style="{StaticResource ButtonCommonStyle}"
+                     Command="{Binding MainVM.ChangeCateCommand,Mode=OneWay, Source={StaticResource Locator}}"
+                     CommandParameter="{Binding ID}"
+                    Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <Border Background="White" Opacity="0.001"/>
+                    <Ellipse Width="15" Height="15" Fill="{Binding Category,Converter={StaticResource CateColorConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
+            <Grid Grid.Column="0" VerticalAlignment="Stretch" Grid.RowSpan="1" Margin="0" >
+                <TextBlock HorizontalAlignment="Left" FontWeight="Light" Text="{Binding Content}" VerticalAlignment="Center" Grid.Column="1" FontSize="15" Foreground="#FF474747" Margin="0,0,0,0" TextTrimming="WordEllipsis" FontFamily="Segoe WP"/>
             </Grid>
-        </Button>
-        <Grid Grid.Column="1" VerticalAlignment="Stretch" Grid.RowSpan="2" Margin="0" >
-            <TextBlock HorizontalAlignment="Left" FontWeight="Light" Text="{Binding Content}" VerticalAlignment="Center" Grid.Column="1" FontSize="15" Foreground="#FF474747" Margin="0,0,0,0" TextTrimming="WordEllipsis" FontFamily="Segoe WP"/>
-            <Border Background="#FF888888" Visibility="{Binding IsDone, Converter={StaticResource ShowDoneLineConverter}}" BorderThickness="0" Height="1" VerticalAlignment="Center"/>
-        </Grid>
+        </StackPanel>
+        <Border Background="#FF888888" Visibility="{Binding IsDone, Converter={StaticResource ShowDoneLineConverter}}" BorderThickness="0" Height="1.5" VerticalAlignment="Center"/>
         <Grid Grid.Column="2">
             <Grid.Clip>
                 <RectangleGeometry Rect="0 0 30 30"/>

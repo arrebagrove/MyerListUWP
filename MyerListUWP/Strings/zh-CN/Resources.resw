@@ -399,4 +399,19 @@
   <data name="CateWork" xml:space="preserve">
     <value>工作</value>
   </data>
+  <data name="CateDefaultTB.Text" xml:space="preserve">
+    <value>待办事项</value>
+  </data>
+  <data name="CateWorkTB.Text" xml:space="preserve">
+    <value>工作</value>
+  </data>
+  <data name="CateLifeTB.Text" xml:space="preserve">
+    <value>生活</value>
+  </data>
+  <data name="CateFamilyTB.Text" xml:space="preserve">
+    <value>家庭</value>
+  </data>
+  <data name="CateEnterTB.Text" xml:space="preserve">
+    <value>娱乐</value>
+  </data>
 </root>

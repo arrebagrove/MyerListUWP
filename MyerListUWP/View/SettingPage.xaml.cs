@@ -1,6 +1,7 @@
 ﻿using MyerList.Base;
 using MyerList.ViewModel;
 using MyerListUWP;
+using MyerListUWP.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,6 +50,12 @@ namespace MyerList
             theme.DefaultNavigationTransitionInfo = info;
             collection.Add(theme);
             this.Transitions = collection;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            TitleBarHelper.SetUpCateTitleBar("DefaultColor");
         }
     }
 }

@@ -38,6 +38,33 @@ namespace MyerList.ViewModel
 
         #region NAVIGATION UI
 
+        private int _selectedCate;
+        public int SelectedCate
+        {
+            get
+            {
+                return _selectedCate;
+            }
+            set
+            {
+                if(_selectedCate!=value)
+                {
+                    _selectedCate = value;
+                    RaisePropertyChanged(() => SelectedCate);
+                    SelectCateCommand.Execute(value);
+                }
+            }
+        }
+
+        public Visibility ShowCategory
+        {
+            get
+            {
+                if (SelectedCate == 0) return Visibility.Visible;
+                else return Visibility.Collapsed;
+            }
+        }
+
         private SolidColorBrush _cateColor;
         public SolidColorBrush CateColor
         {
@@ -55,6 +82,40 @@ namespace MyerList.ViewModel
             }
         }
 
+        private SolidColorBrush _cateColorLight;
+        public SolidColorBrush CateColorLight
+        {
+            get
+            {
+                return _cateColorLight;
+            }
+            set
+            {
+                if (_cateColorLight != value)
+                {
+                    _cateColorLight = value;
+                    RaisePropertyChanged(() => CateColorLight);
+                }
+            }
+        }
+
+        private SolidColorBrush _cateColorDark;
+        public SolidColorBrush CateColorDark
+        {
+            get
+            {
+                return _cateColorDark;
+            }
+            set
+            {
+                if (_cateColorDark != value)
+                {
+                    _cateColorDark = value;
+                    RaisePropertyChanged(() => CateColorDark);
+                }
+            }
+        }
+
         private RelayCommand<object> _selectCateCommand;
         public RelayCommand<object> SelectCateCommand
         {
@@ -63,40 +124,8 @@ namespace MyerList.ViewModel
                 if (_selectCateCommand != null) return _selectCateCommand;
                 return _selectCateCommand = new RelayCommand<object>((param) =>
                  {
-                     Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.CloseHam);
-
-                     var cateid = int.Parse(param as string);
-                     CateColor = App.Current.Resources[Enum.GetName(typeof(CateColors), cateid)] as SolidColorBrush;
-                     TitleBarHelper.SetUpCateTitleBar(Enum.GetName(typeof(CateColors), cateid));
-
-                     switch (cateid)
-                     {
-                         case 0:
-                             {
-                                 Title = ResourcesHelper.GetString("CateDefault");
-                             }; break;
-                         case 1:
-                             {
-                                 Title = ResourcesHelper.GetString("CateWork");
-
-                             }; break;
-                         case 2:
-                             {
-                                 Title = ResourcesHelper.GetString("CateLife");
-
-                             }; break;
-                         case 3:
-                             {
-                                 Title = ResourcesHelper.GetString("CateFamily");
-
-                             }; break;
-                         case 4:
-                             {
-                                 Title = ResourcesHelper.GetString("CateEnter");
-
-                             }; break;
-                     }
-
+                     //SelectedCate = (int)param;
+                     ChangeDisplayCateList((int)param);
                  });
             }
         }
@@ -466,6 +495,23 @@ namespace MyerList.ViewModel
             }
         }
 
+        private ObservableCollection<ToDo> _currentDisplayToDos;
+        public ObservableCollection<ToDo> CurrrentDisplayToDos
+        {
+            get
+            {
+                return _currentDisplayToDos;
+            }
+            set
+            {
+                if (_currentDisplayToDos != value)
+                {
+                    _currentDisplayToDos = value;
+                    RaisePropertyChanged(() => CurrrentDisplayToDos);
+                }
+            }
+        }
+
 
         /// <summary>
         ///删除待办事项
@@ -798,8 +844,13 @@ namespace MyerList.ViewModel
             CurrentUser = new MyerListUser();
             MyToDos = new ObservableCollection<ToDo>();
             DeletedToDos = new ObservableCollection<ToDo>();
+            CurrrentDisplayToDos = MyToDos;
+
+            SelectedCate = 0;
 
             CateColor = App.Current.Resources["DefaultColor"] as SolidColorBrush;
+            CateColorLight= App.Current.Resources["DefaultColorLight"] as SolidColorBrush;
+            CateColorDark = App.Current.Resources["DefaultColorDark"] as SolidColorBrush;
 
             //设置当前页面为 To-Do
             SelectedIndex = 0;
@@ -1056,6 +1107,8 @@ namespace MyerList.ViewModel
                     //排序
                     MyToDos = ToDo.SetOrderByString(scheduleWithoutOrder, orders);
 
+                    CurrrentDisplayToDos = MyToDos;
+
                     Messenger.Default.Send(new GenericMessage<string>(ResourcesHelper.GetString("SyncSuccessfully")), MessengerToken.ToastToken);
 
                     await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, "myschedules.sch", true);
@@ -1141,7 +1194,54 @@ namespace MyerList.ViewModel
             if(scheduleToChange!= null)
             {
                 scheduleToChange.Category++;
-                await PostHelper.UpdateContent(id, scheduleToChange.Content, scheduleToChange.Category);
+                if(!App.IsNoNetwork && !App.isInOfflineMode) await PostHelper.UpdateContent(id, scheduleToChange.Content, scheduleToChange.Category);
+            }
+        }
+
+        private void ChangeDisplayCateList(int id)
+        {
+            Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.CloseHam);
+
+            var cateid = id;
+            CateColor = App.Current.Resources[Enum.GetName(typeof(CateColors), cateid)] as SolidColorBrush;
+            CateColorLight = App.Current.Resources[Enum.GetName(typeof(CateColors), cateid) + "Light"] as SolidColorBrush;
+            CateColorDark = App.Current.Resources[Enum.GetName(typeof(CateColors) , cateid) + "Dark"] as SolidColorBrush;
+
+            TitleBarHelper.SetUpCateTitleBar(Enum.GetName(typeof(CateColors), cateid));
+
+            if (id != 0)
+            {
+                var newList = from e in MyToDos where e.Category == id select e;
+                CurrrentDisplayToDos = new ObservableCollection<ToDo>();
+                newList.ToList().ForEach(s => CurrrentDisplayToDos.Add(s));
+            }
+            else CurrrentDisplayToDos = MyToDos;
+
+            switch (cateid)
+            {
+                case 0:
+                    {
+                        Title = ResourcesHelper.GetString("CateDefault");
+                    }; break;
+                case 1:
+                    {
+                        Title = ResourcesHelper.GetString("CateWork");
+
+                    }; break;
+                case 2:
+                    {
+                        Title = ResourcesHelper.GetString("CateLife");
+
+                    }; break;
+                case 3:
+                    {
+                        Title = ResourcesHelper.GetString("CateFamily");
+
+                    }; break;
+                case 4:
+                    {
+                        Title = ResourcesHelper.GetString("CateEnter");
+                    }; break;
             }
         }
 
@@ -1168,6 +1268,8 @@ namespace MyerList.ViewModel
         /// <param name="param"></param>
         public async void Activate(object param)
         {
+            TitleBarHelper.SetUpCateTitleBar(Enum.GetName(typeof(CateColors), SelectedCate));
+
             if (param is LoginMode)
             {
                 if (LOAD_ONCE) return;

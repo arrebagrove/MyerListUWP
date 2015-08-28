@@ -18,23 +18,23 @@ namespace MyerList.Converter
             {
                 case 0:
                     {
-                        return new SolidColorBrush(new Color() { A = 255, R =186,G=186,B=186});
+                        return (App.Current.Resources["MyerListBlueLight"] as SolidColorBrush);
                     };
                 case 1:
                     {
-                        return new SolidColorBrush(new Color() {A=255, R = 255, G = 97, B = 97 });
+                        return (App.Current.Resources["WorkColor"] as SolidColorBrush);
                     };
                 case 2:
                     {
-                        return (App.Current.Resources["MyerListBlueLight"] as SolidColorBrush);
+                        return (App.Current.Resources["LifeColor"] as SolidColorBrush);
                     };
                 case 3:
                     {
-                        return new SolidColorBrush(new Color() { A = 255, R = 255, G = 194, B = 97 });
+                        return (App.Current.Resources["FamilyColor"] as SolidColorBrush);
                     }; 
                 case 4:
                     {
-                        return new SolidColorBrush(new Color() { A = 255, R = 61, G = 202, B = 169 });
+                        return (App.Current.Resources["EnterColor"] as SolidColorBrush);
                     }; 
                 
             }

@@ -621,3 +621,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\LiveTileTemplate.g
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\LiveTileTemplate.g.cs
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\LiveTileTemplate.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\LiveTileTemplate.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\ConverterDictionary.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\ConverterDictionary.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\ResourceDictionary\ConverterDictionary.xbf

@@ -160,7 +160,7 @@
     <value>Email</value>
   </data>
   <data name="EmailInvaild" xml:space="preserve">
-    <value />
+    <value>Invalid Email</value>
   </data>
   <data name="EmailMeTB.Text" xml:space="preserve">
     <value>Email me</value>
@@ -398,5 +398,20 @@
   </data>
   <data name="CateWork" xml:space="preserve">
     <value>Work</value>
+  </data>
+  <data name="CateDefaultTB.Text" xml:space="preserve">
+    <value>To-dos</value>
+  </data>
+  <data name="CateWorkTB.Text" xml:space="preserve">
+    <value>Work</value>
+  </data>
+  <data name="CateLifeTB.Text" xml:space="preserve">
+    <value>Life</value>
+  </data>
+  <data name="CateFamilyTB.Text" xml:space="preserve">
+    <value>Family</value>
+  </data>
+  <data name="CateEnterTB.Text" xml:space="preserve">
+    <value>Entertainment</value>
   </data>
 </root>

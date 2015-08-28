@@ -30,9 +30,9 @@ namespace MyerListUWP.Helper
             titleBar.ButtonForegroundColor = Colors.Black;
             titleBar.ButtonInactiveBackgroundColor = titleBar.BackgroundColor;
             titleBar.ButtonInactiveForegroundColor = Colors.Black;
-            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources["MyerListGray"] as SolidColorBrush).Color;
+            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources["MyerListGrayLight"] as SolidColorBrush).Color;
             titleBar.ButtonHoverForegroundColor = Colors.Black;
-            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListGray"] as SolidColorBrush).Color;
+            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources["MyerListGrayDark"] as SolidColorBrush).Color;
         }
 
         public static void SetUpCateTitleBar(string color)
@@ -46,10 +46,10 @@ namespace MyerListUWP.Helper
             titleBar.ButtonForegroundColor = Colors.White;
             titleBar.ButtonInactiveBackgroundColor = titleBar.BackgroundColor;
             titleBar.ButtonInactiveForegroundColor = Colors.White;
-            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
+            titleBar.ButtonHoverBackgroundColor = (App.Current.Resources[color.ToString()+"Light"] as SolidColorBrush).Color;
             titleBar.ButtonHoverForegroundColor = Colors.White;
-            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources[color.ToString()] as SolidColorBrush).Color;
-            titleBar.ButtonPressedForegroundColor = Colors.White;
+            titleBar.ButtonPressedBackgroundColor = (App.Current.Resources[color.ToString()+"Dark"] as SolidColorBrush).Color;
+            titleBar.ButtonPressedForegroundColor = Colors.Black;
         }
 
         public static void SetUpBlackTitleBar()
