@@ -47,6 +47,7 @@ namespace MyerList.ViewModel
                     _selectedCate = value;
                     RaisePropertyChanged(() => SelectedCate);
                     SelectCateCommand.Execute(value);
+                    RaisePropertyChanged(() => ShowSortButton);
                 }
             }
         }
@@ -293,6 +294,16 @@ namespace MyerList.ViewModel
         #endregion
 
         #region CommandBar
+
+        public Visibility ShowSortButton
+        {
+            get
+            {
+                if (SelectedCate == 0) return Visibility.Visible;
+                else return Visibility.Collapsed;
+            }
+        }
+
         /// <summary>
         /// 显示加载条
         /// </summary>
@@ -481,8 +492,6 @@ namespace MyerList.ViewModel
             {
                 if (_myToDos != null)
                 {
-                    if (_myToDos.Count == 0) ShowNoItems = Visibility.Visible;
-                    else ShowNoItems = Visibility.Collapsed;
                     return _myToDos;
                 }
                 return _myToDos = new ObservableCollection<ToDo>();
@@ -620,6 +629,40 @@ namespace MyerList.ViewModel
                  });
             }
         }
+        #endregion
+
+        #region 排序
+        private bool? _isInSortMode;
+        public bool? IsInSortMode
+        {
+            get
+            {
+                return _isInSortMode;
+            }
+            set
+            {
+                if (_isInSortMode != value)
+                {
+                    _isInSortMode = value;
+                    RaisePropertyChanged(() => IsInSortMode);
+
+                    if(!LOAD_ONCE)
+                    {
+                        return;
+                    }
+                    if (value == true)
+                    {
+                        Messenger.Default.Send(new GenericMessage<string>(""), MessengerTokens.GoToSort);
+                    }
+                    else
+                    {
+                        Messenger.Default.Send(new GenericMessage<string>(""), MessengerTokens.LeaveSort);
+                        var task = UpdateOrder();
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region 已经删除的
@@ -865,6 +908,7 @@ namespace MyerList.ViewModel
             MyToDos = new ObservableCollection<ToDo>();
             DeletedToDos = new ObservableCollection<ToDo>();
             CurrentDisplayToDos = MyToDos;
+            IsInSortMode = false;
 
             SelectedCate = 0;
 
@@ -888,26 +932,35 @@ namespace MyerList.ViewModel
             });
 
             //完成ToDo
-            Messenger.Default.Register<GenericMessage<string>>(this, "Check", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.CheckToDo, act =>
             {
                 var id = act.Content;
                 CheckCommand.Execute(id);
             });
 
             //删除To-Do
-            Messenger.Default.Register<GenericMessage<string>>(this, "Delete", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this,MessengerTokens.DeleteToDo, act =>
             {
                 var id = act.Content;
                 DeleteCommand.Execute(id);
             });
 
-
-
-            Messenger.Default.Register<GenericMessage<ToDo>>(this, "Redo", act =>
+            Messenger.Default.Register<GenericMessage<ToDo>>(this, MessengerTokens.ReaddToDo, act =>
             {
                 this.NewToDo = act.Content;
                 OkCommand.Execute(false);
             });
+
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.CompleteSort, async act =>
+              {
+                  await UpdateOrder();
+              });
+        }
+
+        private async Task UpdateOrder()
+        {
+            var orderStr = ToDo.GetCurrentOrderString(MyToDos);
+            await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), orderStr);
         }
 
         /// <summary>
@@ -987,12 +1040,12 @@ namespace MyerList.ViewModel
                     if (LocalSettingHelper.GetValue("AddMode") == "0")
                     {
                         MyToDos.Insert(0, newSchedule);
-                        RaisePropertyChanged(() => CurrentDisplayToDos);
+                        UpdateDisplayList(SelectedCate);
                     }
                     else
                     {
                         MyToDos.Add(newSchedule);
-                        RaisePropertyChanged(() => CurrentDisplayToDos);
+                        UpdateDisplayList(SelectedCate);
                     }
 
                     await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
@@ -1032,19 +1085,13 @@ namespace MyerList.ViewModel
                 DeletedToDos.Add(itemToDeleted);
                 await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(DeletedToDos, SerializerFileNames.DeletedFileName, true);
 
-                if (itemToDeleted != null)
-                {
-                    MyToDos.Remove(itemToDeleted);
-                    CurrentDisplayToDos.Remove(itemToDeleted);
+                MyToDos.Remove(itemToDeleted);
+                UpdateDisplayList(SelectedCate);
+                await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, SerializerFileNames.ToDoFileName, true);
 
-                    if (CurrentDisplayToDos.Count == 0) ShowNoItems = Visibility.Visible;
-
-                    await SerializerHelper.SerializerToJson<ObservableCollection<ToDo>>(MyToDos, SerializerFileNames.ToDoFileName, true);
-                }
 
                 if (!App.isInOfflineMode)
                 {
-                    if (CurrentDisplayToDos.Count == 0) ShowNoItems = Visibility.Visible;
                     var result = await PostHelper.DeleteSchedule(id);
                     await PostHelper.SetMyOrder(LocalSettingHelper.GetValue("sid"), ToDo.GetCurrentOrderString(MyToDos));
                 }
@@ -1245,15 +1292,9 @@ namespace MyerList.ViewModel
 
             TitleBarHelper.SetUpCateTitleBar(Enum.GetName(typeof(CateColors), cateid));
 
-            if (id != 0)
-            {
-                var newList = from e in MyToDos where e.Category == id select e;
-                CurrentDisplayToDos = new ObservableCollection<ToDo>();
-                newList.ToList().ForEach(s => CurrentDisplayToDos.Add(s));
-            }
-            else CurrentDisplayToDos = MyToDos;
+            UpdateDisplayList(id);
 
-            if (CurrentDisplayToDos.Count == 0) ShowNoItems = Visibility.Visible;
+            IsInSortMode = false;
 
             switch (cateid)
             {
@@ -1281,6 +1322,19 @@ namespace MyerList.ViewModel
                         Title = ResourcesHelper.GetString("CateEnter");
                     }; break;
             }
+        }
+
+        private void UpdateDisplayList(int id)
+        {
+            if (id != 0)
+            {
+                var newList = from e in MyToDos where e.Category == id select e;
+                CurrentDisplayToDos = new ObservableCollection<ToDo>();
+                newList.ToList().ForEach(s => CurrentDisplayToDos.Add(s));
+            }
+            else CurrentDisplayToDos = MyToDos;
+
+            if (CurrentDisplayToDos.Count == 0) ShowNoItems = Visibility.Visible;
         }
 
         /// <summary>

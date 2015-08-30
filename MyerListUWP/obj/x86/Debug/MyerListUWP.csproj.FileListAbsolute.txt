@@ -640,3 +640,11 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\HamburgerButton.g.
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\HamburgerButton.xaml
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\UserControl\HamburgerButton.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\UserControl\HamburgerButton.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\View\CategorySettingPage.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\CategorySettingPage.g.i.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\CategorySettingPage.g.cs
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\CategorySettingPage.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\View\CategorySettingPage.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\ResourceDictionary\StringDictionary.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\StringDictionary.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Debug\ResourceDictionary\StringDictionary.xbf

@@ -2,6 +2,7 @@
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using GalaSoft.MvvmLight.Messaging;
+using MyerList.Helper;
 
 namespace MyerList.UC
 {
@@ -9,62 +10,72 @@ namespace MyerList.UC
     {
 
         TranslateTransform _tranTemplete = new TranslateTransform();
-        bool _isInDoneMode = false;
+        bool _isToBeDone = false;
         bool _isInDeleteMode = false;
+        bool _canBeSorted = false;
 
-        ManipulationModes defaultmode;
+        ManipulationModes defaultmode=ManipulationModes.TranslateX | ManipulationModes.System;
         ManipulationModes reordermode = ManipulationModes.TranslateY;
 
         public ScheduleControl()
         {
             this.InitializeComponent();
 
-            defaultmode = SchduleTempleteGrid.ManipulationMode;
-
-            Messenger.Default.Register<GenericMessage<string>>(this, "InReorder", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.GoToSort, act =>
                 {
-                    SchduleTempleteGrid.ManipulationMode = reordermode;
+                    if(!_canBeSorted)
+                    {
+                        _canBeSorted = true;
+                        GoSortStory.Begin();
+                        SchduleTempleteGrid.ManipulationMode = reordermode;
+                    }
                 });
-            Messenger.Default.Register<GenericMessage<string>>(this, "OutReorder", act =>
+            Messenger.Default.Register<GenericMessage<string>>(this,MessengerTokens.LeaveSort, act =>
             {
-                SchduleTempleteGrid.ManipulationMode = defaultmode;
+                if (_canBeSorted)
+                {
+                    _canBeSorted = false;
+                    LeaveSortStory.Begin();
+                    SchduleTempleteGrid.ManipulationMode = defaultmode;
+                }
             });
+
+            BackStory.Completed += ((senderb, eb) =>
+              {
+                  InitialManipulation();
+              });
+        }
+
+        private void InitialManipulation()
+        {
+            SchduleTempleteGrid.ManipulationDelta -= Grid_ManipulationDelta;
+            SchduleTempleteGrid.ManipulationCompleted -= Grid_ManipulationCompleted;
+
+            SchduleTempleteGrid.ManipulationDelta += Grid_ManipulationDelta;
+            SchduleTempleteGrid.ManipulationCompleted += Grid_ManipulationCompleted;
+
+            _tranTemplete = new TranslateTransform();
+            SchduleTempleteGrid.RenderTransform = _tranTemplete;
         }
 
         /// <summary>
         /// 启动动画
         /// </summary>
         /// <param name="x">当前的X位置</param>
-        private void PlayBackStoryBoard(double x)
+        private void BeginReturnStoryboard(double x)
         {
-            SchduleTempleteGrid.RenderTransform = new CompositeTransform();
             StartX.Value = x;
             BackStory.Begin();
         }
 
         private void SchduleTempleteGrid_OnPointerEntered(object sender, PointerRoutedEventArgs e)
         {
-
-            SchduleTempleteGrid.ManipulationDelta -= _grid_ManipulationDelta;
-            SchduleTempleteGrid.ManipulationCompleted -= _grid_ManipulationCompleted;
-
-            SchduleTempleteGrid.ManipulationDelta += _grid_ManipulationDelta;
-            SchduleTempleteGrid.ManipulationCompleted += _grid_ManipulationCompleted;
-
-            _tranTemplete = new TranslateTransform();
-            SchduleTempleteGrid.RenderTransform = _tranTemplete;
- 
+            InitialManipulation();
         }
 
-        private void _grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-
-            if(e.Delta.Translation.Y>50 || e.Delta.Translation.Y<-50)
-            {
-                //return;
-            }
-
-            //finish 
+            //完成待办事项 
             if (e.Delta.Translation.X > 0)
             {
                 _tranTemplete.X += e.Delta.Translation.X;
@@ -74,19 +85,19 @@ namespace MyerList.UC
                 }
                 if (_tranTemplete.X > 100)
                 {
-                    if (!_isInDoneMode)
+                    if (!_isToBeDone)
                     {
-                        TurnGreenStory.Begin();
-                        _isInDoneMode = true;
+                        ShowGreenStory.Begin();
+                        _isToBeDone = true;
                         _isInDeleteMode = false;
                     }
                 }
             }
-            //delete
+            //删除待办事项
             else
             {
                 _tranTemplete.X += e.Delta.Translation.X;
-                if (_isInDoneMode)
+                if (_isToBeDone)
                 {
                     return;
                 }
@@ -94,8 +105,8 @@ namespace MyerList.UC
                 {
                     if (!_isInDeleteMode)
                     {
-                        TurnRedStory.Begin();
-                        _isInDoneMode = false;
+                        ShowRedStory.Begin();
+                        _isToBeDone = false;
                         _isInDeleteMode = true;
                     }
                 }
@@ -103,38 +114,31 @@ namespace MyerList.UC
 
         }
 
-        private void _grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        private void Grid_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             Grid _grid = sender as Grid;
-            //CheckBox cb = _grid.Children.ElementAt(2) as CheckBox;
 
             if (e.Cumulative.Translation.X > 10)
             {
                 if (e.Cumulative.Translation.X > 100)
                 {
-                   //cb.IsChecked = (bool)cb.IsChecked ? false : true;
-                   Messenger.Default.Send(new GenericMessage<string>((string)_grid.Tag), "Check");
+                   Messenger.Default.Send(new GenericMessage<string>((string)_grid.Tag),MessengerTokens.CheckToDo);
                 }
-                ReturnGreenStory.Begin();
-                PlayBackStoryBoard(e.Cumulative.Translation.X);
+                HideGreenStory.Begin();
+                BeginReturnStoryboard(e.Cumulative.Translation.X);
             }
             else if (e.Cumulative.Translation.X < -10)
             {
                 if (e.Cumulative.Translation.X < -100)
                 {
                     if (_grid != null)
-                        Messenger.Default.Send(new GenericMessage<string>((string)_grid.Tag), "Delete");
+                        Messenger.Default.Send(new GenericMessage<string>((string)_grid.Tag), MessengerTokens.DeleteToDo);
                 }
-                ReturnRedStory.Begin();
-                PlayBackStoryBoard(e.Cumulative.Translation.X);
-
+                HideRedStory.Begin();
+                BeginReturnStoryboard(e.Cumulative.Translation.X);
             }
-
-            _isInDoneMode = false;
+            _isToBeDone = false;
             _isInDeleteMode = false;
-
-            Messenger.Default.Send(new GenericMessage<string>(""), "OutSwipe");
-
         }
 
     }

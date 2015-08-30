@@ -420,4 +420,7 @@
   <data name="DeleteAllConfirm" xml:space="preserve">
     <value>清空“已删除”列表？</value>
   </data>
+  <data name="CateManagementTB.Text" xml:space="preserve">
+    <value>管理分类</value>
+  </data>
 </root>

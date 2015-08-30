@@ -220,7 +220,7 @@
                 </Pivot.RenderTransform>
                 <PivotItem Margin="0,-50,0,0" >
                     <Grid>
-                        <ListView x:ConnectionId='24' x:Name="Listview" Grid.Row="1"
+                        <ListView x:ConnectionId='24' x:Name="DisplayedListView" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
 				                                                                          
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
@@ -233,7 +233,7 @@
                             IsItemClickEnabled="True"
                                                                                                          
                         />
-                        <StackPanel x:ConnectionId='25' x:Name="stackPanel1" Orientation="Vertical"                                                        Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
+                        <StackPanel x:ConnectionId='25' x:Name="stackPanel1" Orientation="Vertical"                                                       Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
                             <TextBlock x:Uid="WorkDoneTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="WORK DONE" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                             <TextBlock x:Uid="EnjoyTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enjoy your day ;-)" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                         </StackPanel>
@@ -245,13 +245,11 @@
                             ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                                                                   
                             ItemTemplate="{StaticResource DeletedTemplete}"
-                            CanDragItems="True"
-                            CanReorderItems="True"
-                            ReorderMode="Enabled"
-                            AllowDrop="True"
+                            CanReorderItems="False"
+                            AllowDrop="False"
+                            CanDragItems="False"
                             MaxWidth="450"  
                             SelectionMode="None" BorderThickness="10,0" Margin="0,30,0,0">
-
                         </ListView>
                         <StackPanel x:ConnectionId='23' Orientation="Vertical"                                                                   HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Uid="NoDeletedTB" Text="NoDeleted" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
@@ -267,7 +265,7 @@
             </CommandBar.RenderTransform>
             <AppBarButton x:ConnectionId='18' x:Uid="AddAppbarBtn"                  Icon="Add" Label="添加"                                     />
             <AppBarButton x:ConnectionId='19' x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新"                                      />
-            <AppBarToggleButton x:ConnectionId='20' x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort"                                               />
+            <AppBarToggleButton x:ConnectionId='20' x:Uid="ReorderAppbarBtn"                                                                                                              Label="排序" Icon="Sort"                                                Style="{StaticResource AppBarToggleButtonStyle}"/>
         </CommandBar>
         <CommandBar x:ConnectionId='12' x:Name="DeleteCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5">
             <CommandBar.RenderTransform>

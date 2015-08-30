@@ -63,7 +63,19 @@ namespace MyerListUWP.View
             {
                 SwitchCommandBarToDefault.Begin();
             });
-            
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.GoToSort, act =>
+            {
+                DisplayedListView.CanDragItems = true;
+                DisplayedListView.CanReorderItems = true;
+                DisplayedListView.AllowDrop = true;
+            });
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.LeaveSort, act =>
+            {
+                DisplayedListView.CanDragItems = false;
+                DisplayedListView.CanReorderItems = false;
+                DisplayedListView.AllowDrop = true;
+
+            });
             RemoveStory.Completed += ((senderc, ec) =>
               {
                   _isAddingPaneShowed = false;

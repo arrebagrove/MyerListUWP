@@ -16,5 +16,12 @@ namespace MyerList.Helper
         public const string CloseHam = "CloseHam";
         public const string ChangeCommandBarToDelete = "ChangeCommandBarToDelete";
         public const string ChangeCommandBarToDefault = "ChangeCommandBarToDefault";
+        public const string GoToSort = "GoToSort";
+        public const string LeaveSort = "LeaveSort";
+        public const string CompleteSort = "CompleteSort";
+        public const string CheckToDo = "CheckToDo";
+        public const string DeleteToDo = "DeleteToDo";
+        public const string ReaddToDo = "ReAddToDo";
+
     }
 }

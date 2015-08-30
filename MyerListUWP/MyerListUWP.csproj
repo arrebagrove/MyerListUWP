@@ -116,7 +116,7 @@
     <Compile Include="Helper\CategoryHelper.cs" />
     <Compile Include="Helper\ConfigHelper.cs" />
     <Compile Include="Helper\MessengerExt.cs" />
-    <Compile Include="Helper\MessengerToken.cs" />
+    <Compile Include="Helper\MessengerTokens.cs" />
     <Compile Include="Helper\ResourcesHelper.cs" />
     <Compile Include="Helper\StatusBarHelper.cs" />
     <Compile Include="Helper\TitleBarHelper.cs" />
@@ -156,6 +156,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CategorySettingPage.xaml.cs">
+      <DependentUpon>CategorySettingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -240,6 +243,11 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="ResourceDictionary\StringDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="ResourceDictionary\StyleDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,6 +289,10 @@
     <Page Include="View\AboutPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CategorySettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>

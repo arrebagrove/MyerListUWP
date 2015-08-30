@@ -15,76 +15,8 @@ using HttpReqModule;
 namespace MyerList.ViewModel
 {
 
-    public class SettingPageViewModel:ViewModelBase,INavigable
+    public class SettingPageViewModel : ViewModelBase, INavigable
     {
-        private SolidColorBrush _mainTextColor;
-        public SolidColorBrush MainTextColor
-        {
-            get
-            {
-                return _mainTextColor;
-            }
-            set
-            {
-                if (_mainTextColor != value)
-                {
-                    _mainTextColor = value;
-                    RaisePropertyChanged(() => MainTextColor);
-                }
-            }
-        }
-
-        private SolidColorBrush _titleTextColor;
-        public SolidColorBrush TitleTextColor
-        {
-            get
-            {
-                return _titleTextColor;
-            }
-            set
-            {
-                if (_titleTextColor != value)
-                {
-                    _titleTextColor = value;
-                    RaisePropertyChanged(() => TitleTextColor);
-                }
-            }
-        }
-
-        private SolidColorBrush _backgrdColor;
-        public SolidColorBrush BackgrdColor
-        {
-            get
-            {
-                return _backgrdColor;
-            }
-            set
-            {
-                if (_backgrdColor != value)
-                {
-                    _backgrdColor = value;
-                    RaisePropertyChanged(() => BackgrdColor);
-                }
-            }
-        }
-
-        private SolidColorBrush _themeColor;
-        public SolidColorBrush ThemeColor
-        {
-            get
-            {
-                return _themeColor;
-            }
-            set
-            {
-                if (_themeColor != value)
-                {
-                    _themeColor = value;
-                    RaisePropertyChanged(() => ThemeColor);
-                }
-            }
-        }
-
         private bool isopen;
         public bool IsOpen
         {
@@ -94,7 +26,7 @@ namespace MyerList.ViewModel
             }
             set
             {
-                if(isopen!=value)
+                if (isopen != value)
                 {
                     isopen = value;
                     RaisePropertyChanged(() => IsOpen);
@@ -108,7 +40,7 @@ namespace MyerList.ViewModel
             get { return _enableBackgroundTask; }
             set
             {
-                if(_enableBackgroundTask!=value)
+                if (_enableBackgroundTask != value)
                 {
                     _enableBackgroundTask = value;
                 }
@@ -130,15 +62,15 @@ namespace MyerList.ViewModel
         public bool EnableTile
         {
             get
-            { 
+            {
                 return _enableTile;
             }
             set
             {
-                if(_enableTile!=value)
-                     _enableTile = value;
-                RaisePropertyChanged(()=>EnableTile);
-                if(value==true)
+                if (_enableTile != value)
+                    _enableTile = value;
+                RaisePropertyChanged(() => EnableTile);
+                if (value == true)
                 {
                     LocalSettingHelper.AddValue("EnableTile", "true");
                     IsOpen = true;
@@ -162,9 +94,9 @@ namespace MyerList.ViewModel
             }
             set
             {
-                if(_enablegesture!=value)
+                if (_enablegesture != value)
                     _enablegesture = value;
-                RaisePropertyChanged(()=>EnableGesture);
+                RaisePropertyChanged(() => EnableGesture);
                 if (value == true)
                 {
                     LocalSettingHelper.AddValue("EnableGesture", "true");
@@ -185,9 +117,9 @@ namespace MyerList.ViewModel
             }
             set
             {
-                if(_showkeyboard!=value)
+                if (_showkeyboard != value)
                     _showkeyboard = value;
-                RaisePropertyChanged(()=>ShowKeyboard);
+                RaisePropertyChanged(() => ShowKeyboard);
                 if (value == true)
                 {
                     LocalSettingHelper.AddValue("ShowKeyboard", "true");
@@ -254,13 +186,13 @@ namespace MyerList.ViewModel
             }
             set
             {
-               if(_currentLanguage!=value)
-               {
-                   _currentLanguage=value;
-                   ShowHint=Visibility.Visible;
-                   ChangeLanguage();
-               }
-               RaisePropertyChanged(() => CurrentLanguage);
+                if (_currentLanguage != value)
+                {
+                    _currentLanguage = value;
+                    ShowHint = Visibility.Visible;
+                    ChangeLanguage();
+                }
+                RaisePropertyChanged(() => CurrentLanguage);
             }
         }
 
@@ -273,17 +205,17 @@ namespace MyerList.ViewModel
             }
             set
             {
-                if(_showHint!=value)
+                if (_showHint != value)
                 {
-                    _showHint=value;
+                    _showHint = value;
                 }
-                RaisePropertyChanged(()=>ShowHint);
+                RaisePropertyChanged(() => ShowHint);
             }
         }
 
         public SettingPageViewModel()
         {
-            ShowHint=Visibility.Collapsed;
+            ShowHint = Visibility.Collapsed;
 
             var lang = LocalSettingHelper.GetValue("AppLang");
             if (lang.Contains("zh"))
@@ -292,81 +224,12 @@ namespace MyerList.ViewModel
             }
             else CurrentLanguage = 0;
 
-            if(LocalSettingHelper.HasValue("EnableTile"))
-            {
-                this.EnableTile = LocalSettingHelper.GetValue("EnableTile") == "true" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("EnableTile","true");
-                this.EnableTile = true;
-            }
-
-            if (LocalSettingHelper.HasValue("EnableBackgroundTask"))
-            {
-                EnableBackgroundTask = LocalSettingHelper.GetValue("EnableBackgroundTask") == "true" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("EnableBackgroundTask", "true");
-                EnableBackgroundTask = true;
-            }
-
-            if (LocalSettingHelper.HasValue("EnableGesture"))
-            {
-                EnableGesture = LocalSettingHelper.GetValue("EnableGesture") == "true" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("EnableGesture", "true");
-                EnableGesture = true;
-            }
-
-            if (LocalSettingHelper.HasValue("ShowKeyboard"))
-            {
-                ShowKeyboard = LocalSettingHelper.GetValue("ShowKeyboard") == "true" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("ShowKeyboard", "true");
-                ShowKeyboard = true;
-            }
-
-            if (LocalSettingHelper.HasValue("AddMode"))
-            {
-                IsAddToBottom = LocalSettingHelper.GetValue("AddMode") == "1" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("AddMode", "1");
-                IsAddToBottom = true;
-            }
-            if (LocalSettingHelper.HasValue("TransparentTile"))
-            {
-                TransparentTile = LocalSettingHelper.GetValue("TransparentTile") == "true" ? true : false;
-            }
-            else
-            {
-                LocalSettingHelper.AddValue("TransparentTile", "true");
-                TransparentTile = true;
-            }
-
-            switch (LocalSettingHelper.GetValue("ThemeColor"))
-            {
-                case "0":
-                    {
-
-                    }; break;
-                case "1":
-                    {
-
-                    };break;
-                case "2":
-                    {
-
-                    }; break;
-
-            }
+            EnableTile = LocalSettingHelper.GetValue("EnableTile") == "true" ? true : false;
+            EnableBackgroundTask = LocalSettingHelper.GetValue("EnableBackgroundTask") == "true" ? true : false;
+            EnableGesture = LocalSettingHelper.GetValue("EnableGesture") == "true" ? true : false;
+            ShowKeyboard = LocalSettingHelper.GetValue("ShowKeyboard") == "true" ? true : false;
+            IsAddToBottom = LocalSettingHelper.GetValue("AddMode") == "1" ? true : false;
+            TransparentTile = LocalSettingHelper.GetValue("TransparentTile") == "true" ? true : false;
         }
 
         private void ChangeLanguage()

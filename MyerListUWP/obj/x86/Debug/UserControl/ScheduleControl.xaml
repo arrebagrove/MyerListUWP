@@ -11,30 +11,30 @@
     d:DesignWidth="400">
     <UserControl.Resources>
         <Storyboard x:ConnectionId='1' x:Name="BackStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="SchduleTempleteGrid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="SchduleTempleteGrid">
                 <EasingDoubleKeyFrame x:ConnectionId='8' x:Name="StartX" KeyTime="0" Value="266"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:ConnectionId='2' x:Name="TurnGreenStory">
+        <Storyboard x:ConnectionId='2' x:Name="ShowGreenStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="#00E2E2E2"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FF4BB685"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:ConnectionId='3' x:Name="ReturnGreenStory">
+        <Storyboard x:ConnectionId='3' x:Name="HideGreenStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <SplineColorKeyFrame KeyTime="0" Value="#FF4BB685"/>
                 <SplineColorKeyFrame KeyTime="0:0:0.3" Value="#00E2E2E2"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:ConnectionId='4' x:Name="TurnRedStory">
+        <Storyboard x:ConnectionId='4' x:Name="ShowRedStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <EasingColorKeyFrame KeyTime="0" Value="#00E2E2E2"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.3" Value="#FFB64B50"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:ConnectionId='5' x:Name="ReturnRedStory">
+        <Storyboard x:ConnectionId='5' x:Name="HideRedStory">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="border">
                 <SplineColorKeyFrame KeyTime="0" Value="#FFB64B50"/>
                 <SplineColorKeyFrame KeyTime="0:0:0.3" Value="#00E2E2E2"/>
@@ -62,7 +62,7 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid x:ConnectionId='9' x:Name="SchduleTempleteGrid"  Tag="{Binding ID}"                                                       ManipulationMode="System,TranslateX,TranslateRailsX" d:DesignWidth="320.167" RenderTransformOrigin="0.5,0.5">
+    <Grid x:ConnectionId='9' x:Name="SchduleTempleteGrid"  Tag="{Binding ID}"                                                       ManipulationMode="System,TranslateX" d:DesignWidth="320.167" RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="30"/>
@@ -85,6 +85,7 @@
                     <Border Background="White" Opacity="0.001"/>
                     <Ellipse Width="15" Height="15" Fill="{Binding Category,Converter={StaticResource CateColorConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Grid>
+                
             </Button>
             <Grid Grid.Column="0" VerticalAlignment="Stretch" Grid.RowSpan="1" Margin="0" >
                 <TextBlock HorizontalAlignment="Left" FontWeight="Light" Text="{Binding Content}" VerticalAlignment="Center" Grid.Column="1" FontSize="15" Foreground="#FF474747" Margin="0,0,0,0" TextTrimming="WordEllipsis" FontFamily="Segoe WP"/>
@@ -103,7 +104,7 @@
                 </Button.RenderTransform>
                 <SymbolIcon Symbol="Delete" Foreground="#FFC2C2C2"/>
             </Button>
-            <Button x:ConnectionId='12' x:Name="button1" Style="{StaticResource ButtonCommonStyle}" 
+            <Button x:ConnectionId='12' x:Name="button1" IsHitTestVisible="False" Style="{StaticResource ButtonCommonStyle}" 
                 Command="{Binding MainVM.DeleteCommand,Mode=OneWay, Source={StaticResource Locator}}"
                 CommandParameter="{Binding ID}" HorizontalAlignment="Center" Background="{x:Null}" Margin="0,4" Height="27" Width="26" Foreground="{x:Null}" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>

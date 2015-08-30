@@ -220,7 +220,7 @@
                 </Pivot.RenderTransform>
                 <PivotItem Margin="0,-50,0,0" >
                     <Grid>
-                        <ListView x:Name="Listview" Grid.Row="1"
+                        <ListView x:Name="DisplayedListView" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
 				            ItemsSource="{x:Bind MainVM.CurrentDisplayToDos,Mode=OneWay}" 
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
@@ -233,7 +233,7 @@
                             IsItemClickEnabled="True"
                             attach:ListViewBaseCommandEx.ItemClickCommand="{x:Bind MainVM.ModifyCommand}"
                         />
-                        <StackPanel x:Name="stackPanel1" Orientation="Vertical"   Visibility="{x:Bind MainVM.ShowNoItems,Mode=OneWay}" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
+                        <StackPanel x:Name="stackPanel1" Orientation="Vertical"  Visibility="{x:Bind MainVM.ShowNoItems,Mode=OneWay}" Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
                             <TextBlock x:Uid="WorkDoneTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="WORK DONE" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                             <TextBlock x:Uid="EnjoyTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enjoy your day ;-)" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                         </StackPanel>
@@ -245,13 +245,11 @@
                             ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                             ItemsSource="{x:Bind MainVM.DeletedToDos,Mode=OneWay}"
                             ItemTemplate="{StaticResource DeletedTemplete}"
-                            CanDragItems="True"
-                            CanReorderItems="True"
-                            ReorderMode="Enabled"
-                            AllowDrop="True"
+                            CanReorderItems="False"
+                            AllowDrop="False"
+                            CanDragItems="False"
                             MaxWidth="450"  
                             SelectionMode="None" BorderThickness="10,0" Margin="0,30,0,0">
-
                         </ListView>
                         <StackPanel Orientation="Vertical" Visibility="{x:Bind MainVM.NoDeletedItemsVisibility,Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Uid="NoDeletedTB" Text="NoDeleted" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
@@ -267,7 +265,7 @@
             </CommandBar.RenderTransform>
             <AppBarButton x:Uid="AddAppbarBtn" Click="AddClick" Icon="Add" Label="添加" Command="{x:Bind MainVM.AddCommand}"/>
             <AppBarButton x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新" Command="{x:Bind MainVM.SyncCommand}"/>
-            <AppBarToggleButton x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
+            <AppBarToggleButton x:Uid="ReorderAppbarBtn" Visibility="{x:Bind MainVM.ShowSortButton,Mode=OneWay}" IsChecked="{x:Bind MainVM.IsInSortMode,Mode=TwoWay}" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}" Style="{StaticResource AppBarToggleButtonStyle}"/>
         </CommandBar>
         <CommandBar x:Name="DeleteCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5">
             <CommandBar.RenderTransform>

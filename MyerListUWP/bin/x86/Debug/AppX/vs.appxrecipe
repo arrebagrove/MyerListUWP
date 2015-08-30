@@ -22,7 +22,7 @@
     <AppXManifest Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-08-30T11:12:20.651</Modified>
+      <Modified>2015-08-30T16:21:22.327</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -244,7 +244,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\entrypoint\MyerListUWP.exe">
       <PackagePath>entrypoint\MyerListUWP.exe</PackagePath>
-      <Modified>2015-08-30T11:12:18.379</Modified>
+      <Modified>2015-08-30T16:21:20.028</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\GalaSoft.MvvmLight.dll">
       <PackagePath>GalaSoft.MvvmLight.dll</PackagePath>
@@ -292,11 +292,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\MyerListUWP.exe">
       <PackagePath>MyerListUWP.exe</PackagePath>
-      <Modified>2015-08-30T11:12:20.650</Modified>
+      <Modified>2015-08-30T16:21:22.326</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\MyerListUWP.xr.xml">
       <PackagePath>MyerListUWP.xr.xml</PackagePath>
-      <Modified>2015-08-30T11:02:52.409</Modified>
+      <Modified>2015-08-30T16:21:19.320</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -312,7 +312,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-08-30T11:12:20.166</Modified>
+      <Modified>2015-08-30T16:21:21.770</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>

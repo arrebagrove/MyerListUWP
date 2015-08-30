@@ -420,4 +420,7 @@
   <data name="DeleteAllConfirm" xml:space="preserve">
     <value>Clean up the Deleted items?</value>
   </data>
+  <data name="CateManagementTB.Text" xml:space="preserve">
+    <value>Manage Category</value>
+  </data>
 </root>
