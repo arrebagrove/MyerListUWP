@@ -50,7 +50,7 @@ namespace MyerList
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.PressEnterToLoginToken);
+                Messenger.Default.Send(new GenericMessage<string>(""), MessengerTokens.PressEnterToLoginToken);
             }
         }
 

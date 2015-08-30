@@ -5,6 +5,7 @@ ResourceDictionary\StyleDictionary.xbf
 ResourceDictionary\TemplateDictionary.xbf
 UserControl\AddingPane.xbf
 UserControl\DeleteScheduleControl.xbf
+UserControl\HamburgerButton.xbf
 UserControl\LiveTileTemplate.xbf
 UserControl\NavigationDrawer.xbf
 UserControl\ScheduleControl.xbf

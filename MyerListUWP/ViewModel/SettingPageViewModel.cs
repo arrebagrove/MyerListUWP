@@ -85,20 +85,6 @@ namespace MyerList.ViewModel
             }
         }
 
-        private BitmapImage tileimage;
-        public BitmapImage TileImage
-        {
-            get
-            {
-                return tileimage;
-            }
-            set
-            {
-                tileimage = value;
-                RaisePropertyChanged();
-            }
-        }
-
         private bool isopen;
         public bool IsOpen
         {
@@ -156,14 +142,12 @@ namespace MyerList.ViewModel
                 {
                     LocalSettingHelper.AddValue("EnableTile", "true");
                     IsOpen = true;
-                    TileImage.UriSource = new Uri("ms-appx:///Assets/LiveTile.png");
                     Messenger.Default.Send<GenericMessage<string>>(new GenericMessage<string>(""), "SyncExecute");
                 }
                 else
                 {
                     LocalSettingHelper.AddValue("EnableTile", "false");
                     IsOpen = false;
-                    TileImage.UriSource = new Uri("ms-appx:///Assets/ori.png");
                     UpdateTileHelper.ClearAllSchedules();
                 }
             }
@@ -299,7 +283,6 @@ namespace MyerList.ViewModel
 
         public SettingPageViewModel()
         {
-            TileImage = new BitmapImage();
             ShowHint=Visibility.Collapsed;
 
             var lang = LocalSettingHelper.GetValue("AppLang");

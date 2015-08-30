@@ -247,7 +247,7 @@ namespace MyerList.ViewModel
         {
             IsLoading = Visibility.Collapsed;
 
-            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.PressEnterToLoginToken, act =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.PressEnterToLoginToken, act =>
             {
                 NextCommand.Execute(null);
             });

@@ -1,29 +1,13 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using HttpReqModule;
 using JP.Utils.Data;
-using JP.Utils.Debug;
 using MyerList.Base;
 using MyerList.Helper;
-using MyerList.Model;
 using MyerList.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
-using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 
@@ -40,129 +24,110 @@ namespace MyerListUWP.View
             }
         }
 
-        private bool _isHamIn = false;
-        private bool _isAddIn = false;
+        private bool _isDrawerSlided = false;
+        private bool _isAddingPaneShowed = false;
 
-        private double _oriX = 0;
+        private double _pointOriX = 0;
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.ToastToken, msg =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.ToastToken, msg =>
             {
                 ToastControl.ShowMessage(msg.Content);
             });
-            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.CloseHam, msg =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.CloseHam, msg =>
             {
-                HamOutStory.Begin();
-                _isHamIn = false;
-            });
-            //Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.AddScheduleUI, msg =>
-            //{
-            //    AddGrid.Visibility = Visibility.Visible;
-            //    AddStory.Begin();
-            //    AddContentBox.Focus(FocusState.Programmatic);
-            //});
-            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.RemoveScheduleUI, msg =>
-            {
-                if (AddingPane.Visibility == Visibility.Visible)
+                if(_isDrawerSlided)
                 {
-                    RemoveStory.Begin();
+                    SlideOutStory.Begin();
+                    HamburgerBtn.PlayHamOutStory();
+                    _isDrawerSlided = false;
                 }
             });
-            Messenger.Default.Register<GenericMessage<string>>(this, MessengerToken.ShowModifyUI, msg =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.RemoveScheduleUI, msg =>
+            {
+                RemoveStory.Begin();
+            });
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.ShowModifyUI, msg =>
             {
                 AddingPane.Visibility = Visibility.Visible;
                 AddStory.Begin();
             });
-            Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, MessengerToken.UpdateTile, async schedules =>
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.ChangeCommandBarToDelete, msg =>
+              {
+                  SwitchCommandBarToDelete.Begin();
+              });
+            Messenger.Default.Register<GenericMessage<string>>(this, MessengerTokens.ChangeCommandBarToDefault, msg =>
             {
-                if (LocalSettingHelper.GetValue("EnableTile") == "false")
-                {
-                    UpdateTileHelper.ClearAllSchedules();
-                    return;
-                }
-
-                //if (LocalSettingHelper.GetValue("EnableBackgroundTask") == "true")
-                //{
-                //    UpdateNormalTile(schedules.Content);
-                //}
-                //else
-                //{
-                //    await UpdateCustomeTile(schedules.Content);
-                //}
-
-                await TileControl.UpdateCustomeTile(schedules.Content);
+                SwitchCommandBarToDefault.Begin();
             });
-
+            
             RemoveStory.Completed += ((senderc, ec) =>
               {
-                  _isAddIn = false;
-                  AddingPane.Visibility = Visibility.Collapsed;
-                  SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                  _isAddingPaneShowed = false;
               });
 
-            AddStory.Completed += ((sendera, ea) =>
-              {
-                  _isAddIn = true;
-                  SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-              });
-
-            this.KeyDown += ((sender,e)=>
+            this.KeyDown += ((sender, e) =>
             {
-                if (_isAddIn && e.Key==Windows.System.VirtualKey.Enter && e.KeyStatus.RepeatCount==1)
+                if (_isAddingPaneShowed && e.Key == Windows.System.VirtualKey.Enter && e.KeyStatus.RepeatCount == 1)
                 {
-                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerToken.EnterToAdd);
+                    Messenger.Default.Send(new GenericMessage<string>(""), MessengerTokens.EnterToAdd);
                     RemoveStory.Begin();
                 }
             });
         }
 
+        #region CommandBar
         private void AddClick(object sender, RoutedEventArgs e)
         {
-            _isAddIn = true;
+            _isAddingPaneShowed = true;
             AddingPane.Visibility = Visibility.Visible;
             AddStory.Begin();
             AddingPane.SetFocus();
-
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
+        #endregion
 
-
-        #region Hamburger
+        #region 汉堡按钮
 
         private void HamClick(object sender, RoutedEventArgs e)
         {
-            _isHamIn = true;
-            HamInStory.Begin();
+            _isDrawerSlided = true;
+            HamburgerBtn.PlayHamInStory();
+            SlideInStory.Begin();
         }
         private void MaskBorder_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (_isHamIn)
+            if (_isDrawerSlided)
             {
-                _isHamIn = false;
-                HamOutStory.Begin();
+                _isDrawerSlided = false;
+                HamburgerBtn.PlayHamOutStory();
+                SlideOutStory.Begin();
             }
         }
+        #endregion
+
+        #region 手势打开
         private void Grid_ManipulationStarted(object sender, ManipulationStartedRoutedEventArgs e)
         {
-            _oriX = e.Position.X;
+            _pointOriX = e.Position.X;
         }
 
         private void Grid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-            if (_oriX < 10 && e.Delta.Translation.X > 10 && LocalSettingHelper.GetValue("EnableGesture")=="true")
+            if (_pointOriX < 10 && e.Delta.Translation.X > 10 && LocalSettingHelper.GetValue("EnableGesture") == "true")
             {
-                HamInStory.Begin();
-                _isHamIn = true;
+                SlideInStory.Begin();
+                HamburgerBtn.PlayHamInStory();
+                _isDrawerSlided = true;
             }
         }
 
         #endregion
 
-        #region UPDATE TILE
-        
+        #region 更新磁贴
+
         //private void UpdateNormalTile(ObservableCollection<ToDo> schedules)
         //{
         //    List<string> undoList = new List<string>();
@@ -227,15 +192,16 @@ namespace MyerListUWP.View
 
         private void HandleBackLogic()
         {
-            if (_isAddIn)
+            if (_isAddingPaneShowed)
             {
                 RemoveStory.Begin();
-                _isAddIn = false;
+                _isAddingPaneShowed = false;
             }
-            if (_isHamIn)
+            if (_isDrawerSlided)
             {
-                HamOutStory.Begin();
-                _isHamIn = false;
+                SlideOutStory.Begin();
+                HamburgerBtn.PlayHamOutStory();
+                _isDrawerSlided = false;
             }
         }
 
@@ -255,10 +221,11 @@ namespace MyerListUWP.View
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            if(_isHamIn)
+            if (_isDrawerSlided)
             {
-                HamOutStory.Begin();
-                _isHamIn = false;
+                SlideOutStory.Begin();
+                HamburgerBtn.PlayHamOutStory();
+                _isDrawerSlided = false;
             }
         }
 

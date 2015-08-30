@@ -130,7 +130,7 @@
     <value>ACCOUNT</value>
   </data>
   <data name="AddContentBox.PlaceholderText" xml:space="preserve">
-    <value>e.g: Remember to buy cake.</value>
+    <value>e.g: Grab a cup of coffee with my friends this weekend.</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
     <value>ADD A MEMO</value>
@@ -413,5 +413,11 @@
   </data>
   <data name="CateEnterTB.Text" xml:space="preserve">
     <value>Entertainment</value>
+  </data>
+  <data name="DeleteAppBarTB.Label" xml:space="preserve">
+    <value>Clean up</value>
+  </data>
+  <data name="DeleteAllConfirm" xml:space="preserve">
+    <value>Clean up the Deleted items?</value>
   </data>
 </root>

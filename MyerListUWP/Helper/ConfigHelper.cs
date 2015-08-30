@@ -43,7 +43,6 @@ namespace MyerList.Helper
             if(!LocalSettingHelper.HasValue("ThemeColor"))
             {
                 LocalSettingHelper.AddValue("ThemeColor", "0");
-
             }
         }
     }

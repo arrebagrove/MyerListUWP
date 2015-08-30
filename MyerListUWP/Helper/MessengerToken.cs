@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyerList.Helper
 {
-    public class MessengerToken
+    public class MessengerTokens
     {
         public const string PressEnterToLoginToken = "PressEnterToLogin";
         public const string ToastToken = "toast";
@@ -14,5 +14,7 @@ namespace MyerList.Helper
         public const string UpdateTile = "UpdateTile";
         public const string EnterToAdd = "EnterToAdd";
         public const string CloseHam = "CloseHam";
+        public const string ChangeCommandBarToDelete = "ChangeCommandBarToDelete";
+        public const string ChangeCommandBarToDefault = "ChangeCommandBarToDefault";
     }
 }

@@ -204,6 +204,7 @@ namespace MyerList.Model
 
             newSchedule.ID = (string)info["id"];
             newSchedule.SID = (string)info["sid"];
+            newSchedule.Category = (int)info["cate"];
 
             DateTime time;
             DateTime.TryParse((string)info["time"], out time);

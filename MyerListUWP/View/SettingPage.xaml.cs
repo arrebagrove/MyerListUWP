@@ -46,7 +46,7 @@ namespace MyerList
             NavigationThemeTransition theme = new NavigationThemeTransition();
 
             var info = new ContinuumNavigationTransitionInfo();
-
+   
             theme.DefaultNavigationTransitionInfo = info;
             collection.Add(theme);
             this.Transitions = collection;

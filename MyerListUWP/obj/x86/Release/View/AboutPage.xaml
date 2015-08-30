@@ -13,7 +13,7 @@
         <Image Source="ms-appx:///Assets/back2.png" Stretch="UniformToFill" Opacity="0.02"/>
         <ScrollViewer>
             <StackPanel VerticalAlignment="Center">
-                <Image MaxHeight="250" Source="ms-appx:///Assets/SOLID_WHITE_500.png" Margin="0,0,0,10"/>
+                <Image MaxHeight="200" Source="ms-appx:///Assets/SOLID_WHITE_500.png" Margin="0,0,0,10"/>
                 <StackPanel x:ConnectionId='1' x:Name="stackPanel" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                     <TextBlock Text="Myer" FontSize="35" FontWeight="Light" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}" />
                     <TextBlock Text="List" FontSize="35" FontWeight="Bold" FontFamily="Segoe WP" Foreground="{StaticResource MyerListBlueLight}"/>
@@ -44,19 +44,14 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                    
+
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
                 </StackPanel>
-                
-
             </StackPanel>
-
         </ScrollViewer>
-
-
     </Grid>
 </base:BindablePage>
 

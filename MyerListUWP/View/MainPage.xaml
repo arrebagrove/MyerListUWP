@@ -31,7 +31,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="BottomCommandBar">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DefaultCommandBar">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="100"/>
             </DoubleAnimationUsingKeyFrames>
@@ -75,7 +75,7 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="BottomCommandBar">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DefaultCommandBar">
                 <EasingDoubleKeyFrame KeyTime="0" Value="100"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
@@ -97,7 +97,7 @@
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Name="HamInStory">
+        <Storyboard x:Name="SlideInStory">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Drawer">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-260"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
@@ -128,32 +128,9 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.7"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border2">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.7"/>
-            </DoubleAnimationUsingKeyFrames>
+
         </Storyboard>
-        <Storyboard x:Name="HamOutStory">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border1">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.5"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="border2">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
-            </DoubleAnimationUsingKeyFrames>
+        <Storyboard x:Name="SlideOutStory">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Drawer">
                 <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-260">
@@ -186,6 +163,26 @@
             </DoubleAnimationUsingKeyFrames>
             <ColorAnimation Duration="0" To="Black" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Drawer" d:IsOptimized="True"/>
         </Storyboard>
+        <Storyboard x:Name="SwitchCommandBarToDelete">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DefaultCommandBar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DeleteCommandBar">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="SwitchCommandBarToDefault">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DefaultCommandBar">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="DeleteCommandBar">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </base:BindablePage.Resources>
 
     <Grid Background="White" >
@@ -195,32 +192,11 @@
         </Grid.RowDefinitions>
         <Grid Background="{x:Bind MainVM.CateColor,Mode=OneWay}">
             <Grid VerticalAlignment="Bottom" MaxWidth="450" Margin="0,0,0,10">
-                <Button Click="HamClick" Style="{StaticResource ButtonCommonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" VerticalAlignment="Center" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" HorizontalAlignment="Left">
-                    <Grid Background="{x:Bind MainVM.CateColor,Mode=OneWay}" Width="40" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Border x:Name="border" Height="2" Width="20" Background="White" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5">
-                            <Border.RenderTransform>
-                                <CompositeTransform/>
-                            </Border.RenderTransform>
-                        </Border>
-                        <Border x:Name="border1" Height="2" Width="20" Background="White" VerticalAlignment="Center" Margin="0" Grid.Row="1" RenderTransformOrigin="0,0.5">
-                            <Border.RenderTransform>
-                                <CompositeTransform/>
-                            </Border.RenderTransform>
-                        </Border>
-                        <Border x:Name="border2" Height="2" Width="20" Background="White" VerticalAlignment="Top" Margin="0" Grid.Row="2" RenderTransformOrigin="0,0.5">
-                            <Border.RenderTransform>
-                                <CompositeTransform/>
-                            </Border.RenderTransform>
-                        </Border>
-                    </Grid>
-                </Button>
-                <cc:AnimatedTextBlock TextContent="{x:Bind MainVM.Title,Mode=OneWay}" Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                <ProgressRing Visibility="{x:Bind MainVM.IsLoading,Mode=OneWay}" IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <uc:HamburgerButton x:Name="HamburgerBtn" ButtonClick="HamClick"/>
+                    <cc:AnimatedTextBlock TextContent="{x:Bind MainVM.Title,Mode=OneWay}" Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="5,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                    <ProgressRing Visibility="{x:Bind MainVM.IsLoading,Mode=OneWay}" IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
                     <Button Command="{x:Bind MainVM.SelectToDoCommand}" Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
@@ -236,7 +212,7 @@
             </Grid>
         </Grid>
         <uc:LiveTileTemplate x:Name="TileControl" Grid.Row="1"/>
-     
+
         <Grid ManipulationMode="TranslateX" ManipulationDelta="Grid_ManipulationDelta"  ManipulationStarted="Grid_ManipulationStarted" Grid.Row="1" Background="White" d:IsHidden="True">
             <Pivot Margin="0" x:Name="pivot" SelectedIndex="{x:Bind MainVM.SelectedIndex,Mode=TwoWay}">
                 <Pivot.RenderTransform>
@@ -246,7 +222,7 @@
                     <Grid>
                         <ListView x:Name="Listview" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
-				            ItemsSource="{x:Bind MainVM.CurrrentDisplayToDos,Mode=OneWay}" 
+				            ItemsSource="{x:Bind MainVM.CurrentDisplayToDos,Mode=OneWay}" 
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
 				            MaxWidth="450"  
                             SelectionMode="None" 
@@ -285,14 +261,19 @@
                 </PivotItem>
             </Pivot>
         </Grid>
-        <CommandBar x:Name="BottomCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+        <CommandBar x:Name="DefaultCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5">
             <CommandBar.RenderTransform>
                 <CompositeTransform/>
             </CommandBar.RenderTransform>
             <AppBarButton x:Uid="AddAppbarBtn" Click="AddClick" Icon="Add" Label="添加" Command="{x:Bind MainVM.AddCommand}"/>
             <AppBarButton x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新" Command="{x:Bind MainVM.SyncCommand}"/>
             <AppBarToggleButton x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort" Command="{x:Bind MainVM.ToggleReorderCommand}"/>
-
+        </CommandBar>
+        <CommandBar x:Name="DeleteCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5">
+            <CommandBar.RenderTransform>
+                <CompositeTransform TranslateY="50"/>
+            </CommandBar.RenderTransform>
+            <AppBarButton x:Uid="DeleteAppBarTB" Label="排序" Icon="Delete" Command="{x:Bind MainVM.DeteteAllCommand}"/>
         </CommandBar>
 
         <Border x:Name="MaskBorder" Tapped="MaskBorder_Tapped" Visibility="Collapsed" Opacity="0.8" Grid.RowSpan="5" Background="Black"/>

@@ -237,7 +237,7 @@ namespace MyerList.Helper
         /// <param name="content">内容</param>
         /// <param name="isdone">是否完成 0未完成 1完成</param>
         /// <returns>返回JSON数据</returns>
-        public async static Task<string> AddSchedule(string sid, string content, string isdone)
+        public async static Task<string> AddSchedule(string sid, string content, string isdone,string cate)
         {
             try
             {
@@ -246,7 +246,8 @@ namespace MyerList.Helper
                     {"sid",sid},
                     {"time",DateTime.Now.ToString()},
                     {"content",content},
-                    {"isdone",isdone}
+                    {"isdone",isdone},
+                    {"cate",cate }
                 };
 
                 HttpClient client = new HttpClient();

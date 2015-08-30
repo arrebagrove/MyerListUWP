@@ -7,7 +7,7 @@ namespace MyerList.Helper
 {
     public class MessengerExt
     {
-        public static void SendMsg<T>(T item, MessengerToken token)
+        public static void SendMsg<T>(T item, MessengerTokens token)
         {
             Messenger.Default.Send<GenericMessage<T>>(new GenericMessage<T>(item), token);
         }

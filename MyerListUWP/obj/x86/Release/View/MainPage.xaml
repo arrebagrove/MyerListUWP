@@ -193,61 +193,60 @@
             <RowDefinition/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <Grid Background="{StaticResource MyerListBlueLight}">
+        <Grid x:ConnectionId='6'                                                   >
             <Grid VerticalAlignment="Bottom" MaxWidth="450" Margin="0,0,0,10">
-                <Button x:ConnectionId='21'                  Style="{StaticResource ButtonCommonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" VerticalAlignment="Center" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" HorizontalAlignment="Left">
-                    <Grid Width="40" Height="30" HorizontalAlignment="Center" Background="{StaticResource MyerListBlueLight}" VerticalAlignment="Center" >
+                <Button x:ConnectionId='22'                  Style="{StaticResource ButtonCommonStyle}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0" VerticalAlignment="Center" Width="40" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" BorderThickness="0" HorizontalAlignment="Left">
+                    <Grid x:ConnectionId='29'                                                    Width="40" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border x:ConnectionId='28' x:Name="border" Height="2" Width="20" Background="White" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='30' x:Name="border" Height="2" Width="20" Background="White" VerticalAlignment="Bottom" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
-                        <Border x:ConnectionId='29' x:Name="border1" Height="2" Width="20" Background="White" VerticalAlignment="Center" Margin="0" Grid.Row="1" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='31' x:Name="border1" Height="2" Width="20" Background="White" VerticalAlignment="Center" Margin="0" Grid.Row="1" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
-                        <Border x:ConnectionId='30' x:Name="border2" Height="2" Width="20" Background="White" VerticalAlignment="Top" Margin="0" Grid.Row="2" RenderTransformOrigin="0,0.5">
+                        <Border x:ConnectionId='32' x:Name="border2" Height="2" Width="20" Background="White" VerticalAlignment="Top" Margin="0" Grid.Row="2" RenderTransformOrigin="0,0.5">
                             <Border.RenderTransform>
                                 <CompositeTransform/>
                             </Border.RenderTransform>
                         </Border>
                     </Grid>
                 </Button>
-                <cc:AnimatedTextBlock x:ConnectionId='22'                                                 Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
-                <ProgressRing x:ConnectionId='23'                                                    IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
+                <cc:AnimatedTextBlock x:ConnectionId='23'                                                 Foreground="White" VerticalAlignment="Center" FontSize="26.667" Margin="50,0,0,5" HorizontalAlignment="Left" FontWeight="SemiBold"/>
+                <ProgressRing x:ConnectionId='24'                                                    IsActive="True" Foreground="White" HorizontalAlignment="Left" Margin="170,0,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                    <Button x:ConnectionId='24'                                             Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
+                    <Button x:ConnectionId='25'                                             Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
-                            <Image x:ConnectionId='27'                                                     Source="ms-appx:///Assets/Icon/NAVI_TODO2.png" Width="25" Height="25"/>
+                            <Image x:ConnectionId='28'                                                     Source="ms-appx:///Assets/Icon/NAVI_TODO2.png" Width="25" Height="25"/>
                         </Grid>
                     </Button>
-                    <Button x:ConnectionId='25'                                               Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
+                    <Button x:ConnectionId='26'                                               Style="{StaticResource ButtonCommonStyle}" Background="{x:Null}" Margin="10,0,0,0">
                         <Grid>
-                            <Image x:ConnectionId='26'                                                       Source="ms-appx:///Assets/Icon/DELETE_WHITE.png" Width="25" Height="25" />
+                            <Image x:ConnectionId='27'                                                       Source="ms-appx:///Assets/Icon/DELETE_WHITE.png" Width="25" Height="25" />
                         </Grid>
                     </Button>
                 </StackPanel>
             </Grid>
-            <Border Height="2" VerticalAlignment="Bottom" Background="{StaticResource MyerListBlueLight}"/>
         </Grid>
-        <uc:LiveTileTemplate x:ConnectionId='6' x:Name="TileControl" Grid.Row="1"/>
+        <uc:LiveTileTemplate x:ConnectionId='7' x:Name="TileControl" Grid.Row="1"/>
      
-        <Grid x:ConnectionId='7' ManipulationMode="TranslateX"                                                                                            Grid.Row="1" Background="White" d:IsHidden="True">
-            <Pivot x:ConnectionId='16' Margin="0" x:Name="pivot"                                                          >
+        <Grid x:ConnectionId='8' ManipulationMode="TranslateX"                                                                                            Grid.Row="1" Background="White" d:IsHidden="True">
+            <Pivot x:ConnectionId='17' Margin="0" x:Name="pivot"                                                          >
                 <Pivot.RenderTransform>
                     <CompositeTransform />
                 </Pivot.RenderTransform>
                 <PivotItem Margin="0,-50,0,0" >
                     <Grid>
-                        <ListView x:ConnectionId='19' x:Name="Listview" Grid.Row="1"
+                        <ListView x:ConnectionId='20' x:Name="Listview" Grid.Row="1"
 				            ItemTemplate="{StaticResource ScheduleTemplete}"
-				                                                              
+				                                                                           
 				            ItemContainerStyle="{StaticResource ListViewItemStyle1}" 
 				            MaxWidth="450"  
                             SelectionMode="None" 
@@ -258,7 +257,7 @@
                             IsItemClickEnabled="True"
                                                                                                          
                         />
-                        <StackPanel x:ConnectionId='20' x:Name="stackPanel1" Orientation="Vertical"                                                        Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
+                        <StackPanel x:ConnectionId='21' x:Name="stackPanel1" Orientation="Vertical"                                                        Grid.RowSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,100">
                             <TextBlock x:Uid="WorkDoneTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="WORK DONE" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                             <TextBlock x:Uid="EnjoyTB" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enjoy your day ;-)" VerticalAlignment="Center" Foreground="#FFADADAD" FontSize="26.667" Grid.Row="1" FontWeight="Light" FontFamily="Segoe WP"/>
                         </StackPanel>
@@ -266,7 +265,7 @@
                 </PivotItem>
                 <PivotItem Margin="0,-50,0,0">
                     <Grid>
-                        <ListView x:ConnectionId='17'
+                        <ListView x:ConnectionId='18'
                             ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                                                                   
                             ItemTemplate="{StaticResource DeletedTemplete}"
@@ -278,7 +277,7 @@
                             SelectionMode="None" BorderThickness="10,0" Margin="0,30,0,0">
 
                         </ListView>
-                        <StackPanel x:ConnectionId='18' Orientation="Vertical"                                                                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <StackPanel x:ConnectionId='19' Orientation="Vertical"                                                                   HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Uid="NoDeletedTB" Text="NoDeleted" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
                             <TextBlock x:Uid="DeletedHintTB" Text="Deleted items will be showed up here" Foreground="{StaticResource MyerListDark}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontFamily="Segoe WP" Opacity="0.8" FontWeight="Light"/>
                         </StackPanel>
@@ -286,28 +285,28 @@
                 </PivotItem>
             </Pivot>
         </Grid>
-        <CommandBar x:ConnectionId='8' x:Name="BottomCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+        <CommandBar x:ConnectionId='9' x:Name="BottomCommandBar" VerticalAlignment="Bottom" Grid.RowSpan="5" Background="#FFF1F1F1" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
             <CommandBar.RenderTransform>
                 <CompositeTransform/>
             </CommandBar.RenderTransform>
-            <AppBarButton x:ConnectionId='13' x:Uid="AddAppbarBtn"                  Icon="Add" Label="添加"                                     />
-            <AppBarButton x:ConnectionId='14' x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新"                                      />
-            <AppBarToggleButton x:ConnectionId='15' x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort"                                               />
+            <AppBarButton x:ConnectionId='14' x:Uid="AddAppbarBtn"                  Icon="Add" Label="添加"                                     />
+            <AppBarButton x:ConnectionId='15' x:Uid="RefreshAppbarBtn" Icon="Sync" Label="刷新"                                      />
+            <AppBarToggleButton x:ConnectionId='16' x:Uid="ReorderAppbarBtn" Label="排序" Icon="Sort"                                               />
 
         </CommandBar>
 
-        <Border x:ConnectionId='9' x:Name="MaskBorder"                            Visibility="Collapsed" Opacity="0.8" Grid.RowSpan="5" Background="Black"/>
-        <uc:AddingPane x:ConnectionId='10' x:Name="AddingPane" Background="{StaticResource MyerListBlueLight}" Height="260" Grid.RowSpan="5" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+        <Border x:ConnectionId='10' x:Name="MaskBorder"                            Visibility="Collapsed" Opacity="0.8" Grid.RowSpan="5" Background="Black"/>
+        <uc:AddingPane x:ConnectionId='11' x:Name="AddingPane" Background="{StaticResource MyerListBlueLight}" Height="260" Grid.RowSpan="5" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <uc:AddingPane.RenderTransform>
                 <CompositeTransform TranslateY="-400"/>
             </uc:AddingPane.RenderTransform>
         </uc:AddingPane>
-        <uc:NavigationDrawer x:ConnectionId='11' x:Name="Drawer" Width="250" Grid.RowSpan="5" HorizontalAlignment="Left" Background="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5">
+        <uc:NavigationDrawer x:ConnectionId='12' x:Name="Drawer" Width="250" Grid.RowSpan="5" HorizontalAlignment="Left" Background="{StaticResource MyerListBlueLight}" RenderTransformOrigin="0.5,0.5">
             <uc:NavigationDrawer.RenderTransform>
                 <CompositeTransform TranslateX="-260"/>
             </uc:NavigationDrawer.RenderTransform>
         </uc:NavigationDrawer>
-        <uc:ToastUC x:ConnectionId='12' d:IsHidden="True" x:Name="ToastControl" Grid.RowSpan="2"/>
+        <uc:ToastUC x:ConnectionId='13' d:IsHidden="True" x:Name="ToastControl" Grid.RowSpan="2"/>
 
     </Grid>
 </base:BindablePage>

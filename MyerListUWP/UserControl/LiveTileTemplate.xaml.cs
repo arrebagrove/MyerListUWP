@@ -1,6 +1,8 @@
-﻿using HttpReqModule;
+﻿using GalaSoft.MvvmLight.Messaging;
+using HttpReqModule;
 using JP.Utils.Data;
 using JP.Utils.Debug;
+using MyerList.Helper;
 using MyerList.Model;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,26 @@ namespace MyerList.UC
         public LiveTileTemplate()
         {
             this.InitializeComponent();
+
+            Messenger.Default.Register<GenericMessage<ObservableCollection<ToDo>>>(this, MessengerTokens.UpdateTile, async schedules =>
+            {
+                if (LocalSettingHelper.GetValue("EnableTile") == "false")
+                {
+                    UpdateTileHelper.ClearAllSchedules();
+                    return;
+                }
+
+                //if (LocalSettingHelper.GetValue("EnableBackgroundTask") == "true")
+                //{
+                //    UpdateNormalTile(schedules.Content);
+                //}
+                //else
+                //{
+                //    await UpdateCustomeTile(schedules.Content);
+                //}
+
+                await UpdateCustomeTile(schedules.Content);
+            });
         }
 
         private void CleanUpTileTemplate()

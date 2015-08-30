@@ -17,6 +17,7 @@
     <RootPropertyPathName Name="RedoCommand" />
     <RootPropertyPathName Name="DeleteCommand" />
     <RootPropertyPathName Name="IsDone" />
+    <RootPropertyPathName Name="ShowCategory" />
     <RootPropertyPathName Name="ChangeCateCommand" />
     <RootPropertyPathName Name="Category" />
     <RootPropertyPathName Name="SettingVM" />
@@ -36,9 +37,9 @@
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
     </RootType>
-    <RootType FullName="System.String" />
     <RootType FullName="MyerList.Converter.ShowDoneLineConverter" />
     <RootType FullName="MyerList.Converter.CateColorConverter" />
+    <RootType FullName="System.String" />
     <RootType FullName="System.Int32" />
     <RootType FullName="Windows.UI.Xaml.Thickness" />
     <RootType FullName="Windows.UI.Xaml.Media.FontFamily" />
@@ -81,6 +82,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="Height" />
+      <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Width" />
@@ -301,10 +303,10 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Fill" />
       <RootProperty Name="Opacity" />
-      <RootProperty Name="IsHitTestVisible" />
-      <RootProperty Name="StrokeDashOffset" />
       <RootProperty Name="StrokeEndLineCap" />
       <RootProperty Name="StrokeDashArray" />
+      <RootProperty Name="StrokeDashOffset" />
+      <RootProperty Name="IsHitTestVisible" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Thumb">
       <RootProperty Name="Template" />
@@ -414,6 +416,9 @@
       <RootProperty Name="Content" />
       <RootProperty Name="Resources" />
     </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="VerticalAlignment" />
@@ -426,9 +431,6 @@
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
       <RootProperty Name="Visibility" />
-    </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
-      <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="MyerList.UC.AddingPane">
       <RootProperty Name="Background" />
@@ -458,6 +460,13 @@
       <RootProperty Name="MaxWidth" />
     </RootType>
     <RootType FullName="MyerList.UC.LiveTileTemplate" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListBoxItem" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListBox">
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Items" />
+    </RootType>
     <RootType FullName="MyerList.UC.NavigationDrawer">
       <RootProperty Name="Width" />
       <RootProperty Name="HorizontalAlignment" />

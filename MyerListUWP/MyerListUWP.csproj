@@ -19,7 +19,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>MyerListUWP_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>2B6DE7DB7CCC5F32EA3B9879405234ED5FDBD273</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
@@ -134,6 +134,9 @@
     <Compile Include="UserControl\DeleteScheduleControl.xaml.cs">
       <DependentUpon>DeleteScheduleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\HamburgerButton.xaml.cs">
+      <DependentUpon>HamburgerButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\LiveTileTemplate.xaml.cs">
       <DependentUpon>LiveTileTemplate.xaml</DependentUpon>
     </Compile>
@@ -146,7 +149,6 @@
     <Compile Include="UserControl\ToastControl.xaml.cs">
       <DependentUpon>ToastControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\SettingPageViewModel.cs" />
@@ -196,6 +198,9 @@
     <Content Include="Assets\Icon\Settings_BLACK.png" />
     <Content Include="Assets\loginbackgrd.jpg" />
     <Content Include="Assets\SOLID_WHITE_500.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square44x44Logo.scale-125.png" />
     <Content Include="Assets\Square44x44Logo.scale-150.png" />
@@ -206,6 +211,8 @@
     <Content Include="Assets\Square71x71Logo.scale-100.png" />
     <Content Include="Assets\Square71x71Logo.scale-125.png" />
     <Content Include="Assets\Square71x71Logo.scale-150.png" />
+    <Content Include="Assets\Square71x71Logo.scale-200.png" />
+    <Content Include="Assets\Square71x71Logo.scale-400.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\WHITE_500.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
@@ -250,6 +257,10 @@
     <Page Include="UserControl\DeleteScheduleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControl\HamburgerButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\LiveTileTemplate.xaml">
       <SubType>Designer</SubType>

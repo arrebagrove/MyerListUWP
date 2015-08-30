@@ -133,7 +133,7 @@
     <value>添加</value>
   </data>
   <data name="AddContentBox.PlaceholderText" xml:space="preserve">
-    <value>例如：晚上7点跟好基友玩 Xbox。</value>
+    <value>例如：周末跟朋友们去喝咖啡。</value>
   </data>
   <data name="AddLabel" xml:space="preserve">
     <value>添加</value>
@@ -413,5 +413,11 @@
   </data>
   <data name="CateEnterTB.Text" xml:space="preserve">
     <value>娱乐</value>
+  </data>
+  <data name="DeleteAppBarTB.Label" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="DeleteAllConfirm" xml:space="preserve">
+    <value>清空“已删除”列表？</value>
   </data>
 </root>

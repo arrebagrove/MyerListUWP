@@ -544,3 +544,6 @@ D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\UserControl\NavigationDrawer
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\UserControl\AddingPane.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\UserControl\LiveTileTemplate.xbf
 D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\UserControl\NavigationDrawer.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Release\ResourceDictionary\ConverterDictionary.xbf
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ResourceDictionary\ConverterDictionary.xaml
+D:\Dev\apps\MyerListUWP\MyerListUWP\obj\x86\Release\ResourceDictionary\ConverterDictionary.xbf

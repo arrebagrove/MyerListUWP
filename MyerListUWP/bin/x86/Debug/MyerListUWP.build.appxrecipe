@@ -99,6 +99,15 @@
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
     </AppxPackagedFile>
@@ -137,6 +146,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square71x71Logo.scale-150.png">
       <PackagePath>Assets\Square71x71Logo.scale-150.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square71x71Logo.scale-200.png">
+      <PackagePath>Assets\Square71x71Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\Square71x71Logo.scale-400.png">
+      <PackagePath>Assets\Square71x71Logo.scale-400.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dev\apps\MyerListUWP\MyerListUWP\bin\x86\Debug\Core\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>

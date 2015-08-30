@@ -12,6 +12,7 @@ using Windows.ApplicationModel.Store;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Phone.UI.Input;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
@@ -41,7 +42,7 @@ namespace MyerList
             NavigationThemeTransition theme = new NavigationThemeTransition();
 
             var info = new ContinuumNavigationTransitionInfo();
-
+            
             theme.DefaultNavigationTransitionInfo = info;
             collection.Add(theme);
             this.Transitions = collection;
@@ -70,7 +71,8 @@ namespace MyerList
 
         private async void RateClick(object sender, RoutedEventArgs e)
         {
-           
+            await Launcher.LaunchUriAsync(
+                             new Uri("ms-windows-store:reviewapp?appid=31eb52eb-aaee-43d9-b573-22ee91490502"));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
