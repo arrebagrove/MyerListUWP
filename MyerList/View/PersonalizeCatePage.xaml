@@ -8,7 +8,7 @@
                          Background="{StaticResource MyerListBlue}"
                          mc:Ignorable="d">
 
-    <Grid Background="White">
+    <Grid Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor2}">
         <uc:CatePersonalizationControl OnClickCancelBtn="CatePersonalizationControl_OnClickCancelBtn" OnClickOKBtn="CatePersonalizationControl_OnClickOKBtn" />
     </Grid>
 </base:CustomTitleBarPage>

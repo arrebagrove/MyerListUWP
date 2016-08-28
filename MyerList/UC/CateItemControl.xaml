@@ -7,7 +7,7 @@
              d:DesignWidth="400"
              mc:Ignorable="d">
     <Grid Height="50"
-          Margin="-10,0,0,0"
+          Margin="0,0,0,0"
           HorizontalAlignment="Stretch"
           VerticalAlignment="Center"
           Background="{x:Null}">
@@ -59,7 +59,8 @@
                      Background="{x:Null}"
                      BorderThickness="0"
                      FontFamily="{StaticResource MyerListThemeFontFamily}"
-                     Foreground="Black"
+                     Foreground="{Binding Source={StaticResource AppSettings},
+                                          Path=GlobalForegroundColor}"
                      Text="{Binding CateName,
                                     Mode=TwoWay}" />
             <StackPanel Grid.Column="2"
@@ -80,7 +81,7 @@
                       Height="30"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      Background="#02FFFFFF">
+                      Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />

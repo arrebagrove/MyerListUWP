@@ -9,54 +9,11 @@
              xmlns:uc="using:MyerList.UC"
              d:DesignHeight="500"
              d:DesignWidth="400"
-             Background="White"
+             Background="{Binding Source={StaticResource AppSettings},
+                                  Path=GlobalBackgroundColor2}"
              mc:Ignorable="d">
-    <UserControl.Resources>
-        <Style x:Key="ListViewItemStyle2" TargetType="ListViewItem">
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
-            <Setter Property="TabNavigation" Value="Local" />
-            <Setter Property="IsHoldingEnabled" Value="True" />
-            <Setter Property="Padding" Value="12,0,12,0" />
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}" />
-            <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-                        <ListViewItemPresenter HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                               CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-                                               CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-                                               CheckMode="Inline"
-                                               ContentMargin="{TemplateBinding Padding}"
-                                               ContentTransitions="{TemplateBinding ContentTransitions}"
-                                               DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}"
-                                               DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}"
-                                               DragForeground="{ThemeResource ListViewItemDragForegroundThemeBrush}"
-                                               DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}"
-                                               FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}"
-                                               FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}"
-                                               PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"
-                                               PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}"
-                                               PointerOverForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                               PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}"
-                                               ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
-                                               SelectedBackground="{ThemeResource SystemControlHighlightListAccentLowBrush}"
-                                               SelectedForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-                                               SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListAccentMediumBrush}"
-                                               SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}"
-                                               SelectionCheckMarkVisualEnabled="True" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
     <Grid x:Name="RootGrid">
-        <Grid x:Name="CateListGrid" Background="White">
+        <Grid x:Name="CateListGrid" Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor2}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
                 <RowDefinition />
@@ -68,6 +25,8 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            FontSize="27"
+                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                Path=GlobalForegroundColor}"
                            Text="Personalization" />
                 <Button x:Name="AddBtn"
                         Margin="10,0"
@@ -76,7 +35,8 @@
                         Style="{StaticResource ListButtonStyle}">
                     <Border>
                         <SymbolIcon Margin="10"
-                                    Foreground="Black"
+                                    Foreground="{Binding Source={StaticResource AppSettings},
+                                                         Path=GlobalForegroundColor}"
                                     Symbol="Add" />
                     </Border>
                 </Button>
@@ -85,11 +45,11 @@
                 <cc:ListViewEx x:Name="CateListView"
                                attach:ScrollViewerStyleChanger.Style="{StaticResource ScrollViewerCommonStyle}"
                                AllowDrop="False"
-                               Background="{x:Null}"
+                               Background="Transparent"
                                CanDragItems="False"
                                CanReorderItems="False"
                                EnableWaggingAnimation="False"
-                               ItemContainerStyle="{StaticResource ListViewItemStyle2}"
+                               ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                ItemsSource="{x:Bind MainVM.CateVM.CatesToModify, Mode=OneWay}"
                                ReorderUIElementName="ReorderThumb"
                                SelectionMode="None">
@@ -100,7 +60,7 @@
                     </ListView.ItemTemplate>
                 </cc:ListViewEx>
                 <Grid x:Name="LoadingMaskGrid" Visibility="Collapsed">
-                    <Border Background="#82FFFFFF" />
+                    <Border Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor2}" Opacity="0.8" />
                     <ProgressBar x:Name="LoadingBar"
                                  Margin="0,0,0,5"
                                  VerticalAlignment="Center"
@@ -143,11 +103,12 @@
                         Click="CancelBtn_Click"
                         Padding="0"
                         Style="{StaticResource ButtonCommonStyle}">
-                    <Border Background="#FFD0D0D0">
+                    <Border Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor}">
                         <TextBlock x:Uid="CancelTB"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Foreground="Black"
+                                   Foreground="{Binding Source={StaticResource AppSettings},
+                                                        Path=GlobalForegroundColor}"
                                    Text="CANCEL" />
                     </Border>
                 </Button>
@@ -156,7 +117,8 @@
         <Grid x:Name="ColorGrid"
               Grid.Row="1"
               Grid.RowSpan="2"
-              Background="White">
+              Background="{Binding Source={StaticResource AppSettings},
+                                   Path=GlobalBackgroundColor2}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
                 <RowDefinition />
@@ -167,13 +129,14 @@
                        Margin="10,0,0,0"
                        VerticalAlignment="Center"
                        FontSize="27"
-                       Foreground="Black"
+                       Foreground="{Binding Source={StaticResource AppSettings},
+                                            Path=GlobalForegroundColor}"
                        Text="Pick a color" />
             <GridView x:Name="ColorGirdView"
                       Grid.Row="1"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      Background="White"
+                      Background="Transparent"
                       ItemsSource="{x:Bind CateColorsVM.CateColors, Mode=OneWay}"
                       SelectionMode="Single">
                 <GridView.ItemTemplate>
@@ -220,11 +183,12 @@
                         Click="PickColorCancelBtn_Click"
                         Padding="0"
                         Style="{StaticResource ButtonCommonStyle}">
-                    <Border Background="#FFD0D0D0">
+                    <Border Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor}">
                         <TextBlock x:Uid="CancelTB"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
-                                   Foreground="Black"
+                                   Foreground="{Binding Source={StaticResource AppSettings},
+                                                        Path=GlobalForegroundColor}"
                                    Text="CANCEL" />
                     </Border>
                 </Button>

@@ -1,8 +1,12 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CompositionHelper.Helper;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
+using HttpReqModule;
 using JP.Utils.Data;
 using System;
 using Windows.Storage;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace MyerListUWP.Common
 {
@@ -29,7 +33,7 @@ namespace MyerListUWP.Common
                 }
                 else
                 {
-                    HttpReqModule.UpdateTileHelper.ClearAllSchedules();
+                    UpdateTileHelper.ClearAllSchedules();
                 }
             }
         }
@@ -70,6 +74,131 @@ namespace MyerListUWP.Common
             {
                 SaveSettings(nameof(EnableBackgroundTask), value);
                 RaisePropertyChanged(() => EnableBackgroundTask);
+            }
+        }
+
+        public bool DarkMode
+        {
+            get
+            {
+                return ReadSettings(nameof(DarkMode), true);
+            }
+            set
+            {
+                SaveSettings(nameof(DarkMode), value);
+                RaisePropertyChanged(() => DarkMode);
+                RaisePropertyChanged(() => GlobalBackgroundColor);
+                RaisePropertyChanged(() => GlobalForegroundColor);
+                RaisePropertyChanged(() => GlobalBackgroundColor2);
+                RaisePropertyChanged(() => GlobalDrawerMaskBackground);
+                RaisePropertyChanged(() => GlobalListPointerOverBackground);
+                RaisePropertyChanged(() => GlobalListPressedBackground);
+                RaisePropertyChanged(() => GlobalAddPaneMaskBackground);
+            }
+        }
+
+        public SolidColorBrush GlobalBackgroundColor
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#FF121212".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.White);
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalBackgroundColor2
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#FF1D1D1D".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.White);
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalListPointerOverBackground
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#FF333333".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush("#FFDEDEDE".ToColor());
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalListPressedBackground
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#DB333333".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush("#FFE9E9E9".ToColor());
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalDrawerMaskBackground
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#FF1D1D1D".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.Transparent);
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalAddPaneMaskBackground
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush("#FF1D1D1D".ToColor());
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.Transparent);
+                }
+            }
+        }
+
+        public SolidColorBrush GlobalForegroundColor
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return new SolidColorBrush(Colors.White);
+                }
+                else
+                {
+                    return new SolidColorBrush(Colors.Black);
+                }
             }
         }
 

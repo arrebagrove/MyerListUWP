@@ -5,23 +5,23 @@
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                          xmlns:local="using:MyerList"
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                         Background="{StaticResource MyerListGray}"
+                         Background="{Binding Source={StaticResource AppSettings},
+                                              Path=GlobalBackgroundColor2}"
                          IsTextScaleFactorEnabled="False"
                          mc:Ignorable="d">
-    <Grid Background="{StaticResource MyerListGray}">
+    <Grid Background="{Binding Source={StaticResource AppSettings}, Path=GlobalBackgroundColor2}">
         <Image Opacity="0.02"
                Source="ms-appx:///Assets/BackgrdImage.png"
                Stretch="UniformToFill" />
-        <ScrollViewer Margin="0 0 0 0"
+        <ScrollViewer 
                       VerticalAlignment="Center"
                       VerticalScrollBarVisibility="Hidden"
                       VerticalScrollMode="Auto">
             <StackPanel VerticalAlignment="Center">
                 <Image x:Name="LogoImg"
-                       MaxHeight="130"
+                       Height="130"
                        Margin="0,0,0,10"
-                       DoubleTapped="LogoImg_DoubleTapped"
-                       Source="ms-appx:///Assets/Newlogo_tight.png" />
+                       Source="ms-appx:///Assets/Newlogo_tight.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <StackPanel x:Name="stackPanel"
                             Margin="0,0,0,0"
                             HorizontalAlignment="Center"
@@ -47,7 +47,7 @@
                            FontWeight="Light"
                            Foreground="{StaticResource MyerListDark}"
                            Text="for Windows 10" />
-                <Grid Margin="0,50,0,0">
+                <Grid Margin="0,20,0,0">
                     <StackPanel HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Orientation="Vertical">
@@ -68,7 +68,8 @@
                                        FontFamily="{StaticResource MyerListThemeFontFamily}"
                                        FontSize="15"
                                        FontWeight="Light"
-                                       Foreground="{StaticResource MyerListDark}"
+                                       Foreground="{Binding Source={StaticResource AppSettings},
+                                                            Path=GlobalForegroundColor}"
                                        Text="{StaticResource AppVersion}" />
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0"
@@ -92,7 +93,8 @@
                                        FontFamily="{StaticResource MyerListThemeFontFamily}"
                                        FontSize="15"
                                        FontWeight="Light"
-                                       Foreground="{StaticResource MyerListDark}"
+                                       Foreground="{Binding Source={StaticResource AppSettings},
+                                                            Path=GlobalForegroundColor}"
                                        Text="JuniperPhoton" />
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0"
@@ -124,7 +126,8 @@
                                            FontFamily="{StaticResource MyerListThemeFontFamily}"
                                            FontSize="15"
                                            FontWeight="Light"
-                                           Foreground="{StaticResource MyerListDark}"
+                                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                                Path=GlobalForegroundColor}"
                                            Text="EMAIL ME" />
                             </Button>
                         </StackPanel>
@@ -160,18 +163,13 @@
                                            FontFamily="{StaticResource MyerListThemeFontFamily}"
                                            FontSize="15"
                                            FontWeight="Light"
-                                           Foreground="{StaticResource MyerListDark}"
+                                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                                Path=GlobalForegroundColor}"
                                            Text="I LIKE IT;-)" />
                             </Button>
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel Margin="0,50,0,0"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal" />
-                <StackPanel Margin="0,5,0,0"
-                            HorizontalAlignment="Center"
-                            Orientation="Horizontal" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

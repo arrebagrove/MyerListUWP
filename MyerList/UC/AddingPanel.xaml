@@ -210,8 +210,8 @@
     </UserControl.Resources>
     <Grid x:Name="AddGrid"
           Grid.RowSpan="5"
-          Background="{StaticResource MyerListBlue}"
-          >
+          Background="{x:Bind MainVM.AddingCateColor, Mode=OneWay}">
+        <Border Background="{Binding Source={StaticResource AppSettings}, Path=GlobalAddPaneMaskBackground}" />
         <Image ManipulationCompleted="AddGrid_ManipulationCompleted"
                ManipulationMode="TranslateX"
                Opacity="0.02"
@@ -228,24 +228,24 @@
                                VerticalAlignment="Center"
                                FontFamily="{StaticResource MyerListThemeFontFamily}"
                                FontSize="26.667"
-                               Foreground="White"
-                               Text="{x:Bind MainVM.ModeTitle, Mode=OneWay}" />
+                               Text="{x:Bind MainVM.ModeTitle, Mode=OneWay}" Foreground="White" />
                     <Grid Margin="10,0,0,0"
                           HorizontalAlignment="Left"
-                          VerticalAlignment="Center">
+                          VerticalAlignment="Center"
+                          Background="{x:Bind MainVM.AddingCateColor, Mode=OneWay}">
                         <Border Background="#55000000" CornerRadius="0" />
                         <TextBlock Margin="5"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    FontFamily="{StaticResource MyerListThemeFontFamily}"
-                                   FontSize="16"
+                                   FontSize="14"
                                    Foreground="White"
                                    Text="{x:Bind MainVM.AddingCateName, Mode=OneWay}"
                                    TextTrimming="CharacterEllipsis" />
                     </Grid>
                 </StackPanel>
                 <ListBox x:Name="CateListBox"
-                         Margin="0,5,0,0"
+                         Margin="0,20,0,0"
                          Background="{x:Null}"
                          ItemContainerStyle="{StaticResource ListBoxItemStyle1}"
                          ItemsSource="{x:Bind MainVM.CateVM.CatesToAdd, Mode=OneWay}"
@@ -283,7 +283,10 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
-            <Border Margin="10,20,10,10" Background="White">
+            <Border Margin="10,20,10,10"
+                    Background="White"
+                    BorderBrush="#4FD7D7D7"
+                    BorderThickness="2">
                 <TextBox x:Uid="AddContentBox"
                          x:Name="AddContentBox"
                          MinHeight="10"
@@ -300,15 +303,16 @@
                                         UpdateSourceTrigger=PropertyChanged}"
                          TextWrapping="Wrap" />
             </Border>
-            <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+            <StackPanel Margin="10,4,0,0" Orientation="Horizontal">
                 <Button Background="{x:Null}"
                         Command="{x:Bind MainVM.OkCommand}"
                         Style="{StaticResource ButtonCommonStyle}">
                     <Grid Width="100"
                           Height="35"
-                          Background="#33FFFFFF"
+                          Background="{x:Bind MainVM.AddingCateColor, Mode=OneWay}"
                           BorderBrush="#33FFFFFF"
-                          BorderThickness="3">
+                          BorderThickness="0">
+                        <Border Background="#33FFFFFF"/>
                         <TextBlock x:Uid="OKBtnTB"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
@@ -323,14 +327,13 @@
                     <Grid Width="100"
                           Height="35"
                           Background="Transparent"
-                          BorderBrush="#33FFFFFF"
+                          BorderBrush="#4FD7D7D7"
                           BorderThickness="2">
                         <TextBlock x:Uid="CancelBtnTB"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
                                    FontFamily="{StaticResource MyerListThemeFontFamily}"
-                                   Foreground="White"
-                                   Text="取消" />
+                                   Text="取消" Foreground="White" />
                     </Grid>
                 </Button>
             </StackPanel>

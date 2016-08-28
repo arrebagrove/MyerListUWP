@@ -179,9 +179,6 @@
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FeaturePage.xaml.cs">
-      <DependentUpon>FeaturePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -353,10 +350,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AboutPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\FeaturePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

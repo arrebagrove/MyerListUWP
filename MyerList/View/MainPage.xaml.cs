@@ -1,8 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Data;
 using JP.Utils.Helper;
-using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Effects;
 using MyerList.Base;
 using MyerList.Helper;
 using MyerList.Model;
@@ -136,7 +134,11 @@ namespace MyerListUWP.View
                 HamburgerBtn.ForegroundBrush = MainVM.CateColor;
                 TitleTB.Foreground = MainVM.CateColor;
                 ProgressRing.Foreground = MainVM.CateColor;
-                TitleBarHelper.SetUpForeBlackTitleBar();
+                if (AppSettings.Instance.DarkMode)
+                {
+                    TitleBarHelper.SetUpForeWhiteTitleBar();
+                }
+                else TitleBarHelper.SetUpForeBlackTitleBar();
             }
             else
             {
@@ -144,8 +146,8 @@ namespace MyerListUWP.View
                 if (solidColor == null) return;
                 if (solidColor.Color != MainVM.CateColor.Color)
                 {
-                    ChangeColorAnim.To = MainVM.CateColor.Color;
-                    ChangeColorAnim.From = Colors.White;
+                    ChangeColorAnim.To = AppSettings.Instance.DarkMode ? AppSettings.Instance.GlobalBackgroundColor2.Color : MainVM.CateColor.Color;
+                    ChangeColorAnim.From = AppSettings.Instance.GlobalBackgroundColor.Color;
                     ChangeColorStory.Begin();
                 }
                 HamburgerBtn.ForegroundBrush = new SolidColorBrush(Colors.White);
@@ -230,7 +232,6 @@ namespace MyerListUWP.View
                 SwitchToWideStory.Begin();
                 ToggleDrawerAnimation(true);
                 _isDrawerSlided = true;
-                ChangeCommandBarColorToWhiteStory.Begin();
                 ToggleHeaderAnimation(false);
             }
             else if (e?.NewSize.Width <= WIDTH_THRESHOLD && e?.PreviousSize.Width > WIDTH_THRESHOLD && _isDrawerSlided)
@@ -239,7 +240,6 @@ namespace MyerListUWP.View
                 ToggleDrawerAnimation(false);
                 ToggleDrawerMaskAnimation(false);
                 _isDrawerSlided = false;
-                ChangeCommandBarColorToGreyStory.Begin();
                 ToggleHeaderAnimation(true);
             }
             UpdateColorWhenSizeChanged();
@@ -251,7 +251,7 @@ namespace MyerListUWP.View
             {
                 if (!_isToggleAnim1)
                 {
-                    ChangeColorAnim.To = Colors.White;
+                    ChangeColorAnim.To = AppSettings.Instance.GlobalBackgroundColor.Color;
                     ChangeColorAnim.From = (HeaderContentRootGrid.Background as SolidColorBrush).Color;
                     ChangeColorStory.Begin();
                     _isToggleAnim1 = true;
@@ -261,14 +261,18 @@ namespace MyerListUWP.View
                 HamburgerBtn.ForegroundBrush = MainVM.CateColor;
                 TitleTB.Foreground = MainVM.CateColor;
                 ProgressRing.Foreground = MainVM.CateColor;
-                TitleBarHelper.SetUpForeBlackTitleBar();
+                if(AppSettings.Instance.DarkMode)
+                {
+                    TitleBarHelper.SetUpForeWhiteTitleBar();
+                }
+                else TitleBarHelper.SetUpForeBlackTitleBar();
             }
             else
             {
                 if (!_isToggleAnim2)
                 {
-                    ChangeColorAnim.To = MainVM.CateColor.Color;
-                    ChangeColorAnim.From = Colors.White;
+                    ChangeColorAnim.To = AppSettings.Instance.DarkMode ? AppSettings.Instance.GlobalBackgroundColor2.Color: MainVM.CateColor.Color;
+                    ChangeColorAnim.From = AppSettings.Instance.GlobalBackgroundColor.Color;
                     ChangeColorStory.Begin();
                     _isToggleAnim2 = true;
                     _isToggleAnim1 = false;
@@ -306,7 +310,11 @@ namespace MyerListUWP.View
 
                 if (Window.Current.Bounds.Width >= WIDTH_THRESHOLD)
                 {
-                    TitleBarHelper.SetUpForeBlackTitleBar();
+                    if (AppSettings.Instance.DarkMode)
+                    {
+                        TitleBarHelper.SetUpForeWhiteTitleBar();
+                    }
+                    else TitleBarHelper.SetUpForeBlackTitleBar();
                 }
             }
         }

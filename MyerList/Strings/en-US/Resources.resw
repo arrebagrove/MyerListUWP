@@ -171,13 +171,13 @@
   <data name="FeedbackTB.Text" xml:space="preserve">
     <value>FEEDBACK</value>
   </data>
-  <data name="HamburgerTS.Header" xml:space="preserve">
-    <value>Use gesture to open drawer</value>
+  <data name="DarkModeTS.Header" xml:space="preserve">
+    <value>Enable dark mode</value>
   </data>
-  <data name="HamburgerTS.OffContent" xml:space="preserve">
+  <data name="DarkModeTS.OffContent" xml:space="preserve">
     <value>OFF</value>
   </data>
-  <data name="HamburgerTS.OnContent" xml:space="preserve">
+  <data name="DarkModeTS.OnContent" xml:space="preserve">
     <value>ON</value>
   </data>
   <data name="InputAlert" xml:space="preserve">

@@ -26,6 +26,17 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Grid x:Name="RootGrid">
+                            <ContentPresenter x:Name="ContentPresenter"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              AutomationProperties.AccessibilityView="Raw"
+                                              Background="Transparent"
+                                              BorderBrush="{TemplateBinding BorderBrush}"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                                              Padding="{TemplateBinding Padding}" />
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
@@ -85,17 +96,6 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              AutomationProperties.AccessibilityView="Raw"
-                                              Background="Transparent"
-                                              BorderBrush="{TemplateBinding BorderBrush}"
-                                              BorderThickness="{TemplateBinding BorderThickness}"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              ContentTransitions="{TemplateBinding ContentTransitions}"
-                                              Padding="{TemplateBinding Padding}" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -105,7 +105,7 @@
     <Grid x:Name="RootGrid"
           Height="35"
           VerticalAlignment="Top"
-          Background="#02FFFFFF"
+          Background="Transparent"
           Canvas.ZIndex="3">
         <Rectangle x:Name="backGrdRect"
                    HorizontalAlignment="Stretch"
@@ -124,14 +124,16 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontFamily="Segoe MDL2 Assets"
-                           Foreground="Black"
+                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                Path=GlobalForegroundColor}"
                            Text="&#xE830;" />
             </Grid>
         </Button>
         <TextBlock x:Name="TitleTB"
                    Margin="70,0,0,0"
                    VerticalAlignment="Center"
-                   Foreground="Black"
+                   Foreground="{Binding Source={StaticResource AppSettings},
+                                        Path=GlobalForegroundColor}"
                    Text="MyerList" />
     </Grid>
 </UserControl>

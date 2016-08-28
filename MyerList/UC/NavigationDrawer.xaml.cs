@@ -1,5 +1,6 @@
 ﻿using MyerList.ViewModel;
 using MyerListUWP;
+using MyerListUWP.Common;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -40,8 +41,11 @@ namespace MyerList.UC
 
         private void StartColorAnimation(SolidColorBrush targetColorBrush)
         {
-            this.ColorAnimation.To = targetColorBrush.Color;
-            ColorStory.Begin();
+            if (!AppSettings.Instance.DarkMode)
+            {
+                this.ColorAnimation.To = targetColorBrush.Color;
+                ColorStory.Begin();
+            }
         }
     }
 }

@@ -5,9 +5,11 @@
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                    xmlns:local="using:MyerList"
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                   Background="{StaticResource MyerListGray}"
+                   Background="{Binding Source={StaticResource AppSettings},
+                                        Mode=OneWay,
+                                        Path=GlobalBackgroundColor}"
                    mc:Ignorable="d">
-    <Grid Background="{StaticResource MyerListGray}">
+    <Grid Background="{Binding Source={StaticResource AppSettings}, Mode=OneWay, Path=GlobalBackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -51,7 +53,9 @@
                        FontFamily="{StaticResource MyerListThemeFontFamily}"
                        FontSize="15"
                        FontWeight="Light"
-                       Foreground="{StaticResource MyerListDark}"
+                       Foreground="{Binding Source={StaticResource AppSettings},
+                                            Mode=OneWay,
+                                            Path=GlobalForegroundColor}"
                        TextAlignment="Center"
                        TextWrapping="Wrap">
                 <Run Text="Sync your To-dos over " />
@@ -125,16 +129,16 @@
                         Command="{x:Bind StartVM.NavigateToOfflineModeCommand}"
                         Foreground="{StaticResource MyerListBlue}"
                         Style="{StaticResource ButtonCommonStyle}">
-                    <Border Background="#FFE7E7E7"
-                            BorderBrush="#FFE7E7E7"
-                            BorderThickness="2">
+                    <Border Background="{Binding Source={StaticResource AppSettings}, Mode=OneWay, Path=GlobalBackgroundColor2}" BorderThickness="2">
                         <TextBlock x:Uid="OfflineTB"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
                                    FontFamily="{StaticResource MyerListThemeFontFamily}"
                                    FontSize="15"
                                    FontWeight="Normal"
-                                   Foreground="{StaticResource MyerListDark}"
+                                   Foreground="{Binding Source={StaticResource AppSettings},
+                                                        Mode=OneWay,
+                                                        Path=GlobalForegroundColor}"
                                    Text="Offline Mode" />
                     </Border>
                 </Button>

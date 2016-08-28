@@ -11,34 +11,16 @@
                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                          xmlns:triggers="using:JP.CustomTriggers"
                          xmlns:uc="using:MyerList.UC"
-                         Background="{StaticResource MyerListGray}"
+                         Background="{Binding Source={StaticResource AppSettings},
+                                              Mode=OneWay,
+                                              Path=GlobalBackgroundColor}"
                          mc:Ignorable="d">
     <Interactivity:Interaction.Behaviors>
         <Core:EventTriggerBehavior EventName="GlobalPageKeyDown">
             <attach:InvokeCommandByKeyDown Command="{x:Bind LoginVM.NextCommand}" PressedKey="Enter" />
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
-    <Grid Background="{StaticResource MyerListGray}">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Desktop" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MainBorder.Margin" Value="20 0 20 0" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Mobile" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="MainBorder.Margin" Value="20 0 20 100" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+    <Grid Background="{Binding Source={StaticResource AppSettings}, Mode=OneWay, Path=GlobalBackgroundColor}">
         <Image x:Name="BackgrdImage"
                Grid.RowSpan="2"
                Grid.ColumnSpan="2"
@@ -46,14 +28,13 @@
                Opacity="0.02"
                Source="ms-appx:///Assets/BackgrdImage.png"
                Stretch="UniformToFill" />
-        <!--<Image x:Name="BackgrdImage" Grid.RowSpan="2" Source="ms-appx:///Assets/loginbackgrd.jpg" Stretch="UniformToFill" Grid.ColumnSpan="2" Margin="0" />-->
         <Border x:Name="MainBorder"
                 MaxWidth="600"
                 Margin="20 0 20 0"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
                 BorderThickness="0,0,3,3">
-            <StackPanel VerticalAlignment="Center" Background="White">
+            <StackPanel VerticalAlignment="Center" Background="{Binding Source={StaticResource AppSettings}, Mode=OneWay, Path=GlobalBackgroundColor2}">
                 <Grid Height="8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -68,7 +49,6 @@
                 </Grid>
                 <StackPanel Margin="0"
                             VerticalAlignment="Bottom"
-                            Background="White"
                             Orientation="Vertical"
                             RenderTransformOrigin="0.5,0.5">
                     <TextBlock Margin="10,20,10,0"
@@ -77,7 +57,9 @@
                                FontFamily="{StaticResource MyerListThemeFontFamily}"
                                FontSize="23"
                                FontWeight="Bold"
-                               Foreground="Black"
+                               Foreground="{Binding Source={StaticResource AppSettings},
+                                                    Mode=OneWay,
+                                                    Path=GlobalForegroundColor}"
                                Text="{x:Bind LoginVM.Title, Mode=OneWay}"
                                TextWrapping="Wrap" />
                     <TextBlock x:Uid="LoginHintTB"
@@ -88,13 +70,14 @@
                                FontFamily="{StaticResource MyerListThemeFontFamily}"
                                FontSize="15"
                                FontWeight="Light"
-                               Foreground="#9A000000"
+                               Foreground="{Binding Source={StaticResource AppSettings},
+                                                    Mode=OneWay,
+                                                    Path=GlobalForegroundColor}"
                                Text="Login to sync your todos"
                                TextWrapping="Wrap" />
                 </StackPanel>
                 <Grid Grid.Row="1"
                       Margin="0,10,0,0"
-                      Background="White"
                       RenderTransformOrigin="0.5,0.5">
                     <StackPanel HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
@@ -107,6 +90,9 @@
                                  BorderBrush="{x:Null}"
                                  BorderThickness="0"
                                  FontFamily="{StaticResource MyerListThemeFontFamily}"
+                                 Foreground="{Binding Source={StaticResource AppSettings},
+                                                      Mode=OneWay,
+                                                      Path=GlobalForegroundColor}"
                                  InputScope="EmailSmtpAddress"
                                  IsSpellCheckEnabled="False"
                                  Padding="10,3,10,5"
@@ -120,6 +106,9 @@
                                      Background="{x:Null}"
                                      BorderBrush="{x:Null}"
                                      BorderThickness="0"
+                                     Foreground="{Binding Source={StaticResource AppSettings},
+                                                          Mode=OneWay,
+                                                          Path=GlobalForegroundColor}"
                                      Password="{x:Bind LoginVM.InputPassword, Mode=TwoWay}"
                                      PlaceholderText="Password" />
                         <PasswordBox x:Uid="ConfirmBox"
@@ -129,6 +118,9 @@
                                      Background="{x:Null}"
                                      BorderBrush="{x:Null}"
                                      BorderThickness="0"
+                                     Foreground="{Binding Source={StaticResource AppSettings},
+                                                          Mode=OneWay,
+                                                          Path=GlobalForegroundColor}"
                                      Password="{x:Bind LoginVM.ConfirmPassword, Mode=TwoWay}"
                                      PlaceholderText="Confirm Password"
                                      Visibility="{x:Bind LoginVM.ShowRegister, Mode=OneWay}" />
@@ -162,11 +154,32 @@
                 Style="{StaticResource ButtonCommonStyle}">
             <Border>
                 <TextBlock x:Uid="PrivacyTB"
-                           Foreground="White"
+                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                Mode=OneWay,
+                                                Path=GlobalForegroundColor}"
                            Text="Private policy" />
             </Border>
         </Button>
-        <uc:LoadingControl 
-            IsShown="{x:Bind LoginVM.IsLoading, Mode=OneWay}"/>
+        <uc:LoadingControl d:IsHidden="True" IsShown="{x:Bind LoginVM.IsLoading, Mode=OneWay}" />
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Desktop" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainBorder.Margin" Value="20 0 20 0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <triggers:DeviceFamilyTrigger DeviceFamily="Windows.Mobile" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainBorder.Margin" Value="20 0 20 100" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </base:CustomTitleBarPage>

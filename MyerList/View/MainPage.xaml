@@ -12,7 +12,9 @@
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:triggers="using:JP.CustomTriggers"
                    xmlns:uc="using:MyerList.UC"
-                   Background="White"
+                   Background="{Binding Source={StaticResource AppSettings},
+                                        Mode=TwoWay,
+                                        Path=GlobalBackgroundColor}"
                    mc:Ignorable="d">
     <Interactivity:Interaction.Behaviors>
         <Core:EventTriggerBehavior EventName="GlobalPageKeyDown">
@@ -23,35 +25,16 @@
         <Storyboard x:Name="ChangeColorStory">
             <ColorAnimation x:Name="ChangeColorAnim"
                             Duration="0:0:0.2"
-                            From="White"
+                            From="{Binding Source={StaticResource AppSettings},
+                                           Mode=TwoWay,
+                                           Path=GlobalBackgroundColor}"
                             Storyboard.TargetName="HeaderContentRootGrid"
                             Storyboard.TargetProperty="(DeleteCommandBar.Background).(SolidColorBrush.Color)"
-                            To="White" />
+                            To="{Binding Source={StaticResource AppSettings},
+                                         Mode=TwoWay,
+                                         Path=GlobalBackgroundColor}" />
         </Storyboard>
-        <Storyboard x:Name="ChangeCommandBarColorToWhiteStory">
-            <ColorAnimation Duration="0:0:0.2"
-                            From="{StaticResource CommandBarGrey}"
-                            Storyboard.TargetName="DefaultCommandBar"
-                            Storyboard.TargetProperty="(DefaultCommandBar.Background).(SolidColorBrush.Color)"
-                            To="White" />
-            <ColorAnimation Duration="0:0:0.2"
-                            From="{StaticResource CommandBarGrey}"
-                            Storyboard.TargetName="DeleteCommandBar"
-                            Storyboard.TargetProperty="(DeleteCommandBar.Background).(SolidColorBrush.Color)"
-                            To="White" />
-        </Storyboard>
-        <Storyboard x:Name="ChangeCommandBarColorToGreyStory">
-            <ColorAnimation Duration="0:0:0.2"
-                            From="White"
-                            Storyboard.TargetName="DefaultCommandBar"
-                            Storyboard.TargetProperty="(DefaultCommandBar.Background).(SolidColorBrush.Color)"
-                            To="{StaticResource CommandBarGrey}" />
-            <ColorAnimation Duration="0:0:0.2"
-                            From="White"
-                            Storyboard.TargetName="DeleteCommandBar"
-                            Storyboard.TargetProperty="(DeleteCommandBar.Background).(SolidColorBrush.Color)"
-                            To="{StaticResource CommandBarGrey}" />
-        </Storyboard>
+        
         <Storyboard x:Name="SwitchToNarrowStory">
             <DoubleAnimation Duration="0:0:0.3"
                              EnableDependentAnimation="True"
@@ -67,7 +50,7 @@
                              To="250" />
         </Storyboard>
     </base:BindablePage.Resources>
-    <cc:AnimatableGrid x:Name="RootGrid" Background="White">
+    <cc:AnimatableGrid x:Name="RootGrid" Background="{Binding Source={StaticResource AppSettings}, Mode=TwoWay, Path=GlobalBackgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0" />
             <ColumnDefinition />
@@ -76,15 +59,14 @@
               Grid.Column="1"
               Grid.ColumnSpan="2"
               Margin="0 -30 0 0"
-              Background="White">
+              Background="{Binding Source={StaticResource AppSettings},
+                                   Mode=TwoWay,
+                                   Path=GlobalBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="130" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Grid x:Name="HeaderContentRootGrid">
-                <Grid.Background>
-                    <SolidColorBrush Color="White" />
-                </Grid.Background>
+            <Grid x:Name="HeaderContentRootGrid" Background="{Binding Source={StaticResource AppSettings}, Mode=TwoWay, Path=GlobalBackgroundColor}">
                 <Grid x:Name="HeaderContentGrid"
                       Margin="0,0,0,20"
                       VerticalAlignment="Bottom">
@@ -118,11 +100,12 @@
                                  HorizontalAlignment="Right" />
             <Grid x:Name="ListContentGrid"
                   Grid.Row="1"
-                  Background="White">
+                  Background="{Binding Source={StaticResource AppSettings},
+                                       Mode=TwoWay,
+                                       Path=GlobalBackgroundColor}">
                 <Grid x:Name="ListGrid">
                     <Pivot x:Name="pivot"
                            Margin="0,0,0,0"
-                           Background="White"
                            IsLocked="True"
                            SelectedIndex="{x:Bind MainVM.SelectedPage, Mode=TwoWay}">
                         <PivotItem Margin="0,-50,0,0">
@@ -132,6 +115,7 @@
                                                     Margin="0,20,0,50"
                                                     attach:ListViewBaseCommandEx.ItemClickCommand="{x:Bind MainVM.ModifyCommand}"
                                                     attach:ScrollViewerStyleChanger.Style="{StaticResource ScrollViewerCommonStyle}"
+                                                    Background="Transparent"
                                                     CanReorderItems="False"
                                                     EnableWaggingAnimation="False"
                                                     IsItemClickEnabled="True"
@@ -140,7 +124,8 @@
                                                     ItemsSource="{x:Bind MainVM.CurrentDisplayToDos, Mode=OneWay}"
                                                     OnReorderStopped="DisplayedListView_OnReorderStopped"
                                                     ReorderUIElementName="ReorderThumb"
-                                                    SelectionMode="None" />
+                                                    SelectionMode="None"
+                                                    ShowsScrollingPlaceholders="False" />
                                 <StackPanel x:Name="stackPanel1"
                                             Grid.Row="1"
                                             Grid.RowSpan="2"
@@ -223,10 +208,11 @@
               Grid.Column="1"
               Grid.ColumnSpan="2"
               VerticalAlignment="Bottom"
+              Background="{Binding Source={StaticResource AppSettings},
+                                   Mode=TwoWay,
+                                   Path=GlobalBackgroundColor}"
               RenderTransformOrigin="0.5,0.5">
-            <Grid.Background>
-                <SolidColorBrush Color="{StaticResource CommandBarGrey}" />
-            </Grid.Background>
+
             <StackPanel HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Orientation="Horizontal">
@@ -235,13 +221,13 @@
                         Height="50"
                         Command="{x:Bind MainVM.AddCommand}"
                         Style="{StaticResource ListButtonStyle}">
-                    <SymbolIcon Symbol="Add" />
+                    <SymbolIcon Foreground="{Binding Source={StaticResource AppSettings}, Mode=TwoWay, Path=GlobalForegroundColor}" Symbol="Add" />
                 </Button>
                 <Button Width="60"
                         Height="50"
                         Command="{x:Bind MainVM.SyncCommand}"
                         Style="{StaticResource ListButtonStyle}">
-                    <SymbolIcon Symbol="Sync" />
+                    <SymbolIcon Foreground="{Binding Source={StaticResource AppSettings}, Mode=TwoWay, Path=GlobalForegroundColor}" Symbol="Sync" />
                 </Button>
             </StackPanel>
         </Grid>
@@ -250,10 +236,10 @@
               Grid.Column="1"
               Grid.ColumnSpan="2"
               VerticalAlignment="Bottom"
+              Background="{Binding Source={StaticResource AppSettings},
+                                   Mode=TwoWay,
+                                   Path=GlobalBackgroundColor}"
               RenderTransformOrigin="0.5,0.5">
-            <Grid.Background>
-                <SolidColorBrush Color="{StaticResource CommandBarGrey}" />
-            </Grid.Background>
             <StackPanel HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Orientation="Horizontal">
@@ -271,11 +257,10 @@
               Width="20"
               HorizontalAlignment="Left"
               VerticalAlignment="Stretch"
-              Background="White"
+              Background="Transparent"
               ManipulationCompleted="TouchGrid_ManipulationCompleted"
               ManipulationDelta="TouchGrid_ManipulationDelta"
-              ManipulationMode="TranslateX"
-              Opacity="0.00001" />
+              ManipulationMode="TranslateX" />
         <Border x:Name="MaskBorder"
                 Grid.RowSpan="5"
                 Grid.ColumnSpan="2"
@@ -288,16 +273,14 @@
                              Grid.RowSpan="5"
                              Grid.ColumnSpan="2"
                              Width="250"
-                             BackgrdColor="{x:Bind MainVM.CateColor, Mode=OneWay}"
                              Margin="0 -30 0 0"
                              HorizontalAlignment="Left"
-                             />
+                             BackgrdColor="{x:Bind MainVM.CateColor, Mode=OneWay}" />
         <uc:AddingPanel x:Name="AddingPanel"
                         Grid.RowSpan="5"
                         Grid.ColumnSpan="2"
                         Margin="0 -30 0 0"
                         VerticalAlignment="Stretch"
-                        Background="{StaticResource MyerListBlueLight}"
-                        />
+                        Background="{StaticResource MyerListBlueLight}" />
     </cc:AnimatableGrid>
 </base:BindablePage>

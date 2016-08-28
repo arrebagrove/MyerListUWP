@@ -112,11 +112,18 @@ namespace MyerListUWP
             {
                 rootFrame = new Frame();
 
+                var binding = new Binding()
+                {
+                    Source = AppSettings.Instance,
+                    Path = new PropertyPath("GlobalBackgroundColor2")
+                };
+                rootFrame.SetBinding(Frame.BackgroundProperty, binding);
+
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    
                 }
 
                 Window.Current.Content = rootFrame;

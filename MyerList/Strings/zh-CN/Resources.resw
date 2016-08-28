@@ -177,13 +177,13 @@
   <data name="FeedbackTB.Text" xml:space="preserve">
     <value>反馈</value>
   </data>
-  <data name="HamburgerTS.Header" xml:space="preserve">
-    <value>使用手势打开抽屉</value>
+  <data name="DarkModeTS.Header" xml:space="preserve">
+    <value>使用暗色主题</value>
   </data>
-  <data name="HamburgerTS.OffContent" xml:space="preserve">
+  <data name="DarkModeTS.OffContent" xml:space="preserve">
     <value>关</value>
   </data>
-  <data name="HamburgerTS.OnContent" xml:space="preserve">
+  <data name="DarkModeTS.OnContent" xml:space="preserve">
     <value>开</value>
   </data>
   <data name="InputAlert" xml:space="preserve">

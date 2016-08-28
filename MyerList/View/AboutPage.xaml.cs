@@ -3,6 +3,7 @@ using JP.Utils.Helper;
 using MyerList.Base;
 using MyerList.Helper;
 using MyerListUWP;
+using MyerListUWP.Common;
 using MyerListUWP.Helper;
 using System;
 using Windows.ApplicationModel;
@@ -32,7 +33,7 @@ namespace MyerList
                 EmailMessage mes = new EmailMessage();
                 mes.To.Add(rec);
                 var attach = await Logger.GetLogFileAttachementAsync();
-                if(attach!= null)
+                if (attach != null)
                 {
                     mes.Attachments.Add(attach);
                 }
@@ -61,8 +62,16 @@ namespace MyerList
             }
             else
             {
-                this.TitleBarUC.SetForegroundColor(Colors.Black);
-                TitleBarHelper.SetUpForeBlackTitleBar();
+                if (AppSettings.Instance.DarkMode)
+                {
+                    this.TitleBarUC.SetForegroundColor(Colors.White);
+                    TitleBarHelper.SetUpForeBlackTitleBar();
+                }
+                else
+                {
+                    this.TitleBarUC.SetForegroundColor(Colors.Black);
+                    TitleBarHelper.SetUpForeBlackTitleBar();
+                }
             }
         }
 
@@ -83,11 +92,6 @@ namespace MyerList
             {
                 var task = Logger.LogAsync(ex);
             }
-        }
-
-        private void LogoImg_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-
         }
     }
 }

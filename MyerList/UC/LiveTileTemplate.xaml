@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     d:DesignHeight="1300"
     d:DesignWidth="400">
-    <Grid x:Name="TileGrid" Grid.Row="1" Background="White">
+    <Grid x:Name="TileGrid" Grid.Row="1" Background="Transparent">
         <Grid x:Name="LargeGrid" d:IsHidden="False"  HorizontalAlignment="Center" Height="310" VerticalAlignment="Center" Width="310" Grid.RowSpan="2" >
             <Border x:Name="LargeBackGrd" BorderThickness="0" Background="#FF47A5DD"/>
             <StackPanel Orientation="Vertical" Margin="2,27,10,7" VerticalAlignment="Top" Opacity="0.8">
@@ -62,6 +62,6 @@
             <Border x:Name="SmallBackGrd" BorderThickness="1" Background="{StaticResource MyerListBlueLight}"/>
             <TextBlock x:Name="SmallCount" TextWrapping="Wrap" Text="3" VerticalAlignment="Center" FontSize="22.667" FontWeight="Bold" TextAlignment="Right" Foreground="White" Margin="25,0,0,0" HorizontalAlignment="Center"  />
         </Grid>
-        <Border Background="White"/>
+        <Border Background="Transparent"/>
     </Grid>
 </UserControl>

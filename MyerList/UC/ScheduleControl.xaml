@@ -39,7 +39,7 @@
           Margin="0 0 5 0"
           RightTapped="RootGrid_RightTapped">
         <Grid.Background>
-            <SolidColorBrush Color="#004BB685" />
+            <SolidColorBrush Color="Transparent" />
         </Grid.Background>
         <FlyoutBase.AttachedFlyout>
             <MenuFlyout x:Name="ItemFlyout">
@@ -60,10 +60,10 @@
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="2"
                 Margin="0"
-                Background="#004BB685"
+                Background="Transparent"
                 BorderThickness="0" />
         <Grid x:Name="LeftGrid"
-              Background="#02FFFFFF"
+              Background="Transparent"
               ManipulationMode="System,TranslateX">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
@@ -90,7 +90,7 @@
                   VerticalAlignment="Stretch">
                 <Border Height="1"
                         VerticalAlignment="Center"
-                        Background="#FF888888"
+                        Background="#FF717171"
                         BorderThickness="0"
                         Visibility="{Binding ShowDoneLine,
                                              Mode=OneWay}" />
@@ -101,7 +101,8 @@
                            FontFamily="{StaticResource MyerListThemeFontFamily}"
                            FontSize="15"
                            FontWeight="Light"
-                           Foreground="#FF474747"
+                           Foreground="{Binding Source={StaticResource AppSettings},
+                                                Path=GlobalForegroundColor}"
                            Text="{Binding Content,
                                           Mode=OneWay}"
                            TextTrimming="WordEllipsis" />
@@ -113,7 +114,7 @@
                   Margin="0"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
-                  Background="#02FFFFFF"
+                  Background="Transparent"
                   RenderTransformOrigin="0.5,0.5">
                 <Grid Width="40"
                       Height="30"
@@ -128,7 +129,7 @@
                             Height="2"
                             Margin="0,0,0,2"
                             VerticalAlignment="Bottom"
-                            Background="{StaticResource ReorderThumbColor}"
+                            Background="{Binding Source={StaticResource AppSettings},Path=GlobalForegroundColor}"
                             RenderTransformOrigin="0,0.5">
                         <Border.RenderTransform>
                             <CompositeTransform />
@@ -139,7 +140,7 @@
                             Height="2"
                             Margin="0,2,0,0"
                             VerticalAlignment="Top"
-                            Background="{StaticResource ReorderThumbColor}"
+                            Background="{Binding Source={StaticResource AppSettings},Path=GlobalForegroundColor}"
                             RenderTransformOrigin="0,0.5">
                         <Border.RenderTransform>
                             <CompositeTransform />
