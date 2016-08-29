@@ -1,0 +1,224 @@
+﻿<Page x:Class="MyerList.View.ThemeSelectionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:MyerList.View"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    <Page.Resources>
+         <Storyboard x:Name="ChangeColorStory">
+            <ColorAnimation x:Name="ChangeColorAnim"
+                            Duration="0:0:0.2"
+                            From="Black"
+                            Storyboard.TargetName="RootGrid"
+                            Storyboard.TargetProperty="(UIElemente.Background).(SolidColorBrush.Color)"
+                            To="White" />
+        </Storyboard>
+        <Style x:Key="RadioButtonStyle1" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+            <Setter Property="Padding" Value="8,6,0,0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="UseSystemFocusVisuals" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
+                            <Border x:Name="Border"
+                                    BorderBrush="#7FFFFFFF"
+                                    BorderThickness="2" />
+                            <ContentPresenter x:Name="ContentPresenter"
+                                              Grid.Column="1"
+                                              Margin="4"
+                                              AutomationProperties.AccessibilityView="Raw"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                                              TextWrapping="Wrap" />
+                            <Grid Margin="4"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Top">
+                                <Ellipse x:Name="OuterEllipse"
+                                         Width="20"
+                                         Height="20"
+                                         Stroke="White"
+                                         StrokeThickness="{ThemeResource RadioButtonBorderThemeThickness}"
+                                         UseLayoutRounding="False" />
+                                <Ellipse x:Name="CheckOuterEllipse"
+                                         Width="20"
+                                         Height="20"
+                                         Fill="White"
+                                         Opacity="0"
+                                         StrokeThickness="{ThemeResource RadioButtonBorderThemeThickness}"
+                                         UseLayoutRounding="False" />
+                                <Ellipse x:Name="CheckGlyph"
+                                         Width="10"
+                                         Height="10"
+                                         Fill="{ThemeResource SystemControlHighlightAltBaseMediumHighBrush}"
+                                         Opacity="0"
+                                         UseLayoutRounding="False"
+                                         Visibility="Collapsed" />
+                                <FontIcon x:Name="TickIcon"
+                                          FontFamily="Segoe MDL2 Assets"
+                                          FontSize="12"
+                                          Foreground="{StaticResource DefaultColor}"
+                                          Glyph="&#xE001;"
+                                          Opacity="0" />
+                            </Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.3"
+                                                             Storyboard.TargetName="Border"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseHighBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Duration="0:0:0.3"
+                                                             Storyboard.TargetName="Border"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightAltBaseMediumBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckGlyph" Storyboard.TargetProperty="Fill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}" />
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0:0:0.3"
+                                                             Storyboard.TargetName="TickIcon"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1" />
+
+                                            <DoubleAnimation Duration="0:0:0.3"
+                                                             Storyboard.TargetName="OuterEllipse"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0" />
+                                            <DoubleAnimation Duration="0:0:0.3"
+                                                             Storyboard.TargetName="CheckOuterEllipse"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="1" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked" />
+                                    <VisualState x:Name="Indeterminate" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="RootGrid" Background="{StaticResource DefaultColorLight}">
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8">
+                <TextBlock x:Uid="ThemeTitle"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Text="THEME SELECTION" />
+                <TextBlock x:Uid="ThemeSubTitle"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           Text="MyerList now has dark theme" />
+                <TextBlock x:Uid="ThemeHintTitle"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           Text="You can change it in Settings later." />
+            </StackPanel>
+            <StackPanel x:Name="SP"
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <StackPanel.ChildrenTransitions>
+                    <TransitionCollection>
+                        <PaneThemeTransition />
+                    </TransitionCollection>
+                </StackPanel.ChildrenTransitions>
+                <RadioButton Margin="4,4,4,4"
+                             Checked="LightRadioButton_Checked"
+                             Foreground="White"
+                             IsChecked="False"
+                             Style="{StaticResource RadioButtonStyle1}">
+                    <StackPanel Margin="2">
+                        <TextBlock x:Uid="LightModeTB"
+                                   Margin="0,0,0,4"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Text="LIGHT MODE" />
+                        <Image x:Name="IMG1" Width="300" Source="ms-appx:///Assets/Image/light.png" />
+                    </StackPanel>
+                </RadioButton>
+                <RadioButton Margin="4"
+                             Checked="DarkRadioButton_Checked"
+                             IsChecked="True"
+                             Style="{StaticResource RadioButtonStyle1}">
+                    <StackPanel Margin="2">
+                        <TextBlock x:Uid="DarkModeTB"
+                                   Margin="0,0,0,4"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White"
+                                   Text="DARK MODE" />
+                        <Image x:Name="IMG2" Width="300" Source="ms-appx:///Assets/Image/dark.png" />
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+            <Button x:Name="OKBtn"
+                    Grid.Row="2"
+                    Height="40"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{x:Null}"
+                    BorderThickness="0"
+                    Click="OKBtn_Click"
+                    Style="{StaticResource ButtonCommonStyle}">
+                <Border Background="{StaticResource DefaultColor}">
+                    <TextBlock x:Name="OKTB"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="18"
+                               Foreground="White"
+                               Text="OK" />
+                </Border>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

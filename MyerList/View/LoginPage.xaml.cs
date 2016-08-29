@@ -44,7 +44,14 @@ namespace MyerList
 
         protected override void SetUpTitleBar()
         {
-            TitleBarHelper.SetUpForeBlackTitleBar();
+            if (AppSettings.Instance.DarkMode)
+            {
+                TitleBarHelper.SetUpForeWhiteTitleBar();
+            }
+            else
+            {
+                TitleBarHelper.SetUpForeBlackTitleBar();
+            }
         }
 
         protected override void SetUpNavigationCache()

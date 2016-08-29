@@ -525,4 +525,19 @@
   <data name="HintLearnGesture" xml:space="preserve">
     <value>Swipe to switch categories</value>
   </data>
+  <data name="ThemeTitle.Text" xml:space="preserve">
+    <value>SELECT YOUR THEME</value>
+  </data>
+  <data name="LightModeTB.Text" xml:space="preserve">
+    <value>LIGHT MODE</value>
+  </data>
+  <data name="DarkModeTB.Text" xml:space="preserve">
+    <value>DARK MODE</value>
+  </data>
+  <data name="ThemeSubTitle.Text" xml:space="preserve">
+    <value>MyerList now has dark theme</value>
+  </data>
+  <data name="ThemeHintTitle.Text" xml:space="preserve">
+    <value>You can change this in Settings.</value>
+  </data>
 </root>

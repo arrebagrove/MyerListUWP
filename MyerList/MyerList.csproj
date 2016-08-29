@@ -179,6 +179,9 @@
     <Compile Include="View\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemeSelectionPage.xaml.cs">
+      <DependentUpon>ThemeSelectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -216,6 +219,8 @@
     <Content Include="Assets\Icon\Redo.png" />
     <Content Include="Assets\Icon\Refresh.png" />
     <Content Include="Assets\Icon\Settings_BLACK.png" />
+    <Content Include="Assets\Image\dark.png" />
+    <Content Include="Assets\Image\light.png" />
     <Content Include="Assets\loginbackgrd.jpg" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\Newlogo.png" />
@@ -353,6 +358,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ThemeSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -375,6 +384,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MyerSharedLib\MyerSharedLib\MyerSharedLib.csproj">
+      <Project>{8946dc1f-f921-4f00-a00d-ddf97952f8d9}</Project>
+      <Name>MyerSharedLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BackgroundTasks\BackgroundTasks.vcxproj">
       <Project>{56df5d9a-057e-418f-9702-de07ee283a4d}</Project>
       <Name>BackgroundTasks</Name>
@@ -397,6 +410,7 @@
       <Name>Windows Mobile Extensions for the UWP %28WindowsMobile, Version=10.0.10586.0%29</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -64,12 +64,12 @@ namespace MyerList
             {
                 if (AppSettings.Instance.DarkMode)
                 {
-                    this.TitleBarUC.SetForegroundColor(Colors.White);
-                    TitleBarHelper.SetUpForeBlackTitleBar();
+                    TitleBarUC?.SetForegroundColor(Colors.White);
+                    TitleBarHelper.SetUpForeWhiteTitleBar();
                 }
                 else
                 {
-                    this.TitleBarUC.SetForegroundColor(Colors.Black);
+                    TitleBarUC?.SetForegroundColor(Colors.Black);
                     TitleBarHelper.SetUpForeBlackTitleBar();
                 }
             }

@@ -2,6 +2,7 @@
 using JP.Utils.Helper;
 using MyerList.Base;
 using MyerList.ViewModel;
+using MyerListUWP.Common;
 using MyerListUWP.Helper;
 using System;
 using System.Collections.Generic;
@@ -95,7 +96,14 @@ namespace MyerList
 
         protected override void SetUpTitleBar()
         {
-            TitleBarHelper.SetUpForeBlackTitleBar();
+            if (AppSettings.Instance.DarkMode)
+            {
+                TitleBarHelper.SetUpForeWhiteTitleBar();
+            }
+            else
+            {
+                TitleBarHelper.SetUpForeBlackTitleBar();
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

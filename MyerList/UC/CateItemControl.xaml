@@ -73,8 +73,15 @@
                         Background="{x:Null}"
                         Click="DeleteBtn_Click"
                         RenderTransformOrigin="0.5 0.5"
-                        Style="{StaticResource ListButtonStyle}">
-                    <SymbolIcon Foreground="{StaticResource ListBtnForeground}" Symbol="Delete" />
+                        Style="{StaticResource ButtonCommonStyle}">
+                    <Border Background="Transparent">
+                        <FontIcon FontFamily="Segoe MDL2 Assets"
+                                  Foreground="{Binding Source={StaticResource AppSettings},
+                                                       Path=GlobalForegroundColor}"
+                                  Glyph="&#xE107;"
+                                  Opacity="0.7" />
+
+                    </Border>
                 </Button>
                 <Grid x:Name="ReorderThumb"
                       Width="50"
@@ -91,14 +98,18 @@
                             Height="2"
                             Margin="0,0,0,2"
                             VerticalAlignment="Bottom"
-                            Background="{StaticResource ReorderThumbColor}"
+                            Background="{Binding Source={StaticResource AppSettings},
+                                                 Path=GlobalForegroundColor}"
+                            Opacity="0.7"
                             RenderTransformOrigin="0,0.5" />
                     <Border Grid.Row="1"
                             Width="20"
                             Height="2"
                             Margin="0,2,0,0"
                             VerticalAlignment="Top"
-                            Background="{StaticResource ReorderThumbColor}"
+                            Background="{Binding Source={StaticResource AppSettings},
+                                                 Path=GlobalForegroundColor}"
+                            Opacity="0.7"
                             RenderTransformOrigin="0,0.5" />
                 </Grid>
             </StackPanel>

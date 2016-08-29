@@ -69,8 +69,8 @@
                                                  Path=DarkMode}"
                                   OffContent="OFF"
                                   OnContent="ON"
+                                  Toggled="DarkModeSwitch_Toggled"
                                   Style="{StaticResource ToggleSwitchStyle}" />
-                    <!--<ToggleSwitch x:Uid="KeyboardTS" FontFamily="{StaticResource MyerListThemeFontFamily}" Header="Show keyboard" OffContent="OFF" OnContent="ON" VerticalAlignment="Top" Margin="10,10,10,0" Foreground="Black"   IsOn="{Binding Source={StaticResource AppSettings},Mode=TwoWay,Path=ShowKeyboard}"  HorizontalAlignment="Stretch" Style="{StaticResource ToggleSwitchStyle}"/>-->
                     <ToggleSwitch x:Uid="AddToBottomts"
                                   Margin="10,10,10,0"
                                   HorizontalAlignment="Stretch"
@@ -155,20 +155,20 @@
                     </Border>
                     <ComboBox Margin="10"
                               HorizontalAlignment="Stretch"
-                              Background="{Binding Source={StaticResource AppSettings},
-                                                   Path=GlobalBackgroundColor2}"
-                              BorderThickness="1.6"
+                              
+                              BorderThickness="1"
                               FontFamily="{StaticResource MyerListThemeFontFamily}"
-                              Foreground="Black"
-                              ItemContainerStyle="{StaticResource ComboBoxItemStyle1}"
+                              
                               PlaceholderText="Language"
-                              SelectedIndex="{x:Bind SettingVM.CurrentLanguage, Mode=TwoWay}">
+                              RequestedTheme="{Binding Source={StaticResource AppSettings},
+                                                       Path=Theme}"
+                              SelectedIndex="{x:Bind SettingVM.CurrentLanguage, Mode=TwoWay}" ItemContainerStyle="{StaticResource ComboBoxItemStyle1}">
                         <ComboBoxItem Content="English"
                                       FontFamily="{StaticResource MyerListThemeFontFamily}"
-                                      Foreground="Black" />
+                                      />
                         <ComboBoxItem Content="简体中文"
                                       FontFamily="{StaticResource MyerListThemeFontFamily}"
-                                      Foreground="Black" />
+                                      />
                     </ComboBox>
                     <TextBlock x:Uid="NoticeHint"
                                Margin="10"

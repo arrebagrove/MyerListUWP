@@ -525,4 +525,19 @@
   <data name="HintLearnGesture" xml:space="preserve">
     <value>可以左右滑动来切换类别</value>
   </data>
+  <data name="ThemeTitle.Text" xml:space="preserve">
+    <value>选择主题</value>
+  </data>
+  <data name="LightModeTB.Text" xml:space="preserve">
+    <value>亮色主题</value>
+  </data>
+  <data name="DarkModeTB.Text" xml:space="preserve">
+    <value>暗色主题</value>
+  </data>
+  <data name="ThemeSubTitle.Text" xml:space="preserve">
+    <value>MyerList 现在有暗色主题了</value>
+  </data>
+  <data name="ThemeHintTitle.Text" xml:space="preserve">
+    <value>你也可以在“设置”里更改。</value>
+  </data>
 </root>

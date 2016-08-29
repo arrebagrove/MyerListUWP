@@ -18,7 +18,8 @@
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator"/>
             <common:AppSettings x:Key="AppSettings"/>
-            <FontFamily x:Key="MyerListThemeFontFamily">Microsoft JhengHei UI</FontFamily>
+            <!--<FontFamily x:Key="MyerListThemeFontFamily">Microsoft JhengHei UI</FontFamily>-->
+             <FontFamily x:Key="MyerListThemeFontFamily">Microsoft Yahei UI</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
     

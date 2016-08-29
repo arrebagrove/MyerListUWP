@@ -6,6 +6,7 @@ using JP.Utils.Data;
 using System;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
 namespace MyerListUWP.Common
@@ -16,6 +17,7 @@ namespace MyerListUWP.Common
         public static string ModifiedCateJsonStringFore = "{ \"modified\":true, \"cates\":";
 
         public static string LEARNT_ADDING_PANE_GESTURE = "LEARN_ADDING_PANE_GESTURE";
+        public static string UPGRADE_41 = "UPGRADE-4.1";
 
         public bool EnableTile
         {
@@ -94,6 +96,22 @@ namespace MyerListUWP.Common
                 RaisePropertyChanged(() => GlobalListPointerOverBackground);
                 RaisePropertyChanged(() => GlobalListPressedBackground);
                 RaisePropertyChanged(() => GlobalAddPaneMaskBackground);
+                RaisePropertyChanged(() => Theme);
+            }
+        }
+
+        public ApplicationTheme Theme
+        {
+            get
+            {
+                if (DarkMode)
+                {
+                    return ApplicationTheme.Dark;
+                }
+                else
+                {
+                    return ApplicationTheme.Light;
+                }
             }
         }
 

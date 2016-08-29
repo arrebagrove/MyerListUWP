@@ -4,6 +4,7 @@ using MyerList;
 using MyerList.Common;
 using MyerList.Helper;
 using MyerList.Model;
+using MyerList.View;
 using MyerList.ViewModel;
 using MyerListUWP.Common;
 using MyerListUWP.Helper;
@@ -132,7 +133,14 @@ namespace MyerListUWP
 
                 if (LocalSettingHelper.HasValue("email"))
                 {
-                    rootFrame.Navigate(typeof(MainPage), LoginMode.Login);
+                    if(!LocalSettingHelper.HasValue(AppSettings.UPGRADE_41))
+                    {
+                        rootFrame.Navigate(typeof(ThemeSelectionPage), LoginMode.Login);
+                    }
+                    else
+                    {
+                        rootFrame.Navigate(typeof(MainPage), LoginMode.Login);
+                    }
                 }
                 else if (LocalSettingHelper.GetValue("OfflineMode") == "true")
                 {

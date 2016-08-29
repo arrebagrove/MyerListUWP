@@ -5,6 +5,7 @@ using MyerList.ViewModel;
 using MyerListUWP.Common;
 using MyerListUWP.Helper;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 
 namespace MyerList
@@ -36,14 +37,28 @@ namespace MyerList
             {
                 if(AppSettings.Instance.DarkMode)
                 {
-                    this.TitleBarUC.SetForegroundColor(Colors.White);
-                    TitleBarHelper.SetUpForeBlackTitleBar();
+                    TitleBarUC?.SetForegroundColor(Colors.White);
+                    TitleBarHelper.SetUpForeWhiteTitleBar();
                 }
                 else
                 {
-                    this.TitleBarUC.SetForegroundColor(Colors.Black);
+                    TitleBarUC?.SetForegroundColor(Colors.Black);
                     TitleBarHelper.SetUpForeBlackTitleBar();
                 }
+            }
+        }
+
+        private void DarkModeSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (AppSettings.Instance.DarkMode)
+            {
+                TitleBarHelper.SetUpForeWhiteTitleBar();
+                TitleBarUC?.SetForegroundColor(Colors.White);
+            }
+            else
+            {
+                TitleBarHelper.SetUpForeBlackTitleBar();
+                TitleBarUC?.SetForegroundColor(Colors.Black);
             }
         }
     }
