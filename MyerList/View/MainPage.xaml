@@ -10,6 +10,7 @@
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                    xmlns:local="using:MyerListUWP.View"
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:shared="using:MyerSharedLib"
                    xmlns:triggers="using:JP.CustomTriggers"
                    xmlns:uc="using:MyerList.UC"
                    Background="{Binding Source={StaticResource AppSettings},
@@ -34,7 +35,7 @@
                                          Mode=TwoWay,
                                          Path=GlobalBackgroundColor}" />
         </Storyboard>
-        
+
         <Storyboard x:Name="SwitchToNarrowStory">
             <DoubleAnimation Duration="0:0:0.3"
                              EnableDependentAnimation="True"
@@ -86,6 +87,10 @@
                                               FontSize="27"
                                               Foreground="Black"
                                               TextContent="{x:Bind MainVM.Title, Mode=OneWay}" />
+                        <!--<shared:LoadingControl x:Name="ProgressRing"
+                                               Margin="20 0 0 0"
+                                               ColorBrush="{StaticResource DefaultColor}"
+                                               Visibility="{x:Bind MainVM.IsLoading, Mode=OneWay}" />-->
                         <ProgressRing x:Name="ProgressRing"
                                       Margin="10,0,0,0"
                                       HorizontalAlignment="Left"
