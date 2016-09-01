@@ -122,7 +122,6 @@
                                                     attach:ScrollViewerStyleChanger.Style="{StaticResource ScrollViewerCommonStyle}"
                                                     Background="Transparent"
                                                     CanReorderItems="False"
-                                                    EnableWaggingAnimation="False"
                                                     IsItemClickEnabled="True"
                                                     ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                                     ItemTemplate="{StaticResource ScheduleTemplete}"

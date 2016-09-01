@@ -48,7 +48,6 @@
                                Background="Transparent"
                                CanDragItems="False"
                                CanReorderItems="False"
-                               EnableWaggingAnimation="False"
                                ItemContainerStyle="{StaticResource ListViewItemStyle1}"
                                ItemsSource="{x:Bind MainVM.CateVM.CatesToModify, Mode=OneWay}"
                                ReorderUIElementName="ReorderThumb"
